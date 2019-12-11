@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"/>
+</h:head> 
+<body> 
+<h:head>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">BOOKDH</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+</h:head>
+	<div class="container">
+	<div class="row">
+	<div class="col-md-4 order-md-2 mb-4">
+	<img src="resources/img/geisha.jpg" alt="..." class="img-thumbnail" id="img" ></img>
+	
+	<button onclick="func()" class="btn btn-secondary btn-lg btn-block">Cargar imagen</button>
+	
+	</div>
+		
+	<div class="col-md-8 order-md-1">
+	<h:form id="formulario">
+   <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="idlibro">idLibro</label>
+      <h:inputText class="form-control" value="#{libroBean.libro.idLibro}" id="idLibro"></h:inputText>
+      <h:message for="idLibro"/>
+    </div>
+    <div class="form-group col-md-10">
+      <label for="titulo">Titulo Libro</label>
+      <h:inputText class="form-control" value="#{libroBean.libro.nombreLibro}" id="titulo"></h:inputText>
+      <h:message for="titulo"/>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="ISBN">ISBN</label>
+      <h:inputText class="form-control" value="#{libroBean.libro.ISBN}" id="ISBN"></h:inputText>
+      <h:message for="ISBN"/>
+    </div>
+    <div class="form-group col-md-5">
+      <label for="edicion">Edicion</label>
+      <h:inputText class="form-control" value="#{libroBean.libro.edicion}" id="edicion"></h:inputText>
+      <h:message for="edicion"/>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="nump">Numero de paginas</label>
+      <h:inputText class="form-control" value="#{libroBean.libro.numeroP}" id="nump"></h:inputText>
+      <h:message for="nump"/>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="url">URL image</label>
+      <h:inputText class="form-control" value="#{libroBean.libro.imageURL}" id="url"></h:inputText>
+      <h:message for="url"/>
+    </div>
+    <div class="input-group input-group-lg">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-lg">Descripcion</span>
+  </div>
+  <h:inputText value="#{libroBean.libro.descLibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" /> 
+</div>
+   	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">
+   	    	   </h:commandButton>
+   	    
+  </div>
+  	</h:form>
+  	<h:form>
+ <h:commandButton action="#{libroBean.addAutores()}" value="Agregar autor" class="btn btn-secondary">
+ 	<f:ajax render="tablaAutor" execute="@all"></f:ajax>
+ </h:commandButton>
+    <h:dataTable value="#{libroBean.libro.autor}" var="a" class="table" id="tablaAutor">
+    <h:column>
+    <f:facet name="header">	idAutor</f:facet>
+    	<h:inputText value="#{a.idAutor}" />
+    </h:column>
+    <h:column>
+    <f:facet name="header">	Nombre Autor</f:facet>
+    	<h:inputText value="#{a.nombreAutor}" />
+    </h:column>	
+    </h:dataTable>
+   <h:commandButton action="#{libroBean.addCategoria()}" value="Agregar categoria" class="btn btn-warning">
+   <f:ajax render="tablaCategoria" execute="@all"></f:ajax>
+   </h:commandButton>
+  <h:dataTable value="#{libroBean.libro.categoria}" var="c" class="table" id="tablaCategoria">
+    <h:column>
+    <f:facet name="header">	idCategoria</f:facet> 
+    	<h:inputText value="#{c.idCategoria}" />
+    </h:column>
+    <h:column>
+    <f:facet name="header">	Nombre categoria</f:facet>
+    	<h:inputText value="#{c.categorias}" />
+    </h:column>	
+    </h:dataTable>
+    </h:form>
+	</div>
+	</div>
+	</div>
+	
+	<h:form>
+	<h:dataTable value="#{libroBean.libros}" var="libro" class="table" id="tablaLibros">
+
+	<h:column>
+		<f:facet name="header">IdLibro</f:facet>
+		<h:inputText value="#{libro.idLibro}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">ISBN</f:facet>
+		<h:inputText value="#{libro.ISBN}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Descripcion Libro</f:facet>
+		<h:inputText value="#{libro.descLibro}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Edicion</f:facet>
+	<h:inputText value="#{libro.edicion}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Image URL</f:facet>
+	<h:inputText value="#{libro.imageURL}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Titulo Libro</f:facet>
+		<h:inputText value="#{libro.nombreLibro}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Numero Pagina</f:facet>
+	<h:inputText value="#{libro.numeroP}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Eliminar</f:facet>
+	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{libroBean.EliminarLibro(libro.idLibro)}">
+	<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
+	</h:commandButton>
+
+	</h:column>
+	<h:column>
+		<f:facet name="header">Actualizar</f:facet>
+	<h:commandButton class="btn btn-success" value="Actualizar" action="#{libroBean.ActualizarLibro(libro.idLibro, libro.ISBN, libro.descLibro, libro.edicion, libro.imageURL, libro.nombreLibro, libro.numeroP)}">
+		<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
+	</h:commandButton>
+	
+	</h:column>
+	</h:dataTable>
+	</h:form>
+    
+</body>
+</html>

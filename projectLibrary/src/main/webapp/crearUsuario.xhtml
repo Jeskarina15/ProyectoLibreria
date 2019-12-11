@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/core">
+
+<h:head>
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"/>
+</h:head> 
+<body> 
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">BOOKDH</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+	<h:form>
+   <div class="form-row">
+    <div class="form-group col-md-2">
+      <h:outputLabel value="idUsuario" for="idusuario" />
+      <h:inputText  class="form-control" value="#{usuarioBean.usuario.idUsuario}" id="idusuario"/>
+      <h:message for="idusuario"/>
+    </div>
+    <div class="form-group col-md-10">
+      <h:outputLabel value="Nombre de usuario" for="nombre"/>
+      <h:inputText  class="form-control" value="#{usuarioBean.usuario.nombreUsuario}" id="nombre"/>
+      <h:message for="nombre"/>
+    </div>
+    <div class="form-group col-md-6">
+      <h:outputLabel value="Email" for="email" />
+      <h:inputText  class="form-control" value="#{usuarioBean.usuario.email}" id="email"/>
+      <h:message for="email"/>
+    </div>
+    <div class="form-group col-md-6">
+      <h:outputLabel value="Telefono" for="telefono"/>
+      <h:inputText class="form-control" value="#{usuarioBean.usuario.telefono}" id="telefono"/>
+      <h:message for="telefono"/>
+    </div>
+    <div class="form-group col-md-12">
+      <h:outputLabel value="User" for="user" />
+      <h:inputText class="form-control"  value="#{usuarioBean.usuario.usuario}" id="user"/>
+      <h:message for="user"/>
+    </div>
+    <div class="form-group col-md-12">
+      <h:outputLabel value="Password" for="passwd"/>
+      <h:inputText class="form-control" value="#{usuarioBean.usuario.contrasenia}" id="passwd"/>
+      <h:message for="passwd"/>
+    </div>
+	<div class="form-group col-md-12">
+   <h:outputLabel value="Rol" for="rol"/>
+      <h:inputText class="form-control" value="#{usuarioBean.usuario.rol}" id="rol"/>
+      <h:message for="rol"/>
+    <h:message for="rol"/>
+  </div>
+<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear Usuario" action="#{usuarioBean.crearUsuario()}"></h:commandButton>
+
+  </div>
+
+	<h:dataTable value="#{usuarioBean.listaU}" var="u" class="table" id="tablaUsuario">
+
+	<h:column>
+		<f:facet name="header">idUsuario</f:facet>
+		<h:inputText value="#{u.idUsuario}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Nombre:</f:facet>
+		<h:inputText value="#{u.nombreUsuario}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Email:</f:facet>
+		<h:inputText value="#{u.email}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Telefono</f:facet>
+	<h:inputText value="#{u.telefono}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">User_Name</f:facet>
+	<h:inputText value="#{u.usuario}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Password</f:facet>
+		<h:inputText value="#{u.contrasenia}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Rol</f:facet>
+	<h:inputText value="#{u.rol}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Eliminar</f:facet>
+	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{usuarioBean.eliminarUsuario(u.idUsuario)}">
+	<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
+	</h:commandButton>
+
+	</h:column>
+	<h:column>
+		<f:facet name="header">Actualizar</f:facet>
+	<h:commandButton class="btn btn-success" value="Actualizar" action="#{usuarioBean.actualizarUsuario(u.idUsuario,u.nombreUsuario,u.email,u.telefono,u.usuario,u.contrasenia,u.rol)}">
+		<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
+	</h:commandButton>
+	
+	</h:column>
+	</h:dataTable>
+	</h:form>
+</body>
+</html>
