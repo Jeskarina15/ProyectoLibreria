@@ -12,25 +12,28 @@ import ups.edu.ec.accesosDatos.LibroDAO;
 import ups.edu.ec.modelo.Autor;
 import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Libro;
+import ups.edu.ec.negocio.GestionLibroLocal;
 
 @ManagedBean
 @ViewScoped
 public class LibroBean {
 
+	//atributo tipo libro 
 private Libro libro;
-
+//lista para los libros
 private List<Libro> libros;
 
 @Inject
-private LibroDAO libroDAO;
+private GestionLibroLocal gestioL;
 
+//inicializamos libro para evitar el nullpointerexception
 @PostConstruct
 public void init() {
 	libro =new Libro();
 	libro.addAutor(new Autor());
 	libro.addCategorias(new Categorias());
 }
-
+//gets y sets de los atributos
 public Libro getLibro() {
 	return libro;
 }
@@ -46,33 +49,39 @@ public List<Libro> getLibros() {
 public void setLibros(List<Libro> libros) {
 	this.libros = libros;
 }
-
+//crear libro
 public String crearLibro() {
 	System.out.println(libro);
-	libroDAO.NuevoLibro(libro);
-	listarLibros();
+	//libroDAO.NuevoLibro(libro);
+	//listarLibros();
 	
 	return null;
 }
+//agregAr un nuevo autor
 public String addAutores() {
 	libro.addAutor(new Autor());
 	return null;
 }
+//agregar una categoria
 public String addCategoria() {
 	libro.addCategorias(new Categorias());
 	return null;
 }
 
-public String listarLibros() {
+
+//listar los libros
+/*public String listarLibros() {
 	libros=libroDAO.listarLibro();
 	return null;
-}
-public String EliminarLibro(int idLibro) {
+}*/
+//eliminar libro
+/*public String EliminarLibro(int idLibro) {
 	System.out.println(idLibro);
 	libroDAO.eliminarLibro(idLibro);
 	return null;
-}
-public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump) {
+}*/
+//actualizar libro
+/*public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump) {
 	libro.setIdLibro(idLibro);
 	libro.setISBN(ISBN);
 	libro.setDescLibro(desc);
@@ -83,5 +92,13 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 	libroDAO.ActualizarLibro(libro);
 	return null;
 	
+}*/
+
+public String guardarLibro(Libro libro) {
+	
+	gestioL.NuevoLibro(libro);
+	libros=gestioL.listarLibro();
+	
+	return "listado-libros";
 }
 }

@@ -31,8 +31,8 @@ private String descLibro;
 @Column(name= "Edicion")
 private String edicion;
 @NotNull
-@Column(name= "ISBN")
-private String ISBN;
+@Column(name= "isbn")
+private String isbn;
 @NotNull
 @Column(name= "NumeroPag")
 private int numeroP;
@@ -70,11 +70,12 @@ public String getEdicion() {
 public void setEdicion(String edicion) {
 	this.edicion = edicion;
 }
-public String getISBN() {
-	return ISBN;
+
+public String getIsbn() {
+	return isbn;
 }
-public void setISBN(String iSBN) {
-	ISBN = iSBN;
+public void setIsbn(String isbn) {
+	this.isbn = isbn;
 }
 public int getNumeroP() {
 	return numeroP;
@@ -119,7 +120,7 @@ public void addAutor(Autor autores) {
 }
 @Override
 public String toString() {
-	return "Libro [idLibro=" + idLibro + ", descLibro=" + descLibro + ", edicion=" + edicion + ", ISBN=" + ISBN
+	return "Libro [idLibro=" + idLibro + ", descLibro=" + descLibro + ", edicion=" + edicion + ", isbn=" + isbn
 			+ ", numeroP=" + numeroP + ", nombreLibro=" + nombreLibro + ", imageURL=" + imageURL + ", autor=" + autor
 			+ ", categoria=" + categoria + "]";
 }

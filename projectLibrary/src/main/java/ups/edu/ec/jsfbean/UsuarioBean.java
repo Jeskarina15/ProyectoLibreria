@@ -10,17 +10,19 @@ import javax.inject.Inject;
 
 import ups.edu.ec.accesosDatos.UsuarioDAO;
 import ups.edu.ec.modelo.Usuarios;
+import ups.edu.ec.negocio.GestionLibroLocal;
 
 
 @ManagedBean
 @ViewScoped
 public class UsuarioBean {
 
-		
+//atributo tipo usuario		
 private Usuarios usuario; 
+//list =lista de usuarios
 private List<Usuarios> listaU;
 @Inject
-private UsuarioDAO usuarioDAO;
+private GestionLibroLocal gestioL;
 
 
 @PostConstruct
@@ -47,11 +49,11 @@ public void setListaU(List<Usuarios> listaU) {
 
 public String crearUsuario() {
 	System.out.println(usuario);
-	usuarioDAO.NuevoUsuario(usuario);
-	ListarUsuarios();
+	gestioL.NuevoUsuario(usuario);
+	//ListarUsuarios();
 	return null;
 }
-public String actualizarUsuario(int idUsuario, String nombre, String email, String telefono, String User, String password, String Rol) {
+/*public String actualizarUsuario(int idUsuario, String nombre, String email, String telefono, String User, String password, String Rol) {
 	usuario.setIdUsuario(idUsuario);
 	usuario.setNombreUsuario(nombre);
 	usuario.setEmail(email);
@@ -62,13 +64,13 @@ public String actualizarUsuario(int idUsuario, String nombre, String email, Stri
 	System.out.println("actualizar");
 	usuarioDAO.ActualizarUsuario(usuario);
 	return null;
-}
-public String eliminarUsuario(int idUsuario){
+}*/
+/*public String eliminarUsuario(int idUsuario){
 	usuarioDAO.EliminarLibro(idUsuario);
 	return null;
-}
-public String ListarUsuarios() {
+}*/
+/*spublic String ListarUsuarios() {
 	listaU =usuarioDAO.listarUsuario();
 	return null;
-}
+}*/
 }
