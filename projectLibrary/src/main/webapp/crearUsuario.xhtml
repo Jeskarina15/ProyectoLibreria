@@ -4,24 +4,30 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://java.sun.com/jsf/core">
-
 <h:head>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"/>
-</h:head> 
-<body> 
-
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand">BOOKDH</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+<link rel="stylesheet" href="resources/css/estilo.css" type="text/css"/>
+<h:outputStylesheet library="css" name="resources/css/estilo.css"/>
+</h:head>
+<header>
+<nav class="navbar navbar-dark bg-dark" style="margin-bottom: 0px;">
+  <img src="resources/img/logo.png" alt="..." id="imgBuscar" style="align-items: right;"></img>
+  <form class="form-inline" style="width: 600px; float: right;">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search"
+    style="width: 545px;"
+    aria-label="Search"></input>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+    <img src="resources/img/lupa.jpg" alt="..." id="imgBuscar" style="align-items: right;"></img>
+    </button>
   </form>
 </nav>
-
+</header>
+<body>
+<div id="formUser">
 	<h:form>
    <div class="form-row">
     <div class="form-group col-md-2">
-      <h:outputLabel value="idUsuario" for="idusuario" />
+      <h:outputLabel value="idUsuario" for="idusuario"/>
       <h:inputText  class="form-control" value="#{usuarioBean.usuario.idUsuario}" id="idusuario"/>
       <h:message for="idusuario"/>
     </div>
@@ -106,5 +112,11 @@
 	</h:column>
 	</h:dataTable>
 	</h:form>
+</div>
 </body>
+<footer>
+	<p class="box-title"><ui:insert name="foo">© Universidad Politécnica Salesiana</ui:insert></p>
+	<p>Autores: Byron Calva</p>
+	<p>Karina Panamá</p>
+</footer>
 </html>
