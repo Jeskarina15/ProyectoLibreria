@@ -59,11 +59,4 @@
 		<nature>org.jboss.tools.ws.jaxrs.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/main/webapp/resources/img/geisha.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Users/china/OneDrive/Im%C3%A1genes/LIBROS/geisha.jpg</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
