@@ -10,6 +10,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import ups.edu.ec.accesosDatos.LibroDAO;
+import ups.edu.ec.modelo.Autor;
+import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Libro;
 import ups.edu.ec.modelo.Usuarios;
 import ups.edu.ec.negocio.GestionLibroLocal;
@@ -19,6 +21,20 @@ public class LibrosService {
 	
 	@Inject
 	private GestionLibroLocal gl;
+	
+	@GET
+	@Path("ListarCategorias")
+	@Produces("application/json")
+	public List<Categorias> getCategorias(){
+		return gl.listarCategorias();
+	}
+	
+	@GET
+	@Path("ListarAutores")
+	@Produces("application/json")
+	public List<Autor> getAutores(){
+		return gl.listarAutor();
+	}
 	
 	@GET
 	@Path("consultar")

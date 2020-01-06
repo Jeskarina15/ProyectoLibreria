@@ -7,6 +7,8 @@ import javax.inject.Inject;
 
 import ups.edu.ec.accesosDatos.LibroDAO;
 import ups.edu.ec.accesosDatos.UsuarioDAO;
+import ups.edu.ec.modelo.Autor;
+import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Libro;
 import ups.edu.ec.modelo.Usuarios;
 
@@ -40,6 +42,90 @@ public class GestionLibros implements GestionLibroLocal {
 	@Override
 	public Libro leerLibros(int libro) {
 		return libroDAO.leerLibros(libro);
+	}
+
+	@Override
+	public void ActualizarUsuario(Usuarios usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void EliminarUsuario(int idUsuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Usuarios leerUsuario(int idUsuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Usuarios> listarUsuario() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void NuevoAutor(Autor autor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ActualizarAutor(Autor autor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminarAutor(int autor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Autor leerAutor(int autor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Autor> listarAutor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void NuevoCategoria(Categorias categoria) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ActualizarCategoria(Categorias categoria) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminarCategoria(int categoria) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Categorias leerCategoria(int categoria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Categorias> listarCategorias() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

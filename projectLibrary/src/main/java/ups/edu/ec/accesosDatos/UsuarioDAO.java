@@ -25,7 +25,7 @@ public class UsuarioDAO {
 		//actualiza una instancia de entidad persistente con nuevos valores especificados en los campos
 		em.merge(usuario);
 	}
-	public void EliminarLibro(int idUsuario) {
+	public void EliminarUsuario(int idUsuario) {
 		//Elimina una instancia de entidad persistente
 		em.remove(leerUsuario(idUsuario));
 	}
