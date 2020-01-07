@@ -1,5 +1,5 @@
 package ups.edu.ec.modelo;
-
+//apeuaba de sidakjsbduckjvwbskdxfjikcsuekjbcw
 
 import javax.persistence.Entity;
 
