@@ -27,29 +27,36 @@ public class LibroDAO {
 	 * @param libro
 	 */
 	public void NuevoLibro(Libro libro) {
-		//agrega una nueva isntancia de entidad al contexto de persistencia 
 	em.persist(libro);	
 	
 	}
 	public void ActualizarLibro(Libro libro) {
-		//actualiza una instancia de entidad persistente con nuevos valores especificados en los campos
 	em.merge(libro);	
 	}
 	public void eliminarLibro(int libro) {
-		//Elimina una instancia de entidad persistente
 	em.remove(leerLibros(libro));
 	}
 	public Libro leerLibros(int libro) {
-	//Busqueda por clave principal, utilizando las propiedades especificadas (entidad de la clase especifica, clave primaria)
 	return em.find(Libro.class, libro);	
 	}
-	//Listar todos los libros
 	public List<Libro> listarLibro(){
 		String jpql = "SELECT * FROM libros.productos;";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		List<Libro> nivel = query.getResultList();
 		return nivel;	
 	}
-	
-	
+	public List<Libro> listarLibroid(String titulo){
+		String jpql = "SELECT * FROM libros.productos WHERE titulolibro=:titulo";
+		Query query = em.createNativeQuery(jpql, Libro.class);
+		query.setParameter("titulo", titulo);
+		List<Libro> nivel = query.getResultList();
+		return nivel;
+	}
+	public List<Libro> listarLibroPC(String categoria){
+		String jpql = "SELECT p.id_Libro FROM libros.productos p, libros.categorias c where c.Categorias=:categoria";
+		Query query = em.createNativeQuery(jpql, Libro.class);
+		query.setParameter("categoria", categoria);
+		List<Libro> listc = query.getResultList();
+		return listc;
+	}
 }

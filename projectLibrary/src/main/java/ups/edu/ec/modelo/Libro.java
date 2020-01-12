@@ -22,34 +22,34 @@ import javax.validation.constraints.NotNull;
 public class Libro {
 @Id	
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name= "id_Libro")
+@Column(name= "id_libro")
 private int idLibro;
 @NotNull
-@Column(name= "DescLibro")
+@Column(name= "descLibro")
 private String descLibro;
 @NotNull
-@Column(name= "Edicion")
+@Column(name= "edicion")
 private String edicion;
 @NotNull
 @Column(name= "isbn")
 private String isbn;
 @NotNull
-@Column(name= "NumeroPag")
+@Column(name= "numeropag")
 private int numeroP;
 @NotNull
-@Column(name= "TituloLibro")
+@Column(name= "titulolibro")
 private String nombreLibro;
 @NotNull
-@Column(name= "ImageURL")
+@Column(name= "image")
 private String imageURL;
 
 
 @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-@JoinColumn(name="productos", referencedColumnName = "id_Libro")
+@JoinColumn(name="idautor", referencedColumnName = "id_Libro")
 private Set<Autor> autor;
 
 @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-@JoinColumn(name="productos", referencedColumnName = "id_Libro")
+@JoinColumn(name="idcategoria", referencedColumnName = "id_Libro")
 private Set<Categorias> categoria;
 
 public int getIdLibro() {

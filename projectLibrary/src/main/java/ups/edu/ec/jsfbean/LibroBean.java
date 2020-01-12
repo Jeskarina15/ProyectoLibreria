@@ -24,14 +24,13 @@ private Libro libro;
 private List<Libro> libros;
 
 @Inject
-private GestionLibroLocal gestioL;
+private LibroDAO libroDAO;
+//private GestionLibroLocal gestioL;
 
 //inicializamos libro para evitar el nullpointerexception
 @PostConstruct
 public void init() {
 	libro =new Libro();
-	libro.addAutor(new Autor());
-	libro.addCategorias(new Categorias());
 }
 //gets y sets de los atributos
 public Libro getLibro() {
@@ -70,20 +69,20 @@ public String addCategoria() {
 
 
 //listar los libros
-/*public String listarLibros() {
+public String listarLibros() {
 	libros=libroDAO.listarLibro();
 	return null;
-}*/
+}
 //eliminar libro
-/*public String EliminarLibro(int idLibro) {
+public String EliminarLibro(int idLibro) {
 	System.out.println(idLibro);
 	libroDAO.eliminarLibro(idLibro);
 	return null;
-}*/
+}
 //actualizar libro
-/*public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump) {
+public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump) {
 	libro.setIdLibro(idLibro);
-	libro.setISBN(ISBN);
+	libro.setIsbn(ISBN);
 	libro.setDescLibro(desc);
 	libro.setEdicion(edicion);
 	libro.setImageURL(Image);
@@ -92,13 +91,10 @@ public String addCategoria() {
 	libroDAO.ActualizarLibro(libro);
 	return null;
 	
-}*/
+}
 
 public String guardarLibro(Libro libro) {
-	
-	gestioL.NuevoLibro(libro);
-	libros=gestioL.listarLibro();
-	
-	return "listado-libros";
+	libroDAO.NuevoLibro(libro);
+	return null;
 }
 }
