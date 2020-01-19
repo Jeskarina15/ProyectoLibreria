@@ -48,26 +48,6 @@ public List<Libro> getLibros() {
 public void setLibros(List<Libro> libros) {
 	this.libros = libros;
 }
-//crear libro
-public String crearLibro() {
-	System.out.println(libro);
-	//libroDAO.NuevoLibro(libro);
-	//listarLibros();
-	
-	return null;
-}
-//agregAr un nuevo autor
-public String addAutores() {
-	libro.addAutor(new Autor());
-	return null;
-}
-//agregar una categoria
-public String addCategoria() {
-	libro.addCategorias(new Categorias());
-	return null;
-}
-
-
 //listar los libros
 public String listarLibros() {
 	libros=libroDAO.listarLibro();

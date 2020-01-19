@@ -41,4 +41,5 @@ public class UsuarioDAO {
 		List<Usuarios> nivel = query.getResultList();
 		return nivel;	
 	}
+	
 }

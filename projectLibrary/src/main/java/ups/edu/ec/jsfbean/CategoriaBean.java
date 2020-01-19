@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import ups.edu.ec.accesosDatos.CategoriasDAO;
 import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.negocio.GestionLibroLocal;
 
@@ -14,24 +15,24 @@ import ups.edu.ec.negocio.GestionLibroLocal;
 @ViewScoped
 public class CategoriaBean {
 
-private Categorias categoria;
+private Categorias c;
 
 private List<Categorias> listarCtgs;
 	
 @Inject
-private GestionLibroLocal gestioL;
+private CategoriasDAO categoriaDAO;
 	
 	@PostConstruct
 	public void init() {
-	categoria=new Categorias();
+	c=new Categorias();
 	}
 
 	public Categorias getCategoria() {
-		return categoria;
+		return c;
 	}
 
 	public void setCategoria(Categorias categoria) {
-		this.categoria = categoria;
+		this.c = categoria;
 	}
 
 	public List<Categorias> getListarCtgs() {
@@ -42,17 +43,22 @@ private GestionLibroLocal gestioL;
 		this.listarCtgs = listarCtgs;
 	}
 
-	public GestionLibroLocal getGestioL() {
-		return gestioL;
-	}
-
-	public void setGestioL(GestionLibroLocal gestioL) {
-		this.gestioL = gestioL;
-	}
 public String GuardarCategoria(Categorias categoria) {
-	 gestioL.NuevoCategoria(categoria);
-	 
-	 return "Listado-Categorias";
+	categoriaDAO.NuevoCategoria(categoria);
+	 return "Se guardado la categoria";
 }
-	
+public String ListarCategoria() {
+	listarCtgs= categoriaDAO.listarCategoriaN();
+	return null;
+}
+public String EliminarCategoria(int categoria) {
+	categoriaDAO.eliminarCategoria(categoria);
+	return "se ha eliminado la categoria";
+}
+public String ActualizarCategoria(int idc, String categoria) {
+	c.setIdCategoria(idc);
+	c.setCategorias(categoria);
+	categoriaDAO.ActualizarCategoria(c);
+	return "Se ha actualizado la categoria";
+}	
 }

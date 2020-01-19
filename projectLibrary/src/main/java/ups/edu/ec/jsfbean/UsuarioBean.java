@@ -22,7 +22,8 @@ private Usuarios usuario;
 //list =lista de usuarios
 private List<Usuarios> listaU;
 @Inject
-private GestionLibroLocal gestioL;
+private UsuarioDAO usuarioDAO;
+//private GestionLibroLocal gestioL;
 
 
 @PostConstruct
@@ -49,11 +50,12 @@ public void setListaU(List<Usuarios> listaU) {
 
 public String crearUsuario() {
 	System.out.println(usuario);
-	gestioL.NuevoUsuario(usuario);
+	usuarioDAO.NuevoUsuario(usuario);
+	//gestioL.NuevoUsuario(usuario);
 	//ListarUsuarios();
 	return null;
 }
-/*public String actualizarUsuario(int idUsuario, String nombre, String email, String telefono, String User, String password, String Rol) {
+public String actualizarUsuario(int idUsuario, String nombre, String email, String telefono, String User, String password, String Rol) {
 	usuario.setIdUsuario(idUsuario);
 	usuario.setNombreUsuario(nombre);
 	usuario.setEmail(email);
@@ -64,13 +66,13 @@ public String crearUsuario() {
 	System.out.println("actualizar");
 	usuarioDAO.ActualizarUsuario(usuario);
 	return null;
-}*/
-/*public String eliminarUsuario(int idUsuario){
-	usuarioDAO.EliminarLibro(idUsuario);
+}
+public String eliminarUsuario(int idUsuario){
+	usuarioDAO.EliminarUsuario(idUsuario);
 	return null;
-}*/
-/*spublic String ListarUsuarios() {
+}
+public String ListarUsuarios() {
 	listaU =usuarioDAO.listarUsuario();
 	return null;
-}*/
+}
 }
