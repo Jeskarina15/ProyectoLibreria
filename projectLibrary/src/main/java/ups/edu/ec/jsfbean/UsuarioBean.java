@@ -53,7 +53,7 @@ public String crearUsuario() {
 	usuarioDAO.NuevoUsuario(usuario);
 	//gestioL.NuevoUsuario(usuario);
 	//ListarUsuarios();
-	return null;
+	return "se ha creado el usuario";
 }
 public String actualizarUsuario(int idUsuario, String nombre, String email, String telefono, String User, String password, String Rol) {
 	usuario.setIdusuario(idUsuario);
@@ -69,7 +69,7 @@ public String actualizarUsuario(int idUsuario, String nombre, String email, Stri
 }
 public String eliminarUsuario(int idUsuario){
 	usuarioDAO.EliminarUsuario(idUsuario);
-	return null;
+	return "se ha eliminado el usuario";
 }
 public String ListarUsuarios() {
 	listaU =usuarioDAO.listarUsuario();

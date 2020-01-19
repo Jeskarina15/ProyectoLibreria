@@ -63,54 +63,7 @@
     <h:message for="rol"/>
   </div>
 <h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear Usuario" action="#{usuarioBean.crearUsuario()}"></h:commandButton>
-
   </div>
-
-	<h:dataTable value="#{usuarioBean.listaU}" var="u" class="table" id="tablaUsuario">
-
-	<h:column>
-		<f:facet name="header">idUsuario</f:facet>
-		<h:inputText value="#{u.idusuario}" />
-	</h:column>
-	<h:column>
-		<f:facet name="header">Nombre:</f:facet>
-		<h:inputText value="#{u.nombreu}" />
-	</h:column>
-	<h:column>
-		<f:facet name="header">Email:</f:facet>
-		<h:inputText value="#{u.email}" />
-	</h:column>
-	<h:column>
-		<f:facet name="header">Telefono</f:facet>
-	<h:inputText value="#{u.telefono}" />
-	</h:column>
-	<h:column>
-		<f:facet name="header">User_Name</f:facet>
-	<h:inputText value="#{u.usuario}" />
-	</h:column>
-	<h:column>
-		<f:facet name="header">Password</f:facet>
-		<h:inputText value="#{u.password}" />
-	</h:column>
-	<h:column>
-		<f:facet name="header">Rol</f:facet>
-	<h:inputText value="#{u.rol}" />
-	</h:column>
-	<h:column>
-		<f:facet name="header">Eliminar</f:facet>
-	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{usuarioBean.eliminarUsuario(u.idusuario)}">
-	<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
-	</h:commandButton>
-
-	</h:column>
-	<h:column>
-		<f:facet name="header">Actualizar</f:facet>
-	<h:commandButton class="btn btn-success" value="Actualizar" action="#{usuarioBean.actualizarUsuario(u.idusuario,u.nombreu,u.email,u.telefono,u.usuario,u.password,u.rol)}">
-		<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
-	</h:commandButton>
-	
-	</h:column>
-	</h:dataTable>
 	</h:form>
 </div>
 </body>

@@ -57,7 +57,7 @@ public String listarLibros() {
 public String EliminarLibro(int idLibro) {
 	System.out.println(idLibro);
 	libroDAO.eliminarLibro(idLibro);
-	return null;
+	return "Se ha eliminado el libro ";
 }
 //actualizar libro
 public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump) {
@@ -69,12 +69,12 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 	libro.setTitulolibro(Titulo);
 	libro.setNumeroP(nump);
 	libroDAO.ActualizarLibro(libro);
-	return null;
+	return "Se ha actualizado correctamente";
 	
 }
 
 public String guardarLibro(Libro libro) {
 	libroDAO.NuevoLibro(libro);
-	return null;
+	return "se ha guardado el libro";
 }
 }
