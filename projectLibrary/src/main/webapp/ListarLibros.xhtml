@@ -18,14 +18,24 @@
 <body> 
 <h:head>
 <h:form>
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Libros</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="#">Listar libros</a>
-<a class="dropdown-item" href="#">Mas Vendidos</a>
-</div>
-</li>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+   <li class="nav-item dropdown">
+   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Libros</a>
+     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+     <a class="dropdown-item" href="#">Libros</a>
+     <a class="dropdown-item" href="#">Mas vendidos</a>
+     </div>
+    </li>
+     <li class="nav-item dropdown">
+   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Categorias</a>
+     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+     <a class="dropdown-item" href="#">Libros</a>
+     <a class="dropdown-item" href="#">Mas vendidos</a>
+     </div>
+    </li>
+</nav>
 
 <h:commandButton class="btn btn-primary btn-lg" value="Listar libros" action="#{libroBean.listarLibros()}">
 	<f:ajax render="tablaLibros" execute="@all"> </f:ajax>

@@ -51,7 +51,7 @@ public void setListaU(List<Usuarios> listaU) {
 public String crearUsuario() {
 	System.out.println(usuario);
 	usuarioDAO.NuevoUsuario(usuario);
-	//gestioL.NuevoUsuario(usuario);
+
 	//ListarUsuarios();
 	return "se ha creado el usuario";
 }
