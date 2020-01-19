@@ -45,6 +45,7 @@ private CategoriasDAO categoriaDAO;
 
 public String GuardarCategoria(Categorias categoria) {
 	categoriaDAO.NuevoCategoria(categoria);
+	ListarCategoria();
 	 return "Se guardado la categoria";
 }
 public String ListarCategoria() {

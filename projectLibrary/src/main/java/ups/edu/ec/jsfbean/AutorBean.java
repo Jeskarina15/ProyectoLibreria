@@ -42,6 +42,7 @@ public class AutorBean {
 	}
 	public String nuevoAutor() {
 		autorDAO.NuevoAutor(autor);
+		listarAutores();
 		return "Se ha creado el autor";
 	}
 	public String EliminarAutor(int autor) {
@@ -54,5 +55,8 @@ public class AutorBean {
 		autorDAO.ActualizarAutor(autor);
 		return "se ha actualizado el autor";
 	}
-	
-}
+	public String listarAutores() {
+		listarA=autorDAO.listarAutor();
+		return null;
+	}
+	}
