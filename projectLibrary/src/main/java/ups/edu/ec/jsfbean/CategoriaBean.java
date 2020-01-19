@@ -18,11 +18,11 @@ public class CategoriaBean {
 private Categorias c;
 
 private List<Categorias> listarCtgs;
-	
+private int idc;
 @Inject
 private CategoriasDAO categoriaDAO;
 	
-private int id;
+
 	@PostConstruct
 	public void init() {
 	c=new Categorias();
@@ -63,8 +63,15 @@ public String ActualizarCategoria(int idc, String categoria) {
 	categoriaDAO.ActualizarCategoria(c);
 	return "Se ha actualizado la categoria";
 }
+public int getIdc() {
+	return idc;
+}
+
+public void setIdc(int idc) {
+	this.idc = idc;
+}
 public String getId() {
-	id=categoriaDAO.getid();
+	idc=categoriaDAO.getid();
 	return null;
 }
 }

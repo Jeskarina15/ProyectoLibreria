@@ -15,7 +15,7 @@ import ups.edu.ec.modelo.Autor;
 public class AutorBean {
 	
 	private Autor autor;
-	
+	private int idc;
 	private List<Autor> listarA;
 	@Inject
 	private AutoresDAO autorDAO; 
@@ -40,6 +40,15 @@ public class AutorBean {
 	public void setListarA(List<Autor> listarA) {
 		this.listarA = listarA;
 	}
+	
+	public int getIdc() {
+		return idc;
+	}
+
+	public void setIdc(int idc) {
+		this.idc = idc;
+	}
+
 	public String nuevoAutor() {
 		autorDAO.NuevoAutor(autor);
 		listarAutores();
@@ -57,6 +66,10 @@ public class AutorBean {
 	}
 	public String listarAutores() {
 		listarA=autorDAO.listarAutor();
+		return null;
+	}
+	public String getId() {
+		idc=autorDAO.getid();
 		return null;
 	}
 	}

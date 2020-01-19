@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import ups.edu.ec.modelo.Autor;
+import ups.edu.ec.modelo.Categorias;
 
 
 
@@ -46,5 +47,11 @@ public class AutoresDAO {
 		Query query = em.createNativeQuery(jpql, Autor.class);
 		List<Autor> nombre = query.getResultList();
 		return nombre;	
+	}
+	public int getid() {
+		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"autor\"";
+		Query query = em.createNativeQuery(jpql, Categorias.class);
+		int idc = query.getFirstResult();
+		return idc;	
 	}
 }

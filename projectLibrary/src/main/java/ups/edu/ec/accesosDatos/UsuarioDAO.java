@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Usuarios;
 @Stateless
 public class UsuarioDAO {
@@ -41,5 +42,10 @@ public class UsuarioDAO {
 		List<Usuarios> nivel = query.getResultList();
 		return nivel;	
 	}
-	
+	public int getid() {
+		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"usuarios\"";
+		Query query = em.createNativeQuery(jpql, Categorias.class);
+		int idc = query.getFirstResult();
+		return idc;	
+	}
 }

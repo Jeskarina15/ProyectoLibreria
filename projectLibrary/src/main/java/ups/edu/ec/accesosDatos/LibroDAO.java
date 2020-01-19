@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Libro;
 import ups.edu.ec.modelo.Usuarios;
 @Stateless
@@ -58,5 +59,11 @@ public class LibroDAO {
 		query.setParameter("categoria", categoria);
 		List<Libro> listc = query.getResultList();
 		return listc;
+	}
+	public int getid() {
+		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"libro\"";
+		Query query = em.createNativeQuery(jpql, Categorias.class);
+		int idc = query.getFirstResult();
+		return idc;	
 	}
 }
