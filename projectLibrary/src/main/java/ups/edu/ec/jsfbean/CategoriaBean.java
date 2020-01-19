@@ -22,6 +22,7 @@ private List<Categorias> listarCtgs;
 @Inject
 private CategoriasDAO categoriaDAO;
 	
+private int id;
 	@PostConstruct
 	public void init() {
 	c=new Categorias();
@@ -61,5 +62,9 @@ public String ActualizarCategoria(int idc, String categoria) {
 	c.setCategoria(categoria);
 	categoriaDAO.ActualizarCategoria(c);
 	return "Se ha actualizado la categoria";
-}	
+}
+public String getId() {
+	id=categoriaDAO.getid();
+	return null;
+}
 }
