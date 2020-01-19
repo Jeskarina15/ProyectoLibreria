@@ -28,12 +28,12 @@
    <div class="form-row">
     <div class="form-group col-md-2">
       <h:outputLabel value="idUsuario" for="idusuario"/>
-      <h:inputText  class="form-control" value="#{usuarioBean.usuario.idUsuario}" id="idusuario"/>
+      <h:inputText  class="form-control" value="#{usuarioBean.usuario.idusuario}" id="idusuario"/>
       <h:message for="idusuario"/>
     </div>
     <div class="form-group col-md-10">
       <h:outputLabel value="Nombre de usuario" for="nombre"/>
-      <h:inputText  class="form-control" value="#{usuarioBean.usuario.nombreUsuario}" id="nombre"/>
+      <h:inputText  class="form-control" value="#{usuarioBean.usuario.nombreu}" id="nombre"/>
       <h:message for="nombre"/>
     </div>
     <div class="form-group col-md-6">
@@ -53,7 +53,7 @@
     </div>
     <div class="form-group col-md-12">
       <h:outputLabel value="Password" for="passwd"/>
-      <h:inputText class="form-control" value="#{usuarioBean.usuario.contrasenia}" id="passwd"/>
+      <h:inputText class="form-control" value="#{usuarioBean.usuario.password}" id="passwd"/>
       <h:message for="passwd"/>
     </div>
 	<div class="form-group col-md-12">
@@ -70,11 +70,11 @@
 
 	<h:column>
 		<f:facet name="header">idUsuario</f:facet>
-		<h:inputText value="#{u.idUsuario}" />
+		<h:inputText value="#{u.idusuario}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">Nombre:</f:facet>
-		<h:inputText value="#{u.nombreUsuario}" />
+		<h:inputText value="#{u.nombreu}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">Email:</f:facet>
@@ -90,7 +90,7 @@
 	</h:column>
 	<h:column>
 		<f:facet name="header">Password</f:facet>
-		<h:inputText value="#{u.contrasenia}" />
+		<h:inputText value="#{u.password}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">Rol</f:facet>
@@ -98,14 +98,14 @@
 	</h:column>
 	<h:column>
 		<f:facet name="header">Eliminar</f:facet>
-	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{usuarioBean.eliminarUsuario(u.idUsuario)}">
+	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{usuarioBean.eliminarUsuario(u.idusuario)}">
 	<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
 	</h:commandButton>
 
 	</h:column>
 	<h:column>
 		<f:facet name="header">Actualizar</f:facet>
-	<h:commandButton class="btn btn-success" value="Actualizar" action="#{usuarioBean.actualizarUsuario(u.idUsuario,u.nombreUsuario,u.email,u.telefono,u.usuario,u.contrasenia,u.rol)}">
+	<h:commandButton class="btn btn-success" value="Actualizar" action="#{usuarioBean.actualizarUsuario(u.idusuario,u.nombreu,u.email,u.telefono,u.usuario,u.password,u.rol)}">
 		<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
 	</h:commandButton>
 	

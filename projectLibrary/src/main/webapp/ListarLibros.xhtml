@@ -5,38 +5,59 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>
-<link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"></link>
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="css/fontawesome.min.css"></link>
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/fullcalendar.min.css"></link>
+    <!-- https://fullcalendar.io/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/tooplate.css"></link>
 </h:head> 
 <body> 
 <h:head>
+<h:form>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Libros</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="#">Listar libros</a>
+<a class="dropdown-item" href="#">Mas Vendidos</a>
+</div>
+</li>
 
+<h:commandButton class="btn btn-primary btn-lg" value="Listar libros" action="#{libroBean.listarLibros()}">
+	<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
+	</h:commandButton>
+</h:form>
 </h:head>
 <h:form>
 	<h:dataTable value="#{libroBean.libros}" var="libro" class="table" id="tablaLibros">
 
 	<h:column>
 		<f:facet name="header">IdLibro</f:facet>
-		<h:inputText value="#{libro.idLibro}" />
+		<h:inputText value="#{libro.idlibro}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">ISBN</f:facet>
-		<h:inputText value="#{libro.ISBN}" />
+		<h:inputText value="#{libro.isbn}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">Descripcion Libro</f:facet>
-		<h:inputText value="#{libro.descLibro}" />
+		<h:inputText value="#{libro.desclibro}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">Edicion</f:facet>
 	<h:inputText value="#{libro.edicion}" />
 	</h:column>
 	<h:column>
-		<f:facet name="header">Image URL</f:facet>
-	<h:inputText value="#{libro.imageURL}" />
+		<f:facet name="header">Image</f:facet>
+	<h:inputText value="#{libro.image}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">Titulo Libro</f:facet>
-		<h:inputText value="#{libro.nombreLibro}" />
+		<h:inputText value="#{libro.titulolibro}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">Numero Pagina</f:facet>
@@ -44,14 +65,14 @@
 	</h:column>
 	<h:column>
 		<f:facet name="header">Eliminar</f:facet>
-	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{libroBean.EliminarLibro(libro.idLibro)}">
+	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{libroBean.EliminarLibro(libro.idlibro)}">
 	<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
 	</h:commandButton>
 
 	</h:column>
 	<h:column>
 		<f:facet name="header">Actualizar</f:facet>
-	<h:commandButton class="btn btn-success" value="Actualizar" action="#{libroBean.ActualizarLibro(libro.idLibro, libro.ISBN, libro.descLibro, libro.edicion, libro.imageURL, libro.nombreLibro, libro.numeroP)}">
+	<h:commandButton class="btn btn-success" value="Actualizar" action="#{libroBean.ActualizarLibro(libro.idlibro, libro.isbn, libro.desclibro, libro.edicion, libro.image, libro.titulolibro, libro.numeroP)}">
 		<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
 	</h:commandButton>
 	
