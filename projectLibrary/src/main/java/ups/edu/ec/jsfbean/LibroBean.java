@@ -19,6 +19,7 @@ import ups.edu.ec.negocio.GestionLibroLocal;
 public class LibroBean {
 
 	//atributo tipo libro 
+private int idc;
 private Libro libro;
 //lista para los libros
 private List<Libro> libros;
@@ -48,6 +49,12 @@ public List<Libro> getLibros() {
 public void setLibros(List<Libro> libros) {
 	this.libros = libros;
 }
+public int getIdc() {
+	return idc;
+}
+public void setIdc(int idc) {
+	this.idc = idc;
+}
 //listar los libros
 public String listarLibros() {
 	libros=libroDAO.listarLibro();
@@ -76,5 +83,9 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 public String guardarLibro(Libro libro) {
 	libroDAO.NuevoLibro(libro);
 	return "se ha guardado el libro";
+}
+public String getId() {
+	idc=libroDAO.getid();
+	return null;
 }
 }

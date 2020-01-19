@@ -17,7 +17,8 @@ import ups.edu.ec.negocio.GestionLibroLocal;
 @ViewScoped
 public class UsuarioBean {
 
-//atributo tipo usuario		
+//atributo tipo usuario	
+private int idc;
 private Usuarios usuario; 
 //list =lista de usuarios
 private List<Usuarios> listaU;
@@ -48,6 +49,14 @@ public void setListaU(List<Usuarios> listaU) {
 	this.listaU = listaU;
 }
 
+public int getIdc() {
+	return idc;
+}
+
+public void setIdc(int idc) {
+	this.idc = idc;
+}
+
 public String crearUsuario() {
 	System.out.println(usuario);
 	usuarioDAO.NuevoUsuario(usuario);
@@ -73,6 +82,10 @@ public String eliminarUsuario(int idUsuario){
 }
 public String ListarUsuarios() {
 	listaU =usuarioDAO.listarUsuario();
+	return null;
+}
+public String getId() {
+	idc=usuarioDAO.getid();
 	return null;
 }
 }
