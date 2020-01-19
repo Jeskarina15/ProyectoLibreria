@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"></link>
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="css/fontawesome.min.css"></link>
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/fullcalendar.min.css"></link>
+    <!-- https://fullcalendar.io/ -->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css"></link>
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/tooplate.css"></link>
+</h:head> 
+<body> 
+<div class="container">
+<div class="row">
+	<div class="col-md-6">
+	<h:form>
+   <div class="form-group">
+    <label for="formGroupExampleInput">Id categoria</label>
+    <h:inputText class="form-control" id="formGroupExampleInput" />
+   </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput2">Nombre de la categoria</label>
+    <h:inputText class="form-control" value="#{categoriaBean.categoria.categoria}" id="nombrea"/>
+   </div>
+   	<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear autor" action="#{autorBean.nuevoAutor()}"></h:commandButton>
+	</h:form>
+	</div>
+	
+	
+	<div class="col-md-6">
+	<h:form>
+	<h:dataTable value="#{autorBean.listarA}" var="autor" class="table" id="tablaautores">
+
+	<h:column>
+		<f:facet name="header">Id autor</f:facet>
+		<h:inputText value="#{autor.idautor}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Nombre autor</f:facet>
+		<h:inputText value="#{autor.nombreautor}" />
+	</h:column>
+	<h:column>
+		<f:facet name="header">Eliminar</f:facet>
+	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{autorBean.EliminarAutor(autor.idautor)}">
+	<f:ajax render="tablaautores" execute="@all"> </f:ajax>
+	</h:commandButton>
+
+	</h:column>
+	<h:column>
+		<f:facet name="header">Actualizar</f:facet>
+	<h:commandButton class="btn btn-success" value="Actualizar" action="#{autorBean.ActualizarAutor(autor.idautor,autor.nombreautor)}">
+		<f:ajax render="tablaautores" execute="@all"> </f:ajax>
+	</h:commandButton>
+	
+	</h:column>
+	</h:dataTable>
+	</h:form>
+	</div>
+</div>
+</div>
+</body> 
+</html>
