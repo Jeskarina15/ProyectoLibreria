@@ -1,10 +1,5 @@
 package ups.edu.ec.modelo;
-
-
-
-import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name="productos")
+@Table(name="libro")
 public class Libro {
 @Id	
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,11 +42,11 @@ private String image;
 
 
 @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-@JoinColumn(name="idautor", referencedColumnName = "id_Libro")
+@JoinColumn(name="idautor", referencedColumnName = "idlibro")
 private Set<Autor> autor;
 
 @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-@JoinColumn(name="idcategoria", referencedColumnName = "id_Libro")
+@JoinColumn(name="idcategoria", referencedColumnName = "idlibro")
 private Set<Categorias> categoria;
 
 public int getIdlibro() {

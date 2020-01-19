@@ -15,10 +15,11 @@ import javax.validation.constraints.Pattern;
 @Table(name = "categoria")
 public class Categorias {
 
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
 	@Column(name="idcategoria")
+	@Id
 	private int idcategoria;
 	@NotNull
 	@Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 

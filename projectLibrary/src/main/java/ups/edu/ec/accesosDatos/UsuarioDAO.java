@@ -36,7 +36,7 @@ public class UsuarioDAO {
 	}
 	//Listar todos los libros
 	public List<Usuarios> listarUsuario(){
-		String jpql = "SELECT * FROM libros.usuarios;";
+		String jpql = "SELECT * FROM libros.usuarios";
 		Query query = em.createNativeQuery(jpql, Usuarios.class);
 		List<Usuarios> nivel = query.getResultList();
 		return nivel;	

@@ -36,13 +36,13 @@ public class CategoriasDAO {
 	}
 	//Listar todos los libros
 	public List<Categorias> listarCategorias(){
-		String jpql = "SELECT * FROM libros.categorias;";
+		String jpql = "SELECT * FROM libros.categoria";
 		Query query = em.createNativeQuery(jpql, Categorias.class);
 		List<Categorias> nivel = query.getResultList();
 		return nivel;	
 	}
 	public List<Categorias> listarCategoriaN(){
-		String jpql = "select Categorias from libros.categorias";
+		String jpql = "select categoria from libros.categoria";
 		Query query = em.createNativeQuery(jpql, Categorias.class);
 		List<Categorias> categorias = query.getResultList();
 		return categorias;	

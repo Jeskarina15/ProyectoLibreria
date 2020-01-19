@@ -40,20 +40,20 @@ public class LibroDAO {
 	return em.find(Libro.class, libro);	
 	}
 	public List<Libro> listarLibro(){
-		String jpql = "SELECT * FROM libros.productos;";
+		String jpql = "SELECT * FROM libros.libro";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		List<Libro> nivel = query.getResultList();
 		return nivel;	
 	}
 	public List<Libro> listarLibroid(String titulo){
-		String jpql = "SELECT * FROM libros.productos WHERE titulolibro=:titulo";
+		String jpql = "SELECT * FROM libros.libro WHERE titulolibro=:titulo";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		query.setParameter("titulo", titulo);
 		List<Libro> nivel = query.getResultList();
 		return nivel;
 	}
 	public List<Libro> listarLibroPC(String categoria){
-		String jpql = "SELECT p.id_Libro FROM libros.productos p, libros.categorias c where c.Categorias=:categoria";
+		String jpql = "SELECT p.id_Libro FROM libros.libro p, libros.categoria c where c.Categoria=:categoria";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		query.setParameter("categoria", categoria);
 		List<Libro> listc = query.getResultList();
