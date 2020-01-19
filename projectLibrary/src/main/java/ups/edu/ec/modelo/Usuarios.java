@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,129 +19,81 @@ public class Usuarios {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name="idUsuario")
-private int idUsuario;
-
+@Column(name="idusuario")
+private int idusuario;
 @NotNull
-@Column(name = "nombreU")
+@Column(name = "nombreu")
 @NotEmpty
-private String nombreUsuario;
-@Email
+@Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
+private String nombreu;
 @NotNull
 @Column(name = "email")
 @NotEmpty
+@Email(message="El correo ingresado no es valido")
 private String email;
 @NotNull
 @Column(name = "telefono")
 @NotEmpty
+@Size(min = 8, max = 12, message = "El numero de telefono es incorrecto")
 private String telefono;
 @NotNull
-@Column(name = "NameUser")
+@Column(name = "usuario")
 @NotEmpty
+@Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
 private String usuario;
 @NotNull
 @Column(name = "password")
 @NotEmpty
-private String contrasenia;
-
+private String password;
 @NotNull
 @Column(name = "rol")
 @NotEmpty
 private String rol;
-
-
-
-public int getIdUsuario() {
-	return idUsuario;
+public int getIdusuario() {
+	return idusuario;
 }
-
-
-
-public void setIdUsuario(int idUsuario) {
-	this.idUsuario = idUsuario;
+public void setIdusuario(int idusuario) {
+	this.idusuario = idusuario;
 }
-
-
-
-public String getNombreUsuario() {
-	return nombreUsuario;
+public String getNombreu() {
+	return nombreu;
 }
-
-
-
-public void setNombreUsuario(String nombreUsuario) {
-	this.nombreUsuario = nombreUsuario;
+public void setNombreu(String nombreu) {
+	this.nombreu = nombreu;
 }
-
-
-
 public String getEmail() {
 	return email;
 }
-
-
-
 public void setEmail(String email) {
 	this.email = email;
 }
-
-
-
 public String getTelefono() {
 	return telefono;
 }
-
-
-
 public void setTelefono(String telefono) {
 	this.telefono = telefono;
 }
-
-
-
 public String getUsuario() {
 	return usuario;
 }
-
-
-
 public void setUsuario(String usuario) {
 	this.usuario = usuario;
 }
-
-
-
-public String getContrasenia() {
-	return contrasenia;
+public String getPassword() {
+	return password;
 }
-
-
-
-public void setContrasenia(String contrasenia) {
-	this.contrasenia = contrasenia;
+public void setPassword(String password) {
+	this.password = password;
 }
-
-
-
 public String getRol() {
 	return rol;
 }
-
-
-
 public void setRol(String rol) {
 	this.rol = rol;
 }
-
-
-
 @Override
 public String toString() {
-	return "Usuarios [idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", email=" + email + ", telefono="
-			+ telefono + ", usuario=" + usuario + ", contrasenia=" + contrasenia + ", rol=" + rol + "]";
+	return "Usuarios [idusuario=" + idusuario + ", nombreu=" + nombreu + ", email=" + email + ", telefono=" + telefono
+			+ ", usuario=" + usuario + ", password=" + password + ", rol=" + rol + "]";
 }
-
-
-
-
 }

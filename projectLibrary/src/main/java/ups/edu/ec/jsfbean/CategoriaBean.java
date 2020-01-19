@@ -56,8 +56,8 @@ public String EliminarCategoria(int categoria) {
 	return "se ha eliminado la categoria";
 }
 public String ActualizarCategoria(int idc, String categoria) {
-	c.setIdCategoria(idc);
-	c.setCategorias(categoria);
+	c.setIdcategoria(idc);
+	c.setCategoria(categoria);
 	categoriaDAO.ActualizarCategoria(c);
 	return "Se ha actualizado la categoria";
 }	

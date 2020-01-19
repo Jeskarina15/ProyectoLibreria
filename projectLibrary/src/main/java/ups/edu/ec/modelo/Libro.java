@@ -16,17 +16,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="productos")
 public class Libro {
 @Id	
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name= "id_libro")
-private int idLibro;
+@Column(name= "idlibro")
+private int idlibro;
 @NotNull
-@Column(name= "descLibro")
-private String descLibro;
+@Column(name= "desclibro")
+private String desclibro;
 @NotNull
 @Column(name= "edicion")
 private String edicion;
@@ -37,11 +38,12 @@ private String isbn;
 @Column(name= "numeropag")
 private int numeroP;
 @NotNull
+@Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
 @Column(name= "titulolibro")
-private String nombreLibro;
+private String titulolibro;
 @NotNull
 @Column(name= "image")
-private String imageURL;
+private String image;
 
 
 @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
@@ -52,21 +54,26 @@ private Set<Autor> autor;
 @JoinColumn(name="idcategoria", referencedColumnName = "id_Libro")
 private Set<Categorias> categoria;
 
-public int getIdLibro() {
-	return idLibro;
+public int getIdlibro() {
+	return idlibro;
 }
-public void setIdLibro(int idLibro) {
-	this.idLibro = idLibro;
+
+public void setIdlibro(int idlibro) {
+	this.idlibro = idlibro;
 }
-public String getDescLibro() {
-	return descLibro;
+
+public String getDesclibro() {
+	return desclibro;
 }
-public void setDescLibro(String descLibro) {
-	this.descLibro = descLibro;
+
+public void setDesclibro(String desclibro) {
+	this.desclibro = desclibro;
 }
+
 public String getEdicion() {
 	return edicion;
 }
+
 public void setEdicion(String edicion) {
 	this.edicion = edicion;
 }
@@ -74,55 +81,55 @@ public void setEdicion(String edicion) {
 public String getIsbn() {
 	return isbn;
 }
+
 public void setIsbn(String isbn) {
 	this.isbn = isbn;
 }
+
 public int getNumeroP() {
 	return numeroP;
 }
+
 public void setNumeroP(int numeroP) {
 	this.numeroP = numeroP;
 }
-public String getNombreLibro() {
-	return nombreLibro;
+
+public String getTitulolibro() {
+	return titulolibro;
 }
-public void setNombreLibro(String nombreLibro) {
-	this.nombreLibro = nombreLibro;
+
+public void setTitulolibro(String titulolibro) {
+	this.titulolibro = titulolibro;
 }
-public String getImageURL() {
-	return imageURL;
+
+public String getImage() {
+	return image;
 }
-public void setImageURL(String imageURL) {
-	this.imageURL = imageURL;
+
+public void setImage(String image) {
+	this.image = image;
 }
+
 public Set<Autor> getAutor() {
 	return autor;
 }
+
 public void setAutor(Set<Autor> autor) {
 	this.autor = autor;
 }
+
 public Set<Categorias> getCategoria() {
 	return categoria;
 }
+
 public void setCategoria(Set<Categorias> categoria) {
 	this.categoria = categoria;
 }
-public void addCategorias(Categorias categorias) {
-	if(categoria==null) 
-		categoria=new HashSet<>() ;
-	categoria.add(categorias);
-	
-}
-public void addAutor(Autor autores) {
-	if(autor==null) 
-		autor=new  HashSet<>();
-	autor.add(autores);
-}
+
 @Override
 public String toString() {
-	return "Libro [idLibro=" + idLibro + ", descLibro=" + descLibro + ", edicion=" + edicion + ", isbn=" + isbn
-			+ ", numeroP=" + numeroP + ", nombreLibro=" + nombreLibro + ", imageURL=" + imageURL + ", autor=" + autor
+	return "Libro [idlibro=" + idlibro + ", desclibro=" + desclibro + ", edicion=" + edicion + ", isbn=" + isbn
+			+ ", numeroP=" + numeroP + ", titulolibro=" + titulolibro + ", image=" + image + ", autor=" + autor
 			+ ", categoria=" + categoria + "]";
 }
-
 }

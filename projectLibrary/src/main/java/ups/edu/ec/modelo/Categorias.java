@@ -1,41 +1,44 @@
 package ups.edu.ec.modelo;
-//apeuaba de sidakjsbduckjvwbskdxfjikcsuekjbcw
-//asdasdmakjsnhdjkabshjdbhasdjhabsdhmbvahsd
 
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 @Entity
-@Table(name = "categorias")
+@Table(name = "categoria")
 public class Categorias {
 
 	@Id
-	private int idCategoria;
-	private String Categorias;
-
-	public int getIdCategoria() {
-		return idCategoria;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
+	@Column(name="idcategoria")
+	private int idcategoria;
+	@NotNull
+	@Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
+	@Column(name="categoria")
+	private String categoria;
+	
+	public int getIdcategoria() {
+		return idcategoria;
 	}
-
-	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setIdcategoria(int idcategoria) {
+		this.idcategoria = idcategoria;
 	}
-
-	public String getCategorias() {
-		return Categorias;
+	public String getCategoria() {
+		return categoria;
 	}
-
-	public void setCategorias(String categorias) {
-		Categorias = categorias;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
-
 	@Override
 	public String toString() {
-		return "Categorias [idCategoria=" + idCategoria + ", Categorias=" + Categorias + "]";
+		return "Categorias [idcategoria=" + idcategoria + ", categoria=" + categoria + "]";
 	}
-	
-	
 }

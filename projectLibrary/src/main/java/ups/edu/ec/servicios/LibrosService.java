@@ -74,7 +74,7 @@ public class LibrosService {
 	@WebMethod
 	public Libro leerLibro(Libro libro) {
 	
-		return gl.leerLibros(libro.getIdLibro());
+		return gl.leerLibros(libro.getIdlibro());
 	}
 
 	//@POST

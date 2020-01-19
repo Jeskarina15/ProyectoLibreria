@@ -7,30 +7,35 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="autor")
 public class Autor {
 
 @Id
-private int idAutor;
-private String nombreAutor;
-
-public int getIdAutor() {
-	return idAutor;
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@NotNull
+@Column(name="idautor")
+private int idautor;
+@NotNull
+@Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
+@Column(name="nombreautor")
+private String nombreautor;
+public int getIdautor() {
+	return idautor;
 }
-public void setIdAutor(int idAutor) {
-	this.idAutor = idAutor;
+public void setIdautor(int idautor) {
+	this.idautor = idautor;
 }
-public String getNombreAutor() {
-	return nombreAutor;
+public String getNombreautor() {
+	return nombreautor;
 }
-public void setNombreAutor(String nombreAutor) {
-	this.nombreAutor = nombreAutor;
+public void setNombreautor(String nombreautor) {
+	this.nombreautor = nombreautor;
 }
 @Override
 public String toString() {
-	return "Autor [idAutor=" + idAutor + ", nombreAutor=" + nombreAutor + "]";
+	return "Autor [idautor=" + idautor + ", nombreautor=" + nombreautor + "]";
 }
-
 }

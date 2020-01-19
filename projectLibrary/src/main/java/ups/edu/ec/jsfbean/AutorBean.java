@@ -49,8 +49,8 @@ public class AutorBean {
 		return "Se ha eliminado el autor";
 	}
 	public String ActualizarAutor(int idautor, String nombreA ) {
-		autor.setIdAutor(idautor);
-		autor.setNombreAutor(nombreA);
+		autor.setIdautor(idautor);
+		autor.setNombreautor(nombreA);
 		autorDAO.ActualizarAutor(autor);
 		return "se ha actualizado el autor";
 	}

@@ -61,12 +61,12 @@ public String EliminarLibro(int idLibro) {
 }
 //actualizar libro
 public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump) {
-	libro.setIdLibro(idLibro);
+	libro.setIdlibro(idLibro);
 	libro.setIsbn(ISBN);
-	libro.setDescLibro(desc);
+	libro.setDesclibro(desc);
 	libro.setEdicion(edicion);
-	libro.setImageURL(Image);
-	libro.setNombreLibro(Titulo);
+	libro.setImage(Image);
+	libro.setTitulolibro(Titulo);
 	libro.setNumeroP(nump);
 	libroDAO.ActualizarLibro(libro);
 	return null;
