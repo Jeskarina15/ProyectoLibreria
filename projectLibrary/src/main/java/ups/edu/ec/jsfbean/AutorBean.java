@@ -24,50 +24,90 @@ public class AutorBean {
 	public void init() {
 	autor=new Autor();	
 	}
-
+	/**
+	 * metodo get autor
+	 * @return
+	 */
 	public Autor getAutor() {
 		return autor;
 	}
-
+	/**
+	 * metodo set autor
+	 * @param autor
+	 */
 	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
-
+	/**
+	 * metodo getlista
+	 * @return
+	 */
 	public List<Autor> getListarA() {
 		return listarA;
 	}
-
+	/**
+	 * metodo setlista
+	 * @param listarA
+	 */
 	public void setListarA(List<Autor> listarA) {
 		this.listarA = listarA;
 	}
-	
+	/**
+	 * metodo getid
+	 * @return
+	 */
 	public int getIdc() {
 		return idc;
 	}
-
+	/**
+	 * metodo setid
+	 * @param idc
+	 */
 	public void setIdc(int idc) {
 		this.idc = idc;
 	}
-
+	/**
+	 * metodo clase bean, crear nuevo autor 
+	 * @return
+	 */
 	public String nuevoAutor() {
 		autorDAO.NuevoAutor(autor);
 		listarAutores();
 		return "Se ha creado el autor";
 	}
+	/**
+	 * 
+	 * @param autor
+	 * @return
+	 */
 	public String EliminarAutor(int autor) {
 		autorDAO.eliminarAutor(autor);
 		return "Se ha eliminado el autor";
 	}
+	/**
+	 * 
+	 * @param idautor
+	 * @param nombreA
+	 * @return
+	 */
 	public String ActualizarAutor(int idautor, String nombreA ) {
 		autor.setIdautor(idautor);
 		autor.setNombreautor(nombreA);
 		autorDAO.ActualizarAutor(autor);
 		return "se ha actualizado el autor";
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String listarAutores() {
 		listarA=autorDAO.listarAutor();
 		return null;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getId() {
 		idc=autorDAO.getid();
 		return null;

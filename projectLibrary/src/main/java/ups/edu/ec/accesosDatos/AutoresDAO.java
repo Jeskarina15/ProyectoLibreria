@@ -18,36 +18,60 @@ public class AutoresDAO {
 	@Inject
 	private EntityManager em;
 	
+	/**
+	 * agrega una nueva isntancia de entidad al contexto de persistencia 
+	 * @param autor
+	 */
 	public void NuevoAutor(Autor autor) {
-		//agrega una nueva isntancia de entidad al contexto de persistencia 
 	em.persist(autor);	
-	
 	}
+	/**
+	 *actualiza una instancia de entidad persistente con nuevos valores especificados en los campos
+	 * @param autor
+	 */
 	public void ActualizarAutor(Autor autor) {
-		//actualiza una instancia de entidad persistente con nuevos valores especificados en los campos
 	em.merge(autor);	
 	}
+	/**
+	 * Eliminar un autor, pasando como parametro un objeto tipo autor
+	 * Elimina una instancia de entidad persistente
+	 * @param autor
+	 */
 	public void eliminarAutor(int autor) {
-		//Elimina una instancia de entidad persistente
 	em.remove(leerAutor(autor));
 	}
+	/**
+	 * Busqueda por clave principal, utilizando las propiedades especificadas (entidad de la clase especifica, clave primaria)
+	 * @param autor
+	 * @return
+	 */
 	public Autor leerAutor(int autor) {
-	//Busqueda por clave principal, utilizando las propiedades especificadas (entidad de la clase especifica, clave primaria)
 	return em.find(Autor.class,autor);	
 	}
-	//Listar todos los libros
+	/**
+	 * Listar todos los autores
+	 * @return
+	 */
 	public List<Autor> listarAutor(){
 		String jpql = "SELECT * FROM libros.categoria";
 		Query query = em.createNativeQuery(jpql, Autor.class);
 		List<Autor> nivel = query.getResultList();
 		return nivel;	
 	}
+	/**
+	 * listar nombres de autores
+	 * @return
+	 */
 	public List<Autor> listarNAutor(){
 		String jpql = "select nombreautor from libros.autor";
 		Query query = em.createNativeQuery(jpql, Autor.class);
 		List<Autor> nombre = query.getResultList();
 		return nombre;	
 	}
+	/**
+	 * devuelve el valor de id de la tabla autor
+	 * @return
+	 */
 	public int getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"autor\"";
 		Query query = em.createNativeQuery(jpql, Categorias.class);
