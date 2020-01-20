@@ -44,8 +44,8 @@ private CategoriasDAO categoriaDAO;
 		this.listarCtgs = listarCtgs;
 	}
 
-public String NuevaCategoria(Categorias categoria) {
-	categoriaDAO.NuevoCategoria(categoria);
+public String NuevaCategoria() {
+	categoriaDAO.NuevoCategoria(c);
 	ListarCategoria();
 	 return "Se ha guardado la categoria";
 }

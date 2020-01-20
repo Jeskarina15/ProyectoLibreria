@@ -76,7 +76,7 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 	
 }
 
-public String guardarLibro(Libro libro) {
+public String guardarLibro() {
 	libroDAO.NuevoLibro(libro);
 	return "se ha guardado el libro";
 }

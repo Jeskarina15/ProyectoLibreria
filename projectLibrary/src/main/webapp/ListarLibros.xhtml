@@ -18,26 +18,17 @@
 <body> 
 <h:head>
 <h:form>
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-   <li class="nav-item dropdown">
-   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   Libros</a>
-     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-     <a class="dropdown-item" href="#">Libros</a>
-     <a class="dropdown-item" href="#">Mas vendidos</a>
-     </div>
-    </li>
-     <li class="nav-item dropdown">
-   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  Categorias</a>
-     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-     <a class="dropdown-item" href="#">Libros</a>
-     <a class="dropdown-item" href="#">Mas vendidos</a>
-     </div>
-    </li>
-</nav>
-
-<h:commandButton class="btn btn-primary btn-lg" value="Listar libros" action="#{libroBean.listarLibros()}">
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Libros
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Listar libros" action="#{libroBean.listarLibros()}">
 	<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
 	</h:commandButton>
 </h:form>
