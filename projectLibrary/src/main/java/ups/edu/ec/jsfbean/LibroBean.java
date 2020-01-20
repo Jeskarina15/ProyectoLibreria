@@ -4,15 +4,11 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import ups.edu.ec.accesosDatos.LibroDAO;
-import ups.edu.ec.modelo.Autor;
-import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Libro;
-import ups.edu.ec.negocio.GestionLibroLocal;
 
 @ManagedBean
 @ViewScoped

@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import ups.edu.ec.accesosDatos.CategoriasDAO;
 import ups.edu.ec.modelo.Categorias;
-import ups.edu.ec.negocio.GestionLibroLocal;
+
 
 @ManagedBean
 @ViewScoped
@@ -44,10 +44,10 @@ private CategoriasDAO categoriaDAO;
 		this.listarCtgs = listarCtgs;
 	}
 
-public String GuardarCategoria(Categorias categoria) {
+public String NuevaCategoria(Categorias categoria) {
 	categoriaDAO.NuevoCategoria(categoria);
 	ListarCategoria();
-	 return "Se guardado la categoria";
+	 return "Se ha guardado la categoria";
 }
 public String ListarCategoria() {
 	listarCtgs= categoriaDAO.listarCategoriaN();
