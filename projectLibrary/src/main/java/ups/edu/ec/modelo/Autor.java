@@ -21,7 +21,6 @@ public class Autor {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-@NotNull
 @Column(name="idautor")
 private int idautor;
 @NotNull

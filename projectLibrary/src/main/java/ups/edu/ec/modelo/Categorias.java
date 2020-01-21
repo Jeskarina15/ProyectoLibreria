@@ -23,7 +23,6 @@ public class Categorias {
 
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	@Column(name="idcategoria")
 	@Id
 	private int idcategoria;
