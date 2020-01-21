@@ -20,7 +20,7 @@ public class AutoresDAO {
 	
 	/**
 	 * agrega una nueva isntancia de entidad al contexto de persistencia 
-	 * @param autor
+	 * @param autor 
 	 */
 	public void NuevoAutor(Autor autor) {
 	em.persist(autor);	
