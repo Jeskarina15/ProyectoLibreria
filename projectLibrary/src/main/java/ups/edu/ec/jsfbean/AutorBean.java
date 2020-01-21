@@ -76,7 +76,7 @@ public class AutorBean {
 		return "Se ha creado el autor";
 	}
 	/**
-	 * 
+	 * metodo clase bean, eliminar autor
 	 * @param autor
 	 * @return
 	 */
@@ -85,7 +85,7 @@ public class AutorBean {
 		return "Se ha eliminado el autor";
 	}
 	/**
-	 * 
+	 * metodo clase bean, actualizar autor
 	 * @param idautor
 	 * @param nombreA
 	 * @return
@@ -97,7 +97,7 @@ public class AutorBean {
 		return "se ha actualizado el autor";
 	}
 	/**
-	 * 
+	 * metodo clase bean, listar autores
 	 * @return
 	 */
 	public String listarAutores() {
@@ -105,7 +105,7 @@ public class AutorBean {
 		return null;
 	}
 	/**
-	 * 
+	 * metodo clase bean, obtener id
 	 * @return
 	 */
 	public String getId() {

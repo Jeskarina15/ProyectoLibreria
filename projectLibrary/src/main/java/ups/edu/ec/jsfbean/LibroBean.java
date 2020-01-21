@@ -14,55 +14,86 @@ import ups.edu.ec.modelo.Libro;
 @ViewScoped
 public class LibroBean {
 
-	//atributo tipo libro 
 private int idc;
 private Libro libro;
-//lista para los libros
 private List<Libro> libros;
-
 @Inject
 private LibroDAO libroDAO;
-//private GestionLibroLocal gestioL;
-
-//inicializamos libro para evitar el nullpointerexception
 @PostConstruct
 public void init() {
 	libro =new Libro();
 }
-//gets y sets de los atributos
+/**
+ * metodo getlibro
+ * @return
+ */
 public Libro getLibro() {
 	return libro;
 }
-
+/**
+ * metodo setlibro
+ * @param libro
+ */
 public void setLibro(Libro libro) {
 	this.libro = libro;
 }
-
+/**
+ * metodo get lista de libros
+ * @return
+ */
 public List<Libro> getLibros() {
 	return libros;
 }
-
+/**
+ * metodo set libros
+ * @param libros recibe una lista de tipo libro
+ */
 public void setLibros(List<Libro> libros) {
 	this.libros = libros;
 }
+/**
+ * metodo setlibros
+ * @return el identificador de la clase de tipo entero
+ */
 public int getIdc() {
 	return idc;
 }
+/**
+ * 
+ * @param idc
+ */
 public void setIdc(int idc) {
 	this.idc = idc;
 }
-//listar los libros
+/**
+ * 
+ * @return
+ */
 public String listarLibros() {
 	libros=libroDAO.listarLibro();
 	return null;
 }
-//eliminar libro
+/**
+ * 
+ * @param idLibro
+ * @return
+ */
 public String EliminarLibro(int idLibro) {
 	System.out.println(idLibro);
 	libroDAO.eliminarLibro(idLibro);
 	return "Se ha eliminado el libro ";
 }
-//actualizar libro
+/**
+ * 
+ * @param idLibro
+ * @param ISBN
+ * @param desc
+ * @param edicion
+ * @param Image
+ * @param Titulo
+ * @param nump
+ * @return
+ */
 public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump) {
 	libro.setIdlibro(idLibro);
 	libro.setIsbn(ISBN);
@@ -75,11 +106,18 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 	return "Se ha actualizado correctamente";
 	
 }
-
+/**
+ * 
+ * @return
+ */
 public String guardarLibro() {
 	libroDAO.NuevoLibro(libro);
 	return "se ha guardado el libro";
 }
+/**
+ * 
+ * @return
+ */
 public String getId() {
 	idc=libroDAO.getid();
 	return null;

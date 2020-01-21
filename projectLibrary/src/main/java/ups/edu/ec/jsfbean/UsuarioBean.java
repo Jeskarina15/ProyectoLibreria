@@ -32,38 +32,68 @@ public void init() {
 	usuario=new Usuarios();
 
 }
-
+/**
+ * 
+ * @return
+ */
 public Usuarios getUsuario() {
 	return usuario;
 }
-
+/**
+ * 
+ * @param usuario
+ */
 public void setUsuario(Usuarios usuario) {
 	this.usuario = usuario;
 }
-
+/**
+ * 
+ * @return
+ */
 public List<Usuarios> getListaU() {
 	return listaU;
 }
-
+/**
+ * 
+ * @param listaU
+ */
 public void setListaU(List<Usuarios> listaU) {
 	this.listaU = listaU;
 }
-
+/**
+ * 
+ * @return
+ */
 public int getIdc() {
 	return idc;
 }
-
+/**
+ * 
+ * @param idc
+ */
 public void setIdc(int idc) {
 	this.idc = idc;
 }
-
+/**
+ * 
+ * @return
+ */
 public String crearUsuario() {
 	System.out.println(usuario);
 	usuarioDAO.NuevoUsuario(usuario);
-
-	//ListarUsuarios();
 	return "se ha creado el usuario";
 }
+/**
+ * 
+ * @param idUsuario
+ * @param nombre
+ * @param email
+ * @param telefono
+ * @param User
+ * @param password
+ * @param Rol
+ * @return
+ */
 public String actualizarUsuario(int idUsuario, String nombre, String email, String telefono, String User, String password, String Rol) {
 	usuario.setIdusuario(idUsuario);
 	usuario.setNombreu(nombre);
@@ -76,14 +106,27 @@ public String actualizarUsuario(int idUsuario, String nombre, String email, Stri
 	usuarioDAO.ActualizarUsuario(usuario);
 	return null;
 }
+/**
+ * 
+ * @param idUsuario
+ * @return
+ */
 public String eliminarUsuario(int idUsuario){
 	usuarioDAO.EliminarUsuario(idUsuario);
 	return "se ha eliminado el usuario";
 }
+/**
+ * 
+ * @return
+ */
 public String ListarUsuarios() {
 	listaU =usuarioDAO.listarUsuario();
 	return null;
 }
+/**
+ * 
+ * @return
+ */
 public String getId() {
 	idc=usuarioDAO.getid();
 	return null;
