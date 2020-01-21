@@ -56,7 +56,12 @@
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Descripcion</span>
   </div>
-  <h:inputText value="#{libroBean.libro.desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" /> 
+  <h:inputText value="#{libroBean.libro.desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+</div>
+<div>
+  <h:selectOneMenu value="#{categoriaBean.nombresCtgs}" var="libro" class="custom-select d-block w-100">
+  <f:selectItems value="#{libro.categoria}"/>
+  </h:selectOneMenu> 
 </div>
    	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">
    	    	   </h:commandButton>

@@ -18,6 +18,7 @@ public class CategoriaBean {
 private Categorias c;
 
 private List<Categorias> listarCtgs;
+private List<Categorias> nombresCtgs;
 private int idc;
 @Inject
 private CategoriasDAO categoriaDAO;
@@ -55,6 +56,20 @@ private CategoriasDAO categoriaDAO;
 	public void setListarCtgs(List<Categorias> listarCtgs) {
 		this.listarCtgs = listarCtgs;
 	}
+	/**
+	 * 
+	 * @return
+	 */
+public List<Categorias> getNombresCtgs() {
+		return nombresCtgs;
+	}
+	/**
+	 * 
+	 * @param nombresCtgs
+	 */
+	public void setNombresCtgs(List<Categorias> nombresCtgs) {
+		this.nombresCtgs = nombresCtgs;
+	}
 /**
  * 
  * @return
@@ -70,6 +85,14 @@ public String NuevaCategoria() {
  */
 public String ListarCategoria() {
 	listarCtgs= categoriaDAO.listarCategorias();
+	return null;
+}
+/**
+ * 
+ * @return
+ */
+public String listarNombreCategorias() {
+	nombresCtgs=categoriaDAO.listarCategoriaN();
 	return null;
 }
 /**
