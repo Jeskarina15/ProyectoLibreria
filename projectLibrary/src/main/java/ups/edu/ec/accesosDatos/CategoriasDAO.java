@@ -63,6 +63,7 @@ public class CategoriasDAO {
 		String jpql = "select categoria from libros.categoria";
 		Query query = em.createNativeQuery(jpql, Categorias.class);
 		List<Categorias> categorias = query.getResultList();
+		
 		return categorias;	
 	}
 	/**

@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/html">
 <h:head>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"/>
 </h:head> 
@@ -59,8 +60,9 @@
   <h:inputText value="#{libroBean.libro.desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
 </div>
 <div>
-  <h:selectOneMenu value="#{categoriaBean.nombresCtgs}" var="libro" class="custom-select d-block w-100">
-  <f:selectItems value="#{libro.categoria}"/>
+  <h:selectOneMenu value="#{categoriaBean.categoria.categoria}" var="libro" style="width:125px"  id="categoria">
+  <f:selectItems value="#{categoriaBean.nombresCtgs}"/>
+  <f:ajax render="categoria" execute="@all"> </f:ajax>
   </h:selectOneMenu> 
 </div>
    	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">
