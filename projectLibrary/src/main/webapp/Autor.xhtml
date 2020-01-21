@@ -29,7 +29,9 @@
     <label for="nombrea">Nombre del autor</label>
     <h:inputText class="form-control" value="#{autorBean.autor.nombreautor}" id="nombrea"/>
    </div>
-   	<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear autor" action="#{autorBean.nuevoAutor()}"></h:commandButton>
+   	<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear autor" action="#{autorBean.nuevoAutor()}">
+   	<f:ajax render="tablaautores" execute="@all"> </f:ajax>
+   	</h:commandButton>
 	</h:form>
 	</div>
 	

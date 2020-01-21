@@ -69,7 +69,7 @@ public String NuevaCategoria() {
  * @return
  */
 public String ListarCategoria() {
-	listarCtgs= categoriaDAO.listarCategoriaN();
+	listarCtgs= categoriaDAO.listarCategorias();
 	return null;
 }
 /**

@@ -53,7 +53,7 @@ public class AutoresDAO {
 	 * @return
 	 */
 	public List<Autor> listarAutor(){
-		String jpql = "SELECT * FROM libros.categoria";
+		String jpql = "SELECT * FROM libros.autor";
 		Query query = em.createNativeQuery(jpql, Autor.class);
 		List<Autor> nivel = query.getResultList();
 		return nivel;	

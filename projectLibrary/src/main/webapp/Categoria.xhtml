@@ -29,7 +29,9 @@
     <label for="formGroupExampleInput2">Nombre de la categoria</label>
     <h:inputText class="form-control" value="#{categoriaBean.categoria.categoria}" id="nombrea"/>
    </div>
-   	<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear categoria" action="#{categoriaBean.NuevaCategoria()}"></h:commandButton>
+   	<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear categoria" action="#{categoriaBean.NuevaCategoria()}">
+   	<f:ajax render="idcate" execute="@all"> </f:ajax>
+   	</h:commandButton>
 	</h:form>
 	</div>
 	<div class="col-md-6">
