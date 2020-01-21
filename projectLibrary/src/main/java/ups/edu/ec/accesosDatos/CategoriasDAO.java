@@ -67,8 +67,7 @@ public class CategoriasDAO {
 		return categorias;	
 	}
 	/**
-	 * Devuelve el id de la tabla categoria
-	 * @return
+	 * @return  Devuelve el id de la tabla categoria
 	 */
 	public int getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"categoria\"";
