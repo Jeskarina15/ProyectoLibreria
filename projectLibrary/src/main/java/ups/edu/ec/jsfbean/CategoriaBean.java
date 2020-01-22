@@ -27,21 +27,7 @@ private CategoriasDAO categoriaDAO;
 	@PostConstruct
 	public void init() {
 	c=new Categorias();
-	nombresCtgs=categoriaDAO.listarCategoriaN();
-	}
-	/**
-	 * 
-	 * @return
-	 */
-	public Categorias getCategoria() {
-		return c;
-	}
-	/**
-	 * 
-	 * @param categoria
-	 */
-	public void setCategoria(Categorias categoria) {
-		this.c = categoria;
+	nombresCtgs=categoriaDAO.listarCategorias(); 
 	}
 	/**
 	 * 
@@ -71,6 +57,13 @@ public List<Categorias> getNombresCtgs() {
 	public void setNombresCtgs(List<Categorias> nombresCtgs) {
 		this.nombresCtgs = nombresCtgs;
 	}
+	
+public Categorias getC() {
+		return c;
+	}
+	public void setC(Categorias c) {
+		this.c = c;
+	}
 /**
  * 
  * @return
@@ -86,14 +79,6 @@ public String NuevaCategoria() {
  */
 public String ListarCategoria() {
 	listarCtgs= categoriaDAO.listarCategorias();
-	return null;
-}
-/**
- * 
- * @return
- */
-public String listarNombreCategorias() {
-	nombresCtgs=categoriaDAO.listarCategoriaN();
 	return null;
 }
 /**

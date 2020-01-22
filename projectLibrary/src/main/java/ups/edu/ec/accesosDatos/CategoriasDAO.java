@@ -53,18 +53,8 @@ public class CategoriasDAO {
 		String jpql = "SELECT * FROM libros.categoria";
 		Query query = em.createNativeQuery(jpql, Categorias.class);
 		List<Categorias> nivel = query.getResultList();
+		System.out.println(nivel);
 		return nivel;	
-	}
-	/**
-	 * Listar categorias
-	 * @return
-	 */
-	public List<Categorias> listarCategoriaN(){
-		String jpql = "select categoria from libros.categoria;";
-		Query query = em.createNativeQuery(jpql, Categorias.class);
-		List<Categorias> categorias = query.getResultList();
-		System.out.println(categorias);
-		return categorias;	
 	}
 	/**
 	 * @return  Devuelve el id de la tabla categoria

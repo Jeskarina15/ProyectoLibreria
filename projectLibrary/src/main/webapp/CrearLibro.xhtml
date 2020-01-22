@@ -63,8 +63,8 @@
   <h:inputText value="#{libroBean.libro.desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
 </div>
 <div>
-  <h:selectOneMenu value="#{categoriaBean.categoria.categorialibro}">
-  <f:selectItems value="#{categoriaBean.nombresCtgs}" />
+  <h:selectOneMenu value="#{categoriaBean.c.categorialibro}">
+  <f:selectItems value="#{categoriaBean.nombresCtgs}" var="nombre" itemValue="#{nombre.categoria}" />
   </h:selectOneMenu> 
 </div>
    	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">
