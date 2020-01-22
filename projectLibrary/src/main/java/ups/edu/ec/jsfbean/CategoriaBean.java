@@ -1,5 +1,4 @@
 package ups.edu.ec.jsfbean;
-
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -27,7 +26,7 @@ private CategoriasDAO categoriaDAO;
 	@PostConstruct
 	public void init() {
 	c=new Categorias();
-	nombresCtgs=categoriaDAO.listarCategorias(); 
+	nombresCtgs=categoriaDAO.listarCategorias();
 	}
 	/**
 	 * 

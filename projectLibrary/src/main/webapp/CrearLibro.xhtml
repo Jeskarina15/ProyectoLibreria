@@ -64,7 +64,7 @@
 </div>
 <div>
   <h:selectOneMenu value="#{categoriaBean.c.categorialibro}">
-  <f:selectItems value="#{categoriaBean.nombresCtgs}" var="nombre" itemValue="#{nombre.categoria}" />
+  <f:selectItems value="#{categoriaBean.nombresCtgs.iterator().next().categoria}"/>
   </h:selectOneMenu> 
 </div>
    	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">

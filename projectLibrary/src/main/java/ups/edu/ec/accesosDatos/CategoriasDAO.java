@@ -46,14 +46,13 @@ public class CategoriasDAO {
 	return em.find(Categorias.class, categoria);	
 	}
 	/**
-	 * Listar todas llos datos de la tabla categoria
+	 * Listar todas los datos de la tabla categoria
 	 * @return
 	 */
 	public List<Categorias> listarCategorias(){
 		String jpql = "SELECT * FROM libros.categoria";
 		Query query = em.createNativeQuery(jpql, Categorias.class);
 		List<Categorias> nivel = query.getResultList();
-		System.out.println(nivel);
 		return nivel;	
 	}
 	/**
