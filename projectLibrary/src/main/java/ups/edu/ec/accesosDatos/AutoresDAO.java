@@ -74,8 +74,9 @@ public class AutoresDAO {
 	 */
 	public int getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"autor\"";
-		Query query = em.createNativeQuery(jpql, Categorias.class);
-		int idc = query.getFirstResult();
+		Query query = em.createNativeQuery(jpql);
+		int idc = query.executeUpdate();
+		System.out.println("afaessze"+idc);
 		return idc;	
 	}
 }

@@ -98,19 +98,12 @@ public String ActualizarCategoria(int idc, String categoria) {
 	categoriaDAO.ActualizarCategoria(c);
 	return "Se ha actualizado la categoria";
 }
-/**
- * 
- * @param idc
- */
+public int getIdc() {
+	return idc;
+}
 public void setIdc(int idc) {
 	this.idc = idc;
 }
-/**
- * 
- * @return
- */
-public String getId() {
-	idc=categoriaDAO.getid();
-	return null;
-}
+
+
 }

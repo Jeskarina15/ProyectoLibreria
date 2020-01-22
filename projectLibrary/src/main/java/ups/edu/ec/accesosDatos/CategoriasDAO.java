@@ -66,8 +66,8 @@ public class CategoriasDAO {
 	 */
 	public int getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"categoria\"";
-		Query query = em.createNativeQuery(jpql, Categorias.class);
-		int idc = query.getFirstResult();
+		Query query = em.createNativeQuery(jpql);
+		int idc =Integer.parseInt(query.getSingleResult().toString());
 		return idc;	
 	}
 	
