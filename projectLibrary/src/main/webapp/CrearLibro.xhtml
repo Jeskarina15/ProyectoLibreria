@@ -14,9 +14,14 @@
 	<div class="container">
 	<div class="row">
 	<div class="col-md-4 order-md-2 mb-4">
-	<h:graphicImage value="#{libroBean.libro.image}" class="img-thumbnail" id="imae">
-	<f:ajax render="imae" execute="@all"> </f:ajax>
-	</h:graphicImage> 
+	<img class="img-thumbnail" id="img" ></img>
+	<button onclick="upload()" class="btn btn-secondary btn-lg btn-block">Cargar imagen</button>
+	<script>
+	function upload() {
+	var fileinput=document.getElementById("url");
+	var filename =fileinput.value;
+		}
+	</script>
 	</div>
 	<div class="col-md-8 order-md-1">
 	<h:form id="formulario">
@@ -58,9 +63,8 @@
   <h:inputText value="#{libroBean.libro.desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
 </div>
 <div>
-  <h:selectOneMenu value="#{categoriaBean.categoria.categoria}" var="libro" style="width:125px"  id="categoria">
-  <f:selectItems value="#{categoriaBean.nombresCtgs}"/>
-  <f:ajax render="categoria" execute="@all"> </f:ajax>
+  <h:selectOneMenu value="#{categoriaBean.categoria.categorialibro}">
+  <f:selectItems value="#{categoriaBean.nombresCtgs}" />
   </h:selectOneMenu> 
 </div>
    	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">

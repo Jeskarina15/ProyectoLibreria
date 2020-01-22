@@ -27,6 +27,7 @@ private CategoriasDAO categoriaDAO;
 	@PostConstruct
 	public void init() {
 	c=new Categorias();
+	nombresCtgs=categoriaDAO.listarCategoriaN();
 	}
 	/**
 	 * 
