@@ -64,7 +64,10 @@
 </div>
 <div>
   <h:selectOneMenu value="#{categoriaBean.c.categorialibro}">
-  <f:selectItems value="#{categoriaBean.nombresCtgs.iterator().next().categoria}"/>
+  <f:selectItems value="#{categoriaBean.nombresCtgs}"/>
+  </h:selectOneMenu> 
+  <h:selectOneMenu value="#{autorBean.autor.autorlibro}">
+  <f:selectItems value="#{autorBean.listNA}"/>
   </h:selectOneMenu> 
 </div>
    	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">

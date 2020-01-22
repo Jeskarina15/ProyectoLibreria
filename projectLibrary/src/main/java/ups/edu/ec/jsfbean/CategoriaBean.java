@@ -17,7 +17,7 @@ public class CategoriaBean {
 private Categorias c;
 
 private List<Categorias> listarCtgs;
-private List<Categorias> nombresCtgs;
+private List<String> nombresCtgs;
 private int idc;
 @Inject
 private CategoriasDAO categoriaDAO;
@@ -26,7 +26,8 @@ private CategoriasDAO categoriaDAO;
 	@PostConstruct
 	public void init() {
 	c=new Categorias();
-	nombresCtgs=categoriaDAO.listarCategorias();
+	nombresCtgs=categoriaDAO.listarCt();
+	int idc=categoriaDAO.getid();
 	}
 	/**
 	 * 
@@ -46,19 +47,15 @@ private CategoriasDAO categoriaDAO;
 	 * 
 	 * @return
 	 */
-public List<Categorias> getNombresCtgs() {
-		return nombresCtgs;
-	}
-	/**
-	 * 
-	 * @param nombresCtgs
-	 */
-	public void setNombresCtgs(List<Categorias> nombresCtgs) {
-		this.nombresCtgs = nombresCtgs;
-	}
-	
+
 public Categorias getC() {
 		return c;
+	}
+	public List<String> getNombresCtgs() {
+		return nombresCtgs;
+	}
+	public void setNombresCtgs(List<String> nombresCtgs) {
+		this.nombresCtgs = nombresCtgs;
 	}
 	public void setC(Categorias c) {
 		this.c = c;
@@ -100,13 +97,6 @@ public String ActualizarCategoria(int idc, String categoria) {
 	c.setCategoria(categoria);
 	categoriaDAO.ActualizarCategoria(c);
 	return "Se ha actualizado la categoria";
-}
-/**
- * 
- * @return
- */
-public int getIdc() {
-	return idc;
 }
 /**
  * 

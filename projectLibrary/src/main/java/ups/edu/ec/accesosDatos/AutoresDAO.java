@@ -62,10 +62,10 @@ public class AutoresDAO {
 	 * listar nombres de autores
 	 * @return
 	 */
-	public List<Autor> listarNAutor(){
+	public List<String> listarNAutor(){
 		String jpql = "select nombreautor from libros.autor";
-		Query query = em.createNativeQuery(jpql, Autor.class);
-		List<Autor> nombre = query.getResultList();
+		Query query = em.createNativeQuery(jpql);
+		List<String> nombre = query.getResultList();
 		return nombre;	
 	}
 	/**

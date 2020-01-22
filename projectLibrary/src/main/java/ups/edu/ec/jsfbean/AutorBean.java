@@ -17,13 +17,25 @@ public class AutorBean {
 	private Autor autor;
 	private int idc;
 	private List<Autor> listarA;
+	private List<String> listNA;
 	@Inject
 	private AutoresDAO autorDAO; 
 
 	@PostConstruct
 	public void init() {
 	autor=new Autor();	
+	listNA=autorDAO.listarNAutor();
+	idc=autorDAO.getid();
 	}
+	
+	public List<String> getListNA() {
+		return listNA;
+	}
+
+	public void setListNA(List<String> listNA) {
+		this.listNA = listNA;
+	}
+
 	/**
 	 * metodo get autor
 	 * @return
@@ -102,14 +114,6 @@ public class AutorBean {
 	 */
 	public String listarAutores() {
 		listarA=autorDAO.listarAutor();
-		return null;
-	}
-	/**
-	 * metodo clase bean, obtener id
-	 * @return
-	 */
-	public String getId() {
-		idc=autorDAO.getid();
 		return null;
 	}
 	}

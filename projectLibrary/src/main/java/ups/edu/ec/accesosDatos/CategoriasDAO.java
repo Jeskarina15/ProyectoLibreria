@@ -55,6 +55,12 @@ public class CategoriasDAO {
 		List<Categorias> nivel = query.getResultList();
 		return nivel;	
 	}
+	public List<String> listarCt(){
+		String jpql = "SELECT categoria FROM libros.categoria";
+		Query query = em.createNativeQuery(jpql);
+		List<String> nivel = query.getResultList();
+		return nivel;	
+	}
 	/**
 	 * @return  Devuelve el id de la tabla categoria
 	 */
