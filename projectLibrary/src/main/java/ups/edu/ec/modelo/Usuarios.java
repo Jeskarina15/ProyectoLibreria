@@ -1,10 +1,16 @@
 package ups.edu.ec.modelo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -49,6 +55,17 @@ private String password;
 @Column(name = "rol")
 @NotEmpty
 private String rol;
+
+@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+@JoinColumn(name="idusuario")
+private List<FacturaCabecera> listaFacturas;
+
+public List<FacturaCabecera> getListaFacturas() {
+	return listaFacturas;
+}
+public void setListaFacturas(List<FacturaCabecera> listaFacturas) {
+	this.listaFacturas = listaFacturas;
+}
 public int getIdusuario() {
 	return idusuario;
 }
