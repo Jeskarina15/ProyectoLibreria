@@ -15,7 +15,7 @@ import ups.edu.ec.modelo.Autor;
 public class AutorBean {
 	
 	private Autor autor;
-	private int idc;
+	private List<Integer> idc;
 	private List<Autor> listarA;
 	private List<String> listNA;
 	@Inject
@@ -64,20 +64,15 @@ public class AutorBean {
 	public void setListarA(List<Autor> listarA) {
 		this.listarA = listarA;
 	}
-	/**
-	 * metodo getid
-	 * @return
-	 */
-	public int getIdc() {
+	
+	public List<Integer> getIdc() {
 		return idc;
 	}
-	/**
-	 * metodo setid
-	 * @param idc
-	 */
-	public void setIdc(int idc) {
+
+	public void setIdc(List<Integer> idc) {
 		this.idc = idc;
 	}
+
 	/**
 	 * metodo clase bean, crear nuevo autor 
 	 * @return

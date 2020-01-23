@@ -64,11 +64,19 @@ public class CategoriasDAO {
 	/**
 	 * @return  Devuelve el id de la tabla categoria
 	 */
-	public int getid() {
+	public List<Integer> getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"categoria\"";
 		Query query = em.createNativeQuery(jpql);
-		int idc =Integer.parseInt(query.getSingleResult().toString());
-		return idc;	
+		List<Integer> v=query.getResultList();
+		return v;	
 	}
+	public int getidcategoria(String categoria) {
+		String jpql = "select idcategoria from libros.categoria where categoria=:categoria";
+		Query query = em.createNativeQuery(jpql);
+		query.setParameter("categoria", categoria);
+		List<Integer> nivel = query.getResultList();
+		return nivel.get(0);
+	}
+	
 	
 }

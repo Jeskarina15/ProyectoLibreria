@@ -14,7 +14,7 @@ import ups.edu.ec.modelo.Libro;
 @ViewScoped
 public class LibroBean {
 
-private int idc;
+private List<Integer> idc;
 private Libro libro;
 private List<Libro> libros;
 @Inject
@@ -22,6 +22,7 @@ private LibroDAO libroDAO;
 @PostConstruct
 public void init() {
 	libro =new Libro();
+	idc=libroDAO.getid();
 }
 /**
  * metodo getlibro
@@ -51,18 +52,11 @@ public List<Libro> getLibros() {
 public void setLibros(List<Libro> libros) {
 	this.libros = libros;
 }
-/**
- * metodo setlibros
- * @return el identificador de la clase de tipo entero
- */
-public int getIdc() {
+
+public List<Integer> getIdc() {
 	return idc;
 }
-/**
- * 
- * @param idc
- */
-public void setIdc(int idc) {
+public void setIdc(List<Integer> idc) {
 	this.idc = idc;
 }
 /**

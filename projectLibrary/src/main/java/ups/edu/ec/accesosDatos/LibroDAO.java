@@ -88,10 +88,10 @@ public class LibroDAO {
 	 * Devuelve el id de la tabla libro
 	 * @return
 	 */
-	public int getid() {
+	public List<Integer> getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"libro\"";
 		Query query = em.createNativeQuery(jpql, Categorias.class);
-		int idc = query.getFirstResult();
+		List<Integer> idc=query.getResultList();
 		return idc;	
 	}
 }

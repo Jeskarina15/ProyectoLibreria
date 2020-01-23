@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="resources/css/bootstrap.min.css"></link>
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="css/tooplate.css"></link>
+   <!-- jQuery --> 
+ 
+   <script crossorigin="anonymous" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>    
+ 
+    <!-- Chart JS -->
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js" integrity="sha256-JG6hsuMjFnQ2spWq0UiaDRJBaarzhFbUxiUTxQDA9Lk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js" integrity="sha256-J2sc79NPV/osLcIpzL3K8uJyAD7T5gaEFKlLDM18oxY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js" integrity="sha256-CfcERD4Ov4+lKbWbYqXD6aFM9M51gN4GUEtDhkWABMo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/datos.js"></script>
 </h:head> 
 <body> 
 <div class="container">
@@ -23,7 +34,7 @@
 	<h:form>
    <div class="form-group">
     <label for="formGroupExampleInput">Id categoria</label>
-    <h:inputText class="form-control" value="#{categoriaBean.idc}" id="idcate"/>
+    <h:inputText class="form-control" value="#{categoriaBean.id}" id="idcate"/>
    </div>
    <div class="form-group">
     <label for="formGroupExampleInput2">Nombre de la categoria</label>
@@ -60,6 +71,14 @@
 
 	</h:column>
 	</h:dataTable>
+<div class="row">
+   <div class="col-md-12">
+ 
+       <canvas id="miGrafico"></canvas> 
+              
+   </div>
+</div> 
+	
 	</h:form>
 	</div>
 </div>

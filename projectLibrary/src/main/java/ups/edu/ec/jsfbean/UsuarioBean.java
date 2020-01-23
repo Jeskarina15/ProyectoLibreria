@@ -17,21 +17,26 @@ import ups.edu.ec.negocio.GestionLibroLocal;
 @ViewScoped
 public class UsuarioBean {
 
-//atributo tipo usuario	
-private int idc;
+private List<Integer> idc;
 private Usuarios usuario; 
-//list =lista de usuarios
 private List<Usuarios> listaU;
 @Inject
 private UsuarioDAO usuarioDAO;
-//private GestionLibroLocal gestioL;
-
 
 @PostConstruct
 public void init() {
 	usuario=new Usuarios();
-
+	idc=usuarioDAO.getid();
 }
+
+public List<Integer> getIdc() {
+	return idc;
+}
+
+public void setIdc(List<Integer> idc) {
+	this.idc = idc;
+}
+
 /**
  * 
  * @return
@@ -59,20 +64,6 @@ public List<Usuarios> getListaU() {
  */
 public void setListaU(List<Usuarios> listaU) {
 	this.listaU = listaU;
-}
-/**
- * 
- * @return
- */
-public int getIdc() {
-	return idc;
-}
-/**
- * 
- * @param idc
- */
-public void setIdc(int idc) {
-	this.idc = idc;
 }
 /**
  * 
@@ -123,12 +114,5 @@ public String ListarUsuarios() {
 	listaU =usuarioDAO.listarUsuario();
 	return null;
 }
-/**
- * 
- * @return
- */
-public String getId() {
-	idc=usuarioDAO.getid();
-	return null;
 }
-}
+

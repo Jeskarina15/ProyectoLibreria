@@ -18,7 +18,7 @@ private Categorias c;
 
 private List<Categorias> listarCtgs;
 private List<String> nombresCtgs;
-private int idc;
+private Integer id; 
 @Inject
 private CategoriasDAO categoriaDAO;
 	
@@ -27,7 +27,12 @@ private CategoriasDAO categoriaDAO;
 	public void init() {
 	c=new Categorias();
 	nombresCtgs=categoriaDAO.listarCt();
-	int idc=categoriaDAO.getid();
+	//id=categoriaDAO.getid();
+	id=id();
+	}
+	
+	public int id() {
+		return categoriaDAO.getid().get(0);
 	}
 	/**
 	 * 
@@ -98,12 +103,13 @@ public String ActualizarCategoria(int idc, String categoria) {
 	categoriaDAO.ActualizarCategoria(c);
 	return "Se ha actualizado la categoria";
 }
-public int getIdc() {
-	return idc;
-}
-public void setIdc(int idc) {
-	this.idc = idc;
+
+public Integer getId() {
+	return id;
 }
 
+public void setId(Integer id) {
+	this.id = id;
+}
 
 }

@@ -61,10 +61,10 @@ public class UsuarioDAO {
 	 * Devuelve el id de la tabla usuarios
 	 * @return
 	 */
-	public int getid() {
+	public List<Integer> getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"usuarios\"";
 		Query query = em.createNativeQuery(jpql, Categorias.class);
-		int idc = query.getFirstResult();
+		List<Integer> idc=query.getResultList();
 		return idc;	
 	}
 }
