@@ -23,14 +23,13 @@
 	<h:form>
    <div class="form-group">
     <label for="ida">Codigo del autor</label>
-    <h:inputText class="form-control" value="#{autorBean.idc}" id="ida"/>
+    <h:inputText disabled="true" class="form-control" value="#{autorBean.idc}" id="ida"/>
    </div>
    <div class="form-group">
     <label for="nombrea">Nombre del autor</label>
     <h:inputText class="form-control" value="#{autorBean.autor.nombreautor}" id="nombrea"/>
    </div>
    	<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear autor" action="#{autorBean.nuevoAutor()}">
-   	<f:ajax render="tablaautores" execute="@all"> </f:ajax>
    	</h:commandButton>
 	</h:form>
 	</div>

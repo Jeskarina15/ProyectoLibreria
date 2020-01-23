@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -64,10 +65,10 @@ public class CategoriasDAO {
 	/**
 	 * @return  Devuelve el id de la tabla categoria
 	 */
-	public List<Integer> getid() {
+	public int getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"categoria\"";
 		Query query = em.createNativeQuery(jpql);
-		List<Integer> v=query.getResultList();
+		Integer v= new Integer(query.getResultList().get(0).toString());
 		return v;	
 	}
 	public int getidcategoria(String categoria) {

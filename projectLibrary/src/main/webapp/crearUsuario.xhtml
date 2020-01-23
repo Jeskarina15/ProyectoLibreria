@@ -28,7 +28,7 @@
    <div class="form-row">
     <div class="form-group col-md-2">
       <h:outputLabel value="idUsuario" for="idusuario"/>
-      <h:inputText  class="form-control" value="#{usuarioBean.idc}" id="idusuario"/>
+      <h:inputText disabled="true" class="form-control" value="#{usuarioBean.idc}" id="idusuario"/>
       <h:message for="idusuario"/>
     </div>
     <div class="form-group col-md-10">
@@ -62,7 +62,9 @@
       <h:message for="rol"/>
     <h:message for="rol"/>
   </div>
-<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear Usuario" action="#{usuarioBean.crearUsuario()}"></h:commandButton>
+<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear Usuario" action="#{usuarioBean.crearUsuario()}">
+<f:ajax render="idusuario" execute="@all"> </f:ajax>
+</h:commandButton>
   </div>
 	</h:form>
 </div>

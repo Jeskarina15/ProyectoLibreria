@@ -27,12 +27,7 @@ private CategoriasDAO categoriaDAO;
 	public void init() {
 	c=new Categorias();
 	nombresCtgs=categoriaDAO.listarCt();
-	//id=categoriaDAO.getid();
-	id=id();
-	}
-	
-	public int id() {
-		return categoriaDAO.getid().get(0);
+	id=categoriaDAO.getid();
 	}
 	/**
 	 * 
@@ -72,6 +67,7 @@ public Categorias getC() {
 public String NuevaCategoria() {
 	categoriaDAO.NuevoCategoria(c);
 	ListarCategoria();
+	id=categoriaDAO.getid();
 	 return "Se ha guardado la categoria";
 }
 /**

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FcturasCabecera")
+@Table(name="FacturasCabecera")
 public class FacturaCabecera {
 	@Id
 	@Column(name="fac_cab_id")
@@ -31,8 +31,8 @@ public class FacturaCabecera {
 	private double iva;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="fac_cab_id")
-	private List<FacturaCabecera> listaFacturas;
+	@JoinColumn(name="fac_cab_id", referencedColumnName = "fac_cab_id")
+	private List<FacturaDetalle> listaFacturas;
 
 	public int getCodigo() {
 		return codigo;
@@ -65,12 +65,11 @@ public class FacturaCabecera {
 	public void setIva(double iva) {
 		this.iva = iva;
 	}
-
-	public List<FacturaCabecera> getListaFacturas() {
+	public List<FacturaDetalle> getListaFacturas() {
 		return listaFacturas;
 	}
 
-	public void setListaFacturas(List<FacturaCabecera> listaFacturas) {
+	public void setListaFacturas(List<FacturaDetalle> listaFacturas) {
 		this.listaFacturas = listaFacturas;
 	}
 

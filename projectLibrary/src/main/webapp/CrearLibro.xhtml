@@ -28,7 +28,7 @@
    <div class="form-row">
     <div class="form-group col-md-2">
       <label for="idlibro">idLibro</label>
-      <h:inputText class="form-control" value="#{libroBean.idc}" id="idLibro"></h:inputText>
+      <h:inputText disabled="true" class="form-control" value="#{libroBean.idc}" id="idLibro"></h:inputText>
       <h:message for="idLibro"/>
     </div>
     <div class="form-group col-md-10">
@@ -71,6 +71,7 @@
   </h:selectOneMenu> 
 </div>
    	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">
+   	   <f:ajax render="idLibro" execute="@all"> </f:ajax>
    	    	   </h:commandButton>
    	    
   </div>

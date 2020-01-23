@@ -17,7 +17,7 @@ import ups.edu.ec.negocio.GestionLibroLocal;
 @ViewScoped
 public class UsuarioBean {
 
-private List<Integer> idc;
+private Integer idc;
 private Usuarios usuario; 
 private List<Usuarios> listaU;
 @Inject
@@ -28,14 +28,22 @@ public void init() {
 	usuario=new Usuarios();
 	idc=usuarioDAO.getid();
 }
-
-public List<Integer> getIdc() {
+/**
+ * 
+ * @return
+ */
+public Integer getIdc() {
 	return idc;
 }
-
-public void setIdc(List<Integer> idc) {
+/**
+ * 
+ * @param idc
+ */
+public void setIdc(Integer idc) {
 	this.idc = idc;
 }
+
+
 
 /**
  * 

@@ -35,7 +35,7 @@
         </license>
     </licenses>
 
-    <properties>
+ <properties>
         <!-- Explicitly declaring the source encoding eliminates the following 
             message: -->
         <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 

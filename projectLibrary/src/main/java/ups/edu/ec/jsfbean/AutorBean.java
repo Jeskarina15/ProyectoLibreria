@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
@@ -11,11 +12,11 @@ import ups.edu.ec.accesosDatos.AutoresDAO;
 import ups.edu.ec.modelo.Autor;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class AutorBean {
 	
 	private Autor autor;
-	private List<Integer> idc;
+	private Integer idc;
 	private List<Autor> listarA;
 	private List<String> listNA;
 	@Inject
@@ -65,11 +66,11 @@ public class AutorBean {
 		this.listarA = listarA;
 	}
 	
-	public List<Integer> getIdc() {
+	public Integer getIdc() {
 		return idc;
 	}
 
-	public void setIdc(List<Integer> idc) {
+	public void setIdc(Integer idc) {
 		this.idc = idc;
 	}
 

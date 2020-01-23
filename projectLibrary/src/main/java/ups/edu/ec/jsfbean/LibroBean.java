@@ -14,7 +14,7 @@ import ups.edu.ec.modelo.Libro;
 @ViewScoped
 public class LibroBean {
 
-private List<Integer> idc;
+private Integer idc;
 private Libro libro;
 private List<Libro> libros;
 @Inject
@@ -53,10 +53,11 @@ public void setLibros(List<Libro> libros) {
 	this.libros = libros;
 }
 
-public List<Integer> getIdc() {
+
+public Integer getIdc() {
 	return idc;
 }
-public void setIdc(List<Integer> idc) {
+public void setIdc(Integer idc) {
 	this.idc = idc;
 }
 /**

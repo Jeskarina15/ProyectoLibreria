@@ -22,7 +22,7 @@ import javax.validation.constraints.Pattern;
 public class Categorias {
 
 	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="idcategoria")
 	@Id
 	private int idcategoria;

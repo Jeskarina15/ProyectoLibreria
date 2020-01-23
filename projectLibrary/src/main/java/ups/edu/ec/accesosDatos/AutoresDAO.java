@@ -72,10 +72,10 @@ public class AutoresDAO {
 	 * devuelve el valor de id de la tabla autor
 	 * @return
 	 */
-	public List<Integer> getid() {
+	public int getid() {
 		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"autor\"";
 		Query query = em.createNativeQuery(jpql);
-		List<Integer> idc=query.getResultList();
-		return idc;	
+		Integer v= new Integer(query.getResultList().get(0).toString());
+		return v;	
 	}
 }
