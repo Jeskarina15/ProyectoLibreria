@@ -20,9 +20,6 @@ public class FacturaDetalle {
 	
 	@Column(name="fac_det_producto")
 	private Libro producto;
-	
-	@Column(name="fac_det_factura_cabecera")
-	private FacturaCabecera facturaCabecera;
 
 	public int getCodigo() {
 		return codigo;
@@ -56,17 +53,9 @@ public class FacturaDetalle {
 		this.producto = producto;
 	}
 
-	public FacturaCabecera getFacturaCabecera() {
-		return facturaCabecera;
-	}
-
-	public void setFacturaCabecera(FacturaCabecera facturaCabecera) {
-		this.facturaCabecera = facturaCabecera;
-	}
-
 	@Override
 	public String toString() {
 		return "FacturaDetalle [codigo=" + codigo + ", precio=" + precio + ", cantidad=" + cantidad + ", producto="
-				+ producto + ", facturaCabecera=" + facturaCabecera + "]";
+				+ producto + "]";
 	}
 }
