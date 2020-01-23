@@ -31,13 +31,10 @@ public class FacturaCabecera {
 	private double iva;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-<<<<<<< HEAD
 	@JoinColumn(name="fac_cab_id", referencedColumnName = "fac_cab_id")
 	private List<FacturaDetalle> listaFacturas;
-=======
 	@JoinColumn(name="fac_cab_id")
 	private List<FacturaDetalle> listaDetalles;
->>>>>>> branch 'master' of https://github.com/Jeskarina15/ProyectoLibreria.git
 
 	public int getCodigo() {
 		return codigo;
@@ -70,23 +67,19 @@ public class FacturaCabecera {
 	public void setIva(double iva) {
 		this.iva = iva;
 	}
-<<<<<<< HEAD
 	public List<FacturaDetalle> getListaFacturas() {
 		return listaFacturas;
-=======
-
+	}
 	public List<FacturaDetalle> getListaDetalles() {
 		return listaDetalles;
->>>>>>> branch 'master' of https://github.com/Jeskarina15/ProyectoLibreria.git
-	}
 
-<<<<<<< HEAD
+	}
 	public void setListaFacturas(List<FacturaDetalle> listaFacturas) {
 		this.listaFacturas = listaFacturas;
-=======
+	}
 	public void setListaDetalles(List<FacturaDetalle> listaDetalles) {
 		this.listaDetalles = listaDetalles;
->>>>>>> branch 'master' of https://github.com/Jeskarina15/ProyectoLibreria.git
+
 	}
 
 	@Override
