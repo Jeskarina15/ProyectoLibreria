@@ -32,7 +32,7 @@ public class FacturaCabecera {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="fac_cab_id")
-	private List<FacturaCabecera> listaFacturas;
+	private List<FacturaDetalle> listaDetalles;
 
 	public int getCodigo() {
 		return codigo;
@@ -66,17 +66,17 @@ public class FacturaCabecera {
 		this.iva = iva;
 	}
 
-	public List<FacturaCabecera> getListaFacturas() {
-		return listaFacturas;
+	public List<FacturaDetalle> getListaDetalles() {
+		return listaDetalles;
 	}
 
-	public void setListaFacturas(List<FacturaCabecera> listaFacturas) {
-		this.listaFacturas = listaFacturas;
+	public void setListaDetalles(List<FacturaDetalle> listaDetalles) {
+		this.listaDetalles = listaDetalles;
 	}
 
 	@Override
 	public String toString() {
 		return "FacturaCabecera [codigo=" + codigo + ", fecha=" + fecha + ", total=" + total + ", iva=" + iva
-				+ ", listaFacturas=" + listaFacturas + "]";
+				+ ", listaDetalles=" + listaDetalles + "]";
 	}
 }
