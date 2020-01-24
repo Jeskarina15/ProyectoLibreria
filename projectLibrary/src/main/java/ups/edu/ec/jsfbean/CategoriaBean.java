@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
@@ -11,14 +12,13 @@ import ups.edu.ec.modelo.Categorias;
 
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class CategoriaBean {
 
 private Categorias c;
 
 private List<Categorias> listarCtgs;
 private List<String> nombresCtgs;
-private Integer id; 
 @Inject
 private CategoriasDAO categoriaDAO;
 	
@@ -27,7 +27,6 @@ private CategoriasDAO categoriaDAO;
 	public void init() {
 	c=new Categorias();
 	nombresCtgs=categoriaDAO.listarCt();
-	id=categoriaDAO.getid();
 	}
 	/**
 	 * 
@@ -67,7 +66,6 @@ public Categorias getC() {
 public String NuevaCategoria() {
 	categoriaDAO.NuevoCategoria(c);
 	ListarCategoria();
-	id=categoriaDAO.getid();
 	 return "Se ha guardado la categoria";
 }
 /**
@@ -99,13 +97,4 @@ public String ActualizarCategoria(int idc, String categoria) {
 	categoriaDAO.ActualizarCategoria(c);
 	return "Se ha actualizado la categoria";
 }
-
-public Integer getId() {
-	return id;
-}
-
-public void setId(Integer id) {
-	this.id = id;
-}
-
 }

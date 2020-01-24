@@ -41,10 +41,6 @@ private String titulolibro;
 @Column(name= "image")
 private String image;
 
-@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-@JoinColumn(name="idlibro")
-private List<FacturaDetalle> listaDetalles;
-
 /**
  * 
  * @return

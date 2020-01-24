@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -14,10 +15,9 @@ import ups.edu.ec.negocio.GestionLibroLocal;
 
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class UsuarioBean {
 
-private Integer idc;
 private Usuarios usuario; 
 private List<Usuarios> listaU;
 @Inject
@@ -26,25 +26,7 @@ private UsuarioDAO usuarioDAO;
 @PostConstruct
 public void init() {
 	usuario=new Usuarios();
-	idc=usuarioDAO.getid();
 }
-/**
- * 
- * @return
- */
-public Integer getIdc() {
-	return idc;
-}
-/**
- * 
- * @param idc
- */
-public void setIdc(Integer idc) {
-	this.idc = idc;
-}
-
-
-
 /**
  * 
  * @return

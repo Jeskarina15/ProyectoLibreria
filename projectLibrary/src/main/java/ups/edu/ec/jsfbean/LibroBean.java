@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
@@ -11,10 +12,9 @@ import ups.edu.ec.accesosDatos.LibroDAO;
 import ups.edu.ec.modelo.Libro;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class LibroBean {
 
-private Integer idc;
 private Libro libro;
 private List<Libro> libros;
 @Inject
@@ -22,7 +22,6 @@ private LibroDAO libroDAO;
 @PostConstruct
 public void init() {
 	libro =new Libro();
-	idc=libroDAO.getid();
 }
 /**
  * metodo getlibro
@@ -51,14 +50,6 @@ public List<Libro> getLibros() {
  */
 public void setLibros(List<Libro> libros) {
 	this.libros = libros;
-}
-
-
-public Integer getIdc() {
-	return idc;
-}
-public void setIdc(Integer idc) {
-	this.idc = idc;
 }
 /**
  * 
@@ -108,13 +99,5 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 public String guardarLibro() {
 	libroDAO.NuevoLibro(libro);
 	return "se ha guardado el libro";
-}
-/**
- * 
- * @return
- */
-public String getId() {
-	idc=libroDAO.getid();
-	return null;
 }
 }

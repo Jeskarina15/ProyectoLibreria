@@ -11,27 +11,9 @@
 <h:head>
 
 </h:head>
-	<div class="container">
-	<div class="row">
-	<div class="col-md-4 order-md-2 mb-4">
-	<img class="img-thumbnail" id="img" ></img>
-	<button onclick="upload()" class="btn btn-secondary btn-lg btn-block">Cargar imagen</button>
-	<script>
-	function upload() {
-	var fileinput=document.getElementById("url");
-	var filename =fileinput.value;
-		}
-	</script>
-	</div>
-	<div class="col-md-8 order-md-1">
 	<h:form id="formulario">
    <div class="form-row">
-    <div class="form-group col-md-2">
-      <label for="idlibro">idLibro</label>
-      <h:inputText disabled="true" class="form-control" value="#{libroBean.idc}" id="idLibro"></h:inputText>
-      <h:message for="idLibro"/>
-    </div>
-    <div class="form-group col-md-10">
+        <div class="form-group col-md-10">
       <label for="titulo">Titulo Libro</label>
       <h:inputText class="form-control" value="#{libroBean.libro.titulolibro}" id="titulo"></h:inputText>
       <h:message for="titulo"/>
@@ -72,14 +54,9 @@
 </div>
    	   <h:commandButton action="#{libroBean.crearLibro()}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">
    	   <f:ajax render="idLibro" execute="@all"> </f:ajax>
-   	    	   </h:commandButton>
-   	    
+   	    	   </h:commandButton>	   
   </div>
   	</h:form>
-
-	</div>
-	</div>
-	</div>
 	
 	</body>
 </html>

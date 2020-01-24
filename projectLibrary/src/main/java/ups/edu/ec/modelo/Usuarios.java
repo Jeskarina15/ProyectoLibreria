@@ -56,16 +56,7 @@ private String password;
 @NotEmpty
 private String rol;
 
-@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-@JoinColumn(name="idusuario")
-private List<FacturaCabecera> listaFacturas;
 
-public List<FacturaCabecera> getListaFacturas() {
-	return listaFacturas;
-}
-public void setListaFacturas(List<FacturaCabecera> listaFacturas) {
-	this.listaFacturas = listaFacturas;
-}
 public int getIdusuario() {
 	return idusuario;
 }
