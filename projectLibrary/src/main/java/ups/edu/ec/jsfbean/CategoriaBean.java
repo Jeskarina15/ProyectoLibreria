@@ -27,6 +27,7 @@ private CategoriasDAO categoriaDAO;
 	public void init() {
 	c=new Categorias();
 	nombresCtgs=categoriaDAO.listarCt();
+	ListarCategoria();
 	}
 	/**
 	 * 
@@ -46,7 +47,6 @@ private CategoriasDAO categoriaDAO;
 	 * 
 	 * @return
 	 */
-
 public Categorias getC() {
 		return c;
 	}

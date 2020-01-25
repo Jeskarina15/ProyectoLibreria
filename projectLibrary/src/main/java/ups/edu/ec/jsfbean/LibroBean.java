@@ -22,6 +22,7 @@ private LibroDAO libroDAO;
 @PostConstruct
 public void init() {
 	libro =new Libro();
+	listarLibros();
 }
 /**
  * metodo getlibro
