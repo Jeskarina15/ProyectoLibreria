@@ -24,7 +24,6 @@ public class GestionLibros implements GestionLibroLocal {
 	@Override
 	public void NuevoLibro(Libro libro) {
 		//libroDAO.NuevoLibro(libro);
-		
 	}
 
 	@Override
