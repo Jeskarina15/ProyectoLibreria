@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,16 +21,14 @@ import javax.validation.constraints.Pattern;
 public class Autor {
 
 @Id
-@GeneratedValue(strategy = GenerationType.SEQUENCE)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name="idautor")
 private int idautor;
 @NotNull
 @Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
 @Column(name="nombreautor")
 private String nombreautor;
-@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-@JoinColumn(name="idautorlibro", referencedColumnName = "idautor")
-private List<Libro> autorlibro;
+
 
 /**
  * 
@@ -59,22 +58,8 @@ public String getNombreautor() {
 public void setNombreautor(String nombreautor) {
 	this.nombreautor = nombreautor;
 }
-/**
- * 
- * @return
- */
-public List<Libro> getAutorlibro() {
-	return autorlibro;
-}
-/**
- * 
- * @param autorlibro
- */
-public void setAutorlibro(List<Libro> autorlibro) {
-	this.autorlibro = autorlibro;
-}
 @Override
 public String toString() {
-	return "Autor [idautor=" + idautor + ", nombreautor=" + nombreautor + ", autorlibro=" + autorlibro + "]";
+	return "Autor [idautor=" + idautor + ", nombreautor=" + nombreautor + "]";
 }
 }
