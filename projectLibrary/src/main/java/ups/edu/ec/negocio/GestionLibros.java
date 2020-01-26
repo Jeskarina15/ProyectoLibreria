@@ -23,7 +23,7 @@ public class GestionLibros implements GestionLibroLocal {
 	private List<Libro> libros;
 	@Override
 	public void NuevoLibro(Libro libro) {
-		libroDAO.NuevoLibro(libro);
+		//libroDAO.NuevoLibro(libro);
 		
 	}
 

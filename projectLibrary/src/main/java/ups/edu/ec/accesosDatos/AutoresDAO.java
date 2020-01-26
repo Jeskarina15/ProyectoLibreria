@@ -79,10 +79,11 @@ public class AutoresDAO {
 		return v;	
 	}
 	public int getidautor(String autor) {
-		String jpql = "SELECT idautor FROM libros.autor where nombreautor=:autor;";
+		String jpql = "SELECT idautor FROM libros.autor where nombreautor=:autor";
 		Query query = em.createNativeQuery(jpql);
 		query.setParameter("autor", autor);
 		Integer v= new Integer(query.getResultList().get(0).toString());
+		System.out.println("mi valor de v="+v);
 		return v;
 	}
 }

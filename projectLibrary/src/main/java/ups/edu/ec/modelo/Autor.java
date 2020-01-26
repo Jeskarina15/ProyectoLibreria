@@ -28,8 +28,6 @@ private int idautor;
 @Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
 @Column(name="nombreautor")
 private String nombreautor;
-
-
 /**
  * 
  * @return

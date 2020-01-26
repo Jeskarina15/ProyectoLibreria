@@ -301,44 +301,44 @@
    			<div class="form-row">
         	<div class="form-group col-md-10">
       		<label for="titulo">Titulo Libro</label>
-      		<h:inputText class="form-control" value="#{libroBean.libro.titulolibro}" id="titulo"></h:inputText>
+      		<h:inputText class="form-control" value="#{titulolibro}" id="titulo"></h:inputText>
       		<h:message for="titulo"/>
     		</div>
     		<div class="form-group col-md-3">
       		<label for="ISBN">ISBN</label>
-      		<h:inputText class="form-control" value="#{libroBean.libro.isbn}" id="ISBN"></h:inputText>
+      		<h:inputText class="form-control" value="#{isbn}" id="ISBN"></h:inputText>
       		<h:message for="ISBN"/>
     		</div>
     		<div class="form-group col-md-5">
       		<label for="edicion">Edicion</label>
-      		<h:inputText class="form-control" value="#{libroBean.libro.edicion}" id="edicion"></h:inputText>
+      		<h:inputText class="form-control" value="#{edicion}" id="edicion"></h:inputText>
       		<h:message for="edicion"/>
     		</div>
     		<div class="form-group col-md-4">
       		<label for="nump">Numero de paginas</label>
-      		<h:inputText class="form-control" value="#{libroBean.libro.numeroP}" id="nump"></h:inputText>
+      		<h:inputText class="form-control" value="#{numeroP}" id="nump"></h:inputText>
       		<h:message for="nump"/>
     		</div>
     		<div class="form-group col-md-12">
 		    <label for="url">URL image</label>
-      		<h:inputText class="form-control" value="#{libroBean.libro.image}" id="url"></h:inputText>
+      		<h:inputText class="form-control" value="#{image}" id="url"></h:inputText>
       		<h:message for="url"/>
     		</div>
     		<div class="input-group input-group-lg">
   			<div class="input-group-prepend">
     		<span class="input-group-text" id="inputGroup-sizing-lg">Descripcion</span>
   			</div>
-  			<h:inputText value="#{libroBean.libro.desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+  			<h:inputText value="#{desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
 			</div>
 			<div>
-  			<h:selectOneMenu value="categoria">
+  			<h:selectOneMenu value="#{categoria}">
   			<f:selectItems value="#{categoriaBean.nombresCtgs}"/>
   			</h:selectOneMenu> 
-  			<h:selectOneMenu value="#autor">
+  			<h:selectOneMenu value="#{autor}">
   			<f:selectItems value="#{autorBean.listNA}"/>
   			</h:selectOneMenu> 
 			</div>
-   	   		<h:commandButton action="#{libroBean.crearLibro(categoria,autor}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">
+   	   		<h:commandButton action="#{libroBean.guardarLibro(isbn,desclibro,edicion,image,titulolibro,numeroP,categoria,autor)}" value="Crear Libro" class="btn btn-secondary btn-lg btn-block">
    	   		<f:ajax render="idLibro" execute="@all"> </f:ajax>
    	    	</h:commandButton>	   
   			</div>

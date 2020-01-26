@@ -24,8 +24,12 @@ public class LibroDAO {
 	 * metodo para crear un nuevo libro	
 	 * @param libro
 	 */
-	public void NuevoLibro(Libro libro) {
-	em.persist(libro);	
+	public void NuevoLibro(Libro libro, int cat, int autor) {
+		String jpql = "INSERT INTO libros.libro (desclibro,edicion,image,isbn,numeropag, titulolibro, autorlibro_idautor, categorialibro_idcategoria)\r\n" + 
+				"VALUES ('"+libro.getDesclibro()+"'"+", '"+libro.getEdicion()+"', '"+libro.getImage()+"', '"+libro.getIsbn()+"', "+libro.getNumeroP()+", '"+libro.getTitulolibro()+"',"
+						+ ""+autor+","+cat+");";
+		Query query = em.createNativeQuery(jpql, Libro.class);
+		query.executeUpdate();
 	}
 	/**
 	 * Actualizar datos de la entidad libro, pasando como parametro un objeto tipo libro

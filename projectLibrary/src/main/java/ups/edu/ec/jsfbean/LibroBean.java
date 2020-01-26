@@ -1,4 +1,4 @@
-package ups.edu.ec.jsfbean;
+ package ups.edu.ec.jsfbean;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import ups.edu.ec.accesosDatos.AutoresDAO;
 import ups.edu.ec.accesosDatos.CategoriasDAO;
 import ups.edu.ec.accesosDatos.LibroDAO;
+import ups.edu.ec.modelo.Autor;
 import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Libro;
 
@@ -26,11 +27,32 @@ private LibroDAO libroDAO;
 private CategoriasDAO categoriasDAO;
 @Inject 
 private AutoresDAO autoresDAO;
+private Categorias c;
+private Autor a;
 @PostConstruct
 public void init() {
 	libro =new Libro();
+	c=new Categorias();
+	 a=new Autor();
 	listarLibros();
 }
+
+public Categorias getC() {
+	return c;
+}
+
+public void setC(Categorias c) {
+	this.c = c;
+}
+
+public Autor getA() {
+	return a;
+}
+
+public void setA(Autor a) {
+	this.a = a;
+}
+
 /**
  * metodo getlibro
  * @return
@@ -104,12 +126,17 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
  * 
  * @return
  */
-public String guardarLibro(String cat, String autor) {
+public String guardarLibro( String ISBN, String desc, String edicion, String Image,String Titulo, int nump,String cat, String autor) {
+	System.out.println("Datos"+ISBN+"+"+desc+"+"+edicion+"+"+Image+"+"+ Titulo+"+"+ nump+"+"+ cat+"+"+ autor);
 	int aut= autoresDAO.getidautor(autor);
 	int cate=categoriasDAO.getidcategoria(cat);
-	libro.getCategorialibro().setIdcategoria(cate);
-	libro.getAutorlibro().setIdautor(aut);
-	libroDAO.NuevoLibro(libro);
+	libro.setDesclibro(desc);
+	libro.setIsbn(ISBN);
+	libro.setEdicion(edicion);
+	libro.setImage(Image);
+	libro.setTitulolibro(Titulo);
+	libro.setNumeroP(nump);
+	libroDAO.NuevoLibro(libro, aut,cate);
 	return "se ha guardado el libro";
 }
 }
