@@ -26,8 +26,8 @@ public class AutorBean {
 	autor=new Autor();	
 	listNA=autorDAO.listarNAutor();
 	listarAutores();
+
 	}
-	
 	public List<String> getListNA() {
 		return listNA;
 	}
