@@ -1,18 +1,11 @@
 package ups.edu.ec.modelo;
 
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -53,10 +46,13 @@ public class Categorias {
 	public String getCategoria() {
 		return categoria;
 	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 	@Override
 	public String toString() {
 		return "Categorias [idcategoria=" + idcategoria + ", categoria=" + categoria + "]";
 	}
-
+	
 	
 }

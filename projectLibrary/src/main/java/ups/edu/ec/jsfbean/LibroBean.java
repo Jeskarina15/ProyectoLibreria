@@ -8,7 +8,10 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import ups.edu.ec.accesosDatos.AutoresDAO;
+import ups.edu.ec.accesosDatos.CategoriasDAO;
 import ups.edu.ec.accesosDatos.LibroDAO;
+import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Libro;
 
 @ManagedBean
@@ -19,6 +22,10 @@ private Libro libro;
 private List<Libro> libros;
 @Inject
 private LibroDAO libroDAO;
+@Inject
+private CategoriasDAO categoriasDAO;
+@Inject 
+private AutoresDAO autoresDAO;
 @PostConstruct
 public void init() {
 	libro =new Libro();
@@ -97,7 +104,11 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
  * 
  * @return
  */
-public String guardarLibro() {
+public String guardarLibro(String cat, String autor) {
+	int aut= autoresDAO.getidautor(autor);
+	int cate=categoriasDAO.getidcategoria(cat);
+	libro.getCategorialibro().setIdcategoria(cate);
+	libro.getAutorlibro().setIdautor(aut);
 	libroDAO.NuevoLibro(libro);
 	return "se ha guardado el libro";
 }

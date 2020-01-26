@@ -72,11 +72,11 @@ public class CategoriasDAO {
 		return v;	
 	}
 	public int getidcategoria(String categoria) {
-		String jpql = "select idcategoria from libros.categoria where categoria=:categoria";
+		String jpql = "SELECT idcategoria FROM libros.categoria where categoria=:categoria;";
 		Query query = em.createNativeQuery(jpql);
 		query.setParameter("categoria", categoria);
-		List<Integer> nivel = query.getResultList();
-		return nivel.get(0);
+		Integer v= new Integer(query.getResultList().get(0).toString());
+		return v;
 	}
 	
 	
