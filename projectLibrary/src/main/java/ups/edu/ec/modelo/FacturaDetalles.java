@@ -65,4 +65,5 @@ public class FacturaDetalles {
 				+ ", fac_det_prec_unitario=" + fac_det_prec_unitario + ", fac_det_libro=" + fac_det_libro
 				+ ", fac_det_usuario=" + fac_det_usuario + "]";
 	}
-		}
+	
+}

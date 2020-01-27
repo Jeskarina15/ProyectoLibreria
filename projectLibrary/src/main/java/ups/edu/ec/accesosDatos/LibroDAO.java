@@ -25,7 +25,7 @@ public class LibroDAO {
 	 * @param libro
 	 */
 	public void NuevoLibro(Libro libro, int cat, int autor) {
-		String jpql = "INSERT INTO libros.libro (desclibro,edicion,image,isbn,numeropag, titulolibro, autorlibro_idautor, categorialibro_idcategoria)\r\n" + 
+		String jpql = "INSERT INTO libros.libros (desclibro,edicion,image,isbn,numeropag, titulolibro, autorlibro_idautor, categorialibro_idcategoria)\r\n" + 
 				"VALUES ('"+libro.getDesclibro()+"'"+", '"+libro.getEdicion()+"', '"+libro.getImage()+"', '"+libro.getIsbn()+"', "+libro.getNumeroP()+", '"+libro.getTitulolibro()+"',"
 						+ ""+autor+","+cat+");";
 		Query query = em.createNativeQuery(jpql, Libro.class);
@@ -59,7 +59,7 @@ public class LibroDAO {
 	 * @return
 	 */
 	public List<Libro> listarLibro(){
-		String jpql = "SELECT * FROM libros.libro";
+		String jpql = "SELECT * FROM libros.libros";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		List<Libro> nivel = query.getResultList();
 		return nivel;	
@@ -70,7 +70,7 @@ public class LibroDAO {
 	 * @return
 	 */
 	public List<Libro> listarLibroid(String titulo){
-		String jpql = "SELECT * FROM libros.libro WHERE titulolibro=:titulo";
+		String jpql = "SELECT * FROM libros.libros WHERE titulolibro=:titulo";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		query.setParameter("titulo", titulo);
 		List<Libro> nivel = query.getResultList();
@@ -82,7 +82,7 @@ public class LibroDAO {
 	 * @return
 	 */
 	public List<Libro> listarLibroPC(String categoria){
-		String jpql = "SELECT p.id_Libro FROM libros.libro p, libros.categoria c where c.Categoria=:categoria";
+		String jpql = "SELECT p.id_Libro FROM libros.libros p, libros.categoria c where c.Categoria=:categoria";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		query.setParameter("categoria", categoria);
 		List<Libro> listc = query.getResultList();
@@ -93,7 +93,7 @@ public class LibroDAO {
 	 * @return
 	 */
 	public int getid() {
-		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"libro\"";
+		String jpql = "Select AUTO_INCREMENT from information_schema.TABLES where table_schema=\"libros\" AND table_name=\"libros\"";
 		Query query = em.createNativeQuery(jpql);
 		Integer v= new Integer(query.getResultList().get(0).toString());
 		return v;	
