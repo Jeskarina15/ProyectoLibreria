@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name="libro")
+@Table(name="libros")
 public class Libro {
 @Id	
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +43,15 @@ private Categorias categorialibro;
 
 @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 private Autor autorlibro;
+@Column(name= "megusta")
+private int megusta;
+
+public int getMegusta() {
+	return megusta;
+}
+public void setMegusta(int megusta) {
+	this.megusta = megusta;
+}
 /**
  * 
  * @return
@@ -157,7 +166,7 @@ public void setAutorlibro(Autor autorlibro) {
 public String toString() {
 	return "Libro [idlibro=" + idlibro + ", desclibro=" + desclibro + ", edicion=" + edicion + ", isbn=" + isbn
 			+ ", numeroP=" + numeroP + ", titulolibro=" + titulolibro + ", image=" + image + ", categorialibro="
-			+ categorialibro + ", autorlibro=" + autorlibro + "]";
+			+ categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta + "]";
 }
 
 }
