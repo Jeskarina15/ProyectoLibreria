@@ -25,6 +25,12 @@ public class LibrosService {
 	@Inject
 	private GestionLibroLocal gl;
 	
+	@POST
+	@Path("saludar")
+	public void saludar() {
+		System.out.println("Hola este es el servicio rest saludar");
+	}
+	
 	//@GET
 	//@Path("ListarCategorias")
 	//@Produces("application/json")
