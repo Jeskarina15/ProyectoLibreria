@@ -26,82 +26,126 @@ public class Usuarios {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name="usu_id")
-private int idusuario;
+private int usu_id;
 @NotNull
 @Column(name = "usu_nombre")
 @NotEmpty
 @Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
-private String nombreu;
+private String usu_nombre;
 @NotNull
 @Column(name = "usu_email")
 @NotEmpty
 @Email(message="El correo ingresado no es valido")
-private String email;
+private String usu_email;
 @NotNull
 @Column(name = "usu_telefono")
 @NotEmpty
 @Size(min = 8, max = 12, message = "El numero de telefono es incorrecto")
-private String telefono;
+private String usu_telefono;
 @NotNull
 @Column(name = "usu_usuario")
 @NotEmpty
 @Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
-private String usuario;
+private String usu_usuario;
 @NotNull
 @Column(name = "usu_password")
 @NotEmpty
-private String password;
+private String usu_password;
 @NotNull
 @Column(name = "usu_rol")
 @NotEmpty
-private String rol;
+private String usu_rol;
 
 
-public int getIdusuario() {
-	return idusuario;
+
+public int getUsu_id() {
+	return usu_id;
 }
-public void setIdusuario(int idusuario) {
-	this.idusuario = idusuario;
+
+
+
+public void setUsu_id(int usu_id) {
+	this.usu_id = usu_id;
 }
-public String getNombreu() {
-	return nombreu;
+
+
+
+public String getUsu_nombre() {
+	return usu_nombre;
 }
-public void setNombreu(String nombreu) {
-	this.nombreu = nombreu;
+
+
+
+public void setUsu_nombre(String usu_nombre) {
+	this.usu_nombre = usu_nombre;
 }
-public String getEmail() {
-	return email;
+
+
+
+public String getUsu_email() {
+	return usu_email;
 }
-public void setEmail(String email) {
-	this.email = email;
+
+
+
+public void setUsu_email(String usu_email) {
+	this.usu_email = usu_email;
 }
-public String getTelefono() {
-	return telefono;
+
+
+
+public String getUsu_telefono() {
+	return usu_telefono;
 }
-public void setTelefono(String telefono) {
-	this.telefono = telefono;
+
+
+
+public void setUsu_telefono(String usu_telefono) {
+	this.usu_telefono = usu_telefono;
 }
-public String getUsuario() {
-	return usuario;
+
+
+
+public String getUsu_usuario() {
+	return usu_usuario;
 }
-public void setUsuario(String usuario) {
-	this.usuario = usuario;
+
+
+
+public void setUsu_usuario(String usu_usuario) {
+	this.usu_usuario = usu_usuario;
 }
-public String getPassword() {
-	return password;
+
+
+
+public String getUsu_password() {
+	return usu_password;
 }
-public void setPassword(String password) {
-	this.password = password;
+
+
+
+public void setUsu_password(String usu_password) {
+	this.usu_password = usu_password;
 }
-public String getRol() {
-	return rol;
+
+
+
+public String getUsu_rol() {
+	return usu_rol;
 }
-public void setRol(String rol) {
-	this.rol = rol;
+
+
+
+public void setUsu_rol(String usu_rol) {
+	this.usu_rol = usu_rol;
 }
+
+
+
 @Override
 public String toString() {
-	return "Usuarios [idusuario=" + idusuario + ", nombreu=" + nombreu + ", email=" + email + ", telefono=" + telefono
-			+ ", usuario=" + usuario + ", password=" + password + ", rol=" + rol + "]";
+	return "Usuarios [usu_id=" + usu_id + ", usu_nombre=" + usu_nombre + ", usu_email=" + usu_email + ", usu_telefono="
+			+ usu_telefono + ", usu_usuario=" + usu_usuario + ", usu_password=" + usu_password + ", usu_rol=" + usu_rol
+			+ "]";
 }
 }

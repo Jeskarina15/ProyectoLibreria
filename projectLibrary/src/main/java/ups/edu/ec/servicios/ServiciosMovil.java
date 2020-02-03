@@ -33,7 +33,6 @@ public class ServiciosMovil {
 	@Produces({MediaType.APPLICATION_JSON})
 	public Usuarios loguear(Usuarios usuario) {
 		System.out.println(usuario.toString());
-		//return "Usuario: "+usuario.getNombreu()+", Contraseña: "+usuario.getPassword();
 		return usuario;
 	}
 }
