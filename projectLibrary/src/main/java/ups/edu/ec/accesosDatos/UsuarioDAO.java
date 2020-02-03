@@ -67,4 +67,14 @@ public class UsuarioDAO {
 		Integer v= new Integer(query.getResultList().get(0).toString());
 		return v;	
 	}
+	
+	public int loguear(String email, String contra) {
+		String jpql = "select usu_id from usuarios where usu_email=\""+email+"\" AND usu_password=\""+contra+"\";";
+		Query query = em.createNativeQuery(jpql);
+		
+		if(query.getResultList().size()!=0) {
+			return (Integer)query.getResultList().get(0);
+		}
+		return -1;
+	}
 }

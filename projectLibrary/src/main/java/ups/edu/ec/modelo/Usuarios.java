@@ -27,36 +27,40 @@ public class Usuarios {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name="usu_id")
 private int usu_id;
+
 @NotNull
 @Column(name = "usu_nombre")
 @NotEmpty
 @Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
 private String usu_nombre;
+
 @NotNull
 @Column(name = "usu_email")
 @NotEmpty
 @Email(message="El correo ingresado no es valido")
 private String usu_email;
+
 @NotNull
 @Column(name = "usu_telefono")
 @NotEmpty
 @Size(min = 8, max = 12, message = "El numero de telefono es incorrecto")
 private String usu_telefono;
+
 @NotNull
 @Column(name = "usu_usuario")
 @NotEmpty
 @Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
 private String usu_usuario;
+
 @NotNull
 @Column(name = "usu_password")
 @NotEmpty
 private String usu_password;
+
 @NotNull
 @Column(name = "usu_rol")
 @NotEmpty
 private String usu_rol;
-
-
 
 public int getUsu_id() {
 	return usu_id;

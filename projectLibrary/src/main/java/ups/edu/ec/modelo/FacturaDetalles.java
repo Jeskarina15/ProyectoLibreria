@@ -12,25 +12,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "factura_detalles")
+@Table (name = "Factura_detalles")
 public class FacturaDetalles {
 
 	@Id
 	@Column(name = "fac_det_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int fac_det_id;
+	
 	@Column(name = "fac_det_cantidad")
 	private int fac_det_cantidad;
+	
 	@Column(name = "fac_det_prec_unitario")
 	private double fac_det_prec_unitario;
+	
 	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fac_det_libro")
 	private Libro fac_det_libro;
+	
 	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-	@JoinColumn(name = "fac_det_usuario")
-	private Usuarios fac_det_usuario;
-	@Column(name = "fac_det_estado")
-	private int estado;
+	private FacturaCabecera fac_det_cabecera;
+	
 	public int getFac_det_id() {
 		return fac_det_id;
 	}
@@ -55,23 +57,11 @@ public class FacturaDetalles {
 	public void setFac_det_libro(Libro fac_det_libro) {
 		this.fac_det_libro = fac_det_libro;
 	}
-	public Usuarios getFac_det_usuario() {
-		return fac_det_usuario;
-	}
-	public void setFac_det_usuario(Usuarios fac_det_usuario) {
-		this.fac_det_usuario = fac_det_usuario;
-	}
-	public int getEstado() {
-		return estado;
-	}
-	public void setEstado(int estado) {
-		this.estado = estado;
-	}
 	@Override
 	public String toString() {
 		return "FacturaDetalles [fac_det_id=" + fac_det_id + ", fac_det_cantidad=" + fac_det_cantidad
 				+ ", fac_det_prec_unitario=" + fac_det_prec_unitario + ", fac_det_libro=" + fac_det_libro
-				+ ", fac_det_usuario=" + fac_det_usuario + ", estado=" + estado + "]";
+				+ ", fac_det_cabecera=" + fac_det_cabecera + "]";
 	}
 	
 }

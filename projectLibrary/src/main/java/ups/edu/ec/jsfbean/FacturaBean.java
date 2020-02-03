@@ -56,7 +56,7 @@ public class FacturaBean implements Serializable{
 		public void createPieusuarios() {  
 			pieModelu = new PieChartModel();  
 			for (int i = 0; i < listau.size(); i++) {
-				pieModelu.set(listau.get(i).getNombreu(),i);
+				pieModelu.set(listau.get(i).getUsu_nombre(),i);
 			}
 			pieModelu.setTitle("usuarios mas destacados");  
 			pieModelu.setLegendPosition("c");  
