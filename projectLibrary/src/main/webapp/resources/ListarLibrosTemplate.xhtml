@@ -114,15 +114,15 @@
             <div class="border-head">
             <h3>Listar Libros</h3>
             </div>
-    		<h:head>
       			<h:form>
-
-				<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Listar libros" action="#{libroBean.listarLibros()}">
+				<h:selectOneMenu value="#{tipo}">
+  				<f:selectItem itemValue="MasVendidos" itemLabel="Mas vendidos"/>
+  				<f:selectItem itemValue="Libros" itemLabel="Libros"/>	
+  				</h:selectOneMenu> 
+				<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Listar libros" action="#{libroBean.listarLibrosT(tipo)}">
 				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
 				</h:commandButton>
-				</h:form>
-				</h:head>
-				<h:form>
+
 				<h:dataTable value="#{libroBean.libros}" var="libro" class="table" id="tablaLibros">
 				<h:column>
 				<f:facet name="header">IdLibro</f:facet>
@@ -151,6 +151,10 @@
 				<h:column>
 				<f:facet name="header">Numero Pagina</f:facet>
 				<h:inputText value="#{libro.numeroP}" />
+				</h:column>
+				<h:column>
+				<f:facet name="header">Stock</f:facet>
+				<h:inputText value="#{libro.stock}" />
 				</h:column>
 				<h:column>
 				<f:facet name="header">Eliminar</f:facet>

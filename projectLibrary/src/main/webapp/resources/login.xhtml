@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Dashboard">
-  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+  <meta name="description" content=""></meta>
+  <meta name="author" content="Dashboard"></meta>
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"></meta>
   <title>Dashio - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="img/favicon.png" rel="icon"></link>
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon"></link>
 
   <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
   <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet"></link>
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet"></link>
+  <link href="css/style-responsive.css" rel="stylesheet"></link>
   
   <!-- =======================================================
     Template Name: Dashio
@@ -38,40 +41,21 @@
       <h:form class="form-login" action="index.html">
         <h2 class="form-login-heading">sign in now</h2>
         <div class="login-wrap">
-          <input type="text" class="form-control" placeholder="User ID" autofocus>
-          <br>
-          <input type="password" class="form-control" placeholder="Password">
-          <label class="checkbox">
-            <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
-          <hr>
-          <div class="registration">
-            Don't have an account yet?<br/>
-            <a class="" href="#">
-              Create an account
-              </a>
-          </div>
+          <div class="form-group col-md-12">
+		    <label for="url">Usuario</label>
+  			<h:inputText class="form-control" value="#{usuario}" id="usuario"></h:inputText>
+      		<h:message for="usuario"/>
+    		</div>
+        <div class="form-group col-md-12">
+		    <label for="url">Password</label>
+			<h:inputText class="form-control" value="#{password}" id="ps"></h:inputText>
+      		<h:message for="ps"/>
+    		</div>
+     	<h:commandButton class="btn btn-theme btn-block" value="SIGN IN" action="#{usuarioBean.iniciarsesion(usuario,password)}">
+		</h:commandButton>
+          
         </div>
         <!-- Modal -->
-        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Forgot Password ?</h4>
-              </div>
-              <div class="modal-body">
-                <p>Enter your e-mail address below to reset your password.</p>
-                <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-              </div>
-              <div class="modal-footer">
-                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                <button class="btn btn-theme" type="button">Submit</button>
-              </div>
-            </div>
-          </div>
-        </div>
         <!-- modal -->
       </h:form>
     </div>

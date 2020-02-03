@@ -22,7 +22,7 @@ private Usuarios usuario;
 private List<Usuarios> listaU;
 @Inject
 private UsuarioDAO usuarioDAO;
-
+private boolean estado=true;
 @PostConstruct
 public void init() {
 	usuario=new Usuarios();
@@ -54,6 +54,13 @@ public List<Usuarios> getListaU() {
  */
 public void setListaU(List<Usuarios> listaU) {
 	this.listaU = listaU;
+}
+
+public boolean isEstado() {
+	return estado;
+}
+public void setEstado(boolean estado) {
+	this.estado = estado;
 }
 /**
  * 
@@ -103,6 +110,21 @@ public String eliminarUsuario(int idUsuario){
 public String ListarUsuarios() {
 	listaU =usuarioDAO.listarUsuario();
 	return null;
+}
+public String iniciarsesion(String usuario, String password) {
+	estado=usuarioDAO.confirmarClave(usuario, password);
+	String p="";
+	if (estado) {
+		p="index";
+		return p;
+	}else if(!estado) {
+		p="login";
+		return p;
+	}
+	return p;
+}
+public String CerrarSesion() {
+	return "login";
 }
 }
 

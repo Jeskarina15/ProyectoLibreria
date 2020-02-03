@@ -109,12 +109,14 @@ public String listarLibros() {
 	return null;
 }
 public String listarLibrosT(String tipo) {
+	
 	if (tipo.equals("Libros")) {
-		librosm=libroDAO.listarLibro();
+	libros=libroDAO.listarLibro();
 		
-	}else if(tipo.equals("Mas vendidos")) {
-	librost=libroDAO.listarLibrosMasVendidos();
+	}else if(tipo.equals("MasVendidos")) {
+	libros=libroDAO.listarLibrosMasVendidos();
 	}
+	
 	return null;
 	}
 /**

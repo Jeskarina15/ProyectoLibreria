@@ -57,6 +57,21 @@ public class UsuarioDAO {
 		List<Usuarios> nivel = query.getResultList();
 		return nivel;	
 	}
+	public boolean confirmarClave(String usuario, String password){
+		String jpql = "SELECT * FROM libros.usuarios where usu_usuario=:usuario and usu_password=:psw and usu_rol='Administrador'";
+		Query query = em.createNativeQuery(jpql, Usuarios.class);
+		query.setParameter("usuario",usuario);
+		query.setParameter("psw",password);
+		List<Usuarios> us=query.getResultList();
+		boolean estado=true;
+		if (us.size()<=0) {
+			estado=false;
+			return estado;
+		} else if(us.size()>0){
+			return estado;
+		}
+		return estado;
+	}
 	/**
 	 * Devuelve el id de la tabla usuarios
 	 * @return
