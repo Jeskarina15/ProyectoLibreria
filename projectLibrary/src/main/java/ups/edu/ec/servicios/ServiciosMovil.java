@@ -19,6 +19,7 @@ public class ServiciosMovil {
 	@Inject
 	private GestionLibroLocal gl;
 	private String usuario;
+	private int codigo;
 	
 	@GET
 	@Path("saludar")
@@ -30,10 +31,13 @@ public class ServiciosMovil {
 	@POST
 	@Path("login")
 	@Consumes({MediaType.APPLICATION_JSON})
-	@Produces({MediaType.APPLICATION_JSON})
-	public Usuarios loguear(Usuarios usuario) {
-		System.out.println(usuario.toString());
-		//return "Usuario: "+usuario.getNombreu()+", Contraseña: "+usuario.getPassword();
-		return usuario;
+	@Produces("text/plain")
+	public String loguear(Usuarios usuario) {
+		codigo = gl.loguear(usuario);
+		if(codigo!=-1) {
+			return "logueado,"+codigo;
+		}
+		System.out.println("Error");
+		return "error";
 	}
 }

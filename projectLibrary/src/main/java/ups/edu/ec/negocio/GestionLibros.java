@@ -127,4 +127,8 @@ public class GestionLibros implements GestionLibroLocal {
 		return null;
 	}
 
+	@Override
+	public int loguear(Usuarios usuario) {
+		return usuarioDAO.loguear(usuario.getUsu_email(), usuario.getUsu_password());
+	}
 }

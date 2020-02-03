@@ -83,13 +83,13 @@ public String crearUsuario() {
  * @return
  */
 public String actualizarUsuario(int idUsuario, String nombre, String email, String telefono, String User, String password, String Rol) {
-	usuario.setIdusuario(idUsuario);
-	usuario.setNombreu(nombre);
-	usuario.setEmail(email);
-	usuario.setTelefono(telefono);
-	usuario.setUsuario(User);
-	usuario.setRol(Rol);
-	usuario.setPassword(password);
+	usuario.setUsu_id(idUsuario);
+	usuario.setUsu_nombre(nombre);
+	usuario.setUsu_email(email);
+	usuario.setUsu_telefono(telefono);
+	usuario.setUsu_usuario(User);
+	usuario.setUsu_rol(Rol);
+	usuario.setUsu_password(password);
 	System.out.println("actualizar");
 	usuarioDAO.ActualizarUsuario(usuario);
 	return null;

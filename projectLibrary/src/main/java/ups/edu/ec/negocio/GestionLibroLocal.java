@@ -30,5 +30,6 @@ public interface GestionLibroLocal {
 	public void eliminarCategoria(int categoria);
 	public Categorias leerCategoria(int categoria);
 	public List<Categorias> listarCategorias();
+	public int loguear(Usuarios usuario);
 	
 }
