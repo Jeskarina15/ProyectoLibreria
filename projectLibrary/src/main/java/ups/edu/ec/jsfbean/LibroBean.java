@@ -21,6 +21,8 @@ public class LibroBean {
 
 private Libro libro;
 private List<Libro> libros;
+private List<Libro> librosm;
+private List<Libro> librost;
 @Inject
 private LibroDAO libroDAO;
 @Inject
@@ -81,6 +83,23 @@ public List<Libro> getLibros() {
 public void setLibros(List<Libro> libros) {
 	this.libros = libros;
 }
+
+public List<Libro> getLibrosm() {
+	return librosm;
+}
+
+public void setLibrosm(List<Libro> librosm) {
+	this.librosm = librosm;
+}
+
+public List<Libro> getLibrost() {
+	return librost;
+}
+
+public void setLibrost(List<Libro> librost) {
+	this.librost = librost;
+}
+
 /**
  * 
  * @return
@@ -89,6 +108,15 @@ public String listarLibros() {
 	libros=libroDAO.listarLibro();
 	return null;
 }
+public String listarLibrosT(String tipo) {
+	if (tipo.equals("Libros")) {
+		librosm=libroDAO.listarLibro();
+		
+	}else if(tipo.equals("Mas vendidos")) {
+	librost=libroDAO.listarLibrosMasVendidos();
+	}
+	return null;
+	}
 /**
  * 
  * @param idLibro

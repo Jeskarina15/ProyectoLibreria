@@ -45,7 +45,8 @@ private Categorias categorialibro;
 private Autor autorlibro;
 @Column(name= "megusta")
 private int megusta;
-
+@Column(name= "stock")
+private int stock;
 public int getMegusta() {
 	return megusta;
 }
@@ -162,11 +163,18 @@ public Autor getAutorlibro() {
 public void setAutorlibro(Autor autorlibro) {
 	this.autorlibro = autorlibro;
 }
+
+public int getStock() {
+	return stock;
+}
+public void setStock(int stock) {
+	this.stock = stock;
+}
 @Override
 public String toString() {
 	return "Libro [idlibro=" + idlibro + ", desclibro=" + desclibro + ", edicion=" + edicion + ", isbn=" + isbn
 			+ ", numeroP=" + numeroP + ", titulolibro=" + titulolibro + ", image=" + image + ", categorialibro="
-			+ categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta + "]";
+			+ categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta + ", stock=" + stock + "]";
 }
 
 }

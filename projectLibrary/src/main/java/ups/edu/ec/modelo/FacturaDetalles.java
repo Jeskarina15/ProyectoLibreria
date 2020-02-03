@@ -29,6 +29,8 @@ public class FacturaDetalles {
 	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fac_det_usuario")
 	private Usuarios fac_det_usuario;
+	@Column(name = "fac_det_estado")
+	private int estado;
 	public int getFac_det_id() {
 		return fac_det_id;
 	}
@@ -59,11 +61,17 @@ public class FacturaDetalles {
 	public void setFac_det_usuario(Usuarios fac_det_usuario) {
 		this.fac_det_usuario = fac_det_usuario;
 	}
+	public int getEstado() {
+		return estado;
+	}
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
 	@Override
 	public String toString() {
 		return "FacturaDetalles [fac_det_id=" + fac_det_id + ", fac_det_cantidad=" + fac_det_cantidad
 				+ ", fac_det_prec_unitario=" + fac_det_prec_unitario + ", fac_det_libro=" + fac_det_libro
-				+ ", fac_det_usuario=" + fac_det_usuario + "]";
+				+ ", fac_det_usuario=" + fac_det_usuario + ", estado=" + estado + "]";
 	}
 	
 }

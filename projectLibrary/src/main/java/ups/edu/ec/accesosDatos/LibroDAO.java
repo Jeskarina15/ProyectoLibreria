@@ -88,6 +88,12 @@ public class LibroDAO {
 		List<Libro> listc = query.getResultList();
 		return listc;
 	}
+	public List<Libro> listarLibrosMasVendidos(){
+		String jpql = "SELECT * FROM libros.factura_detalles, libros.libros Where fac_det_libro=idlibro GROUP BY fac_det_libro HAVING COUNT(*)>1;";
+		Query query = em.createNativeQuery(jpql, Libro.class);
+		List<Libro> listc = query.getResultList();
+		return listc;
+	}
 	/**
 	 * Devuelve el id de la tabla libro
 	 * @return
