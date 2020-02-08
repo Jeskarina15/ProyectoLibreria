@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 
 @Entity
@@ -38,6 +39,7 @@ private String titulolibro;
 @Column(name= "image")
 private String image;
 
+@Null
 @Column(name="lib_precio")
 private double lib_precio;
 
@@ -176,9 +178,8 @@ public void setLib_precio(double lib_precio) {
 @Override
 public String toString() {
 	return "Libro [idlibro=" + idlibro + ", desclibro=" + desclibro + ", edicion=" + edicion + ", isbn=" + isbn
-			+ ", numeropag=" + numeropag + ", titulolibro=" + titulolibro + ", image=" + image + ", categorialibro="
-			+ categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta + ", stock=" + stock + "]";
+			+ ", numeropag=" + numeropag + ", titulolibro=" + titulolibro + ", image=" + image + ", lib_precio="
+			+ lib_precio + ", categorialibro=" + categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta
+			+ ", stock=" + stock + "]";
 }
-
-
 }
