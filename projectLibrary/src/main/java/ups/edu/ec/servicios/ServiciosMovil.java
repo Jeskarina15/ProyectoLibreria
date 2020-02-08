@@ -38,7 +38,7 @@ public class ServiciosMovil {
 		return(gl.listarLibro());
 	}
 	
-	@GET
+	@POST
 	@Path("libro")
 	@Consumes("text/plain")
 	@Produces("application/json")

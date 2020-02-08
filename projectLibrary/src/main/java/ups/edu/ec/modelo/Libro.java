@@ -38,6 +38,9 @@ private String titulolibro;
 @Column(name= "image")
 private String image;
 
+@Column(name="lib_precio")
+private double lib_precio;
+
 @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 private Categorias categorialibro;
 
@@ -162,6 +165,13 @@ public int getStock() {
 }
 public void setStock(int stock) {
 	this.stock = stock;
+}
+
+public double getLib_precio() {
+	return lib_precio;
+}
+public void setLib_precio(double lib_precio) {
+	this.lib_precio = lib_precio;
 }
 @Override
 public String toString() {
