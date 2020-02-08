@@ -147,7 +147,7 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 	libro.setEdicion(edicion);
 	libro.setImage(Image);
 	libro.setTitulolibro(Titulo);
-	libro.setNumeroP(nump);
+	libro.setNumeropag(nump);
 	libroDAO.ActualizarLibro(libro);
 	return "Se ha actualizado correctamente";
 	
@@ -165,7 +165,7 @@ public String guardarLibro( String ISBN, String desc, String edicion, String Ima
 	libro.setEdicion(edicion);
 	libro.setImage(Image);
 	libro.setTitulolibro(Titulo);
-	libro.setNumeroP(nump);
+	libro.setNumeropag(nump);
 	libroDAO.NuevoLibro(libro, aut,cate);
 	return "se ha guardado el libro";
 }

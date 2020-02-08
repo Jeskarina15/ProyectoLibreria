@@ -1,14 +1,11 @@
 package ups.edu.ec.accesosDatos;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
-import ups.edu.ec.modelo.FacturaDetalles;
 import ups.edu.ec.modelo.Libro;
 import ups.edu.ec.modelo.Usuarios;
 @Stateless
@@ -22,17 +19,17 @@ public class FacturaDAO {
 		List<Libro>  lista=query.getResultList();
 		return lista;
 	}
-	public List<Libro> repetidoscomprados() {
+	/*public List<Libro> repetidoscomprados() {
 		String jpql = "SELECT * FROM libros.factura_detalles, libros.libros Where fac_det_libro=idlibro GROUP BY fac_det_libro HAVING COUNT(*)>1";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		List<Libro> lista=query.getResultList();
 		
 		return lista;
-	}
-	public List<Usuarios> usuariosmascomprados() {
+	}*/
+	/*public List<Usuarios> usuariosmascomprados() {
 		String jpql = "SELECT * FROM libros.factura_detalles, libros.usuarios Where fac_det_usuario=idusuario GROUP BY fac_det_usuario HAVING COUNT(*)>1";
 		Query query = em.createNativeQuery(jpql,Usuarios.class);
 		List<Usuarios> lista=query.getResultList();
 		return lista;
-	}
+	}*/
 }

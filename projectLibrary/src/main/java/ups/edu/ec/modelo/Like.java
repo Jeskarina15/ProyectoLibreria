@@ -4,6 +4,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -13,6 +15,7 @@ import javax.persistence.Table;
 public class Like {
 	@Id
 	@Column(name="lik_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int lik_id;
 	
 	@Column(name="lik_isbn")

@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import ups.edu.ec.modelo.Categorias;
 import ups.edu.ec.modelo.Libro;
+import ups.edu.ec.modelo.Like;
 import ups.edu.ec.modelo.Usuarios;
 @Stateless
 /**
@@ -20,17 +21,56 @@ public class LibroDAO {
 
 	@Inject
 	private EntityManager em;
+	
+	private Like like;
+	
+	
+	public LibroDAO() {
+		like = new Like();
+	}
 	/**
 	 * metodo para crear un nuevo libro	
 	 * @param libro
 	 */
 	public void NuevoLibro(Libro libro, int cat, int autor) {
 		String jpql = "INSERT INTO libros.libros (desclibro,edicion,image,isbn,numeropag, titulolibro, autorlibro_idautor, categorialibro_idcategoria)\r\n" + 
-				"VALUES ('"+libro.getDesclibro()+"'"+", '"+libro.getEdicion()+"', '"+libro.getImage()+"', '"+libro.getIsbn()+"', "+libro.getNumeroP()+", '"+libro.getTitulolibro()+"',"
+				"VALUES ('"+libro.getDesclibro()+"'"+", '"+libro.getEdicion()+"', '"+libro.getImage()+"', '"+libro.getIsbn()+"', "+libro.getNumeropag()+", '"+libro.getTitulolibro()+"',"
 						+ ""+autor+","+cat+");";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		query.executeUpdate();
 	}
+	
+	public boolean darMegusta(String isbn, int usuario) {
+		try {
+			String conLikes = "SELECT * from likes where lik_isbn = '"+isbn+"' and lik_usuario_usu_id = "+usuario+";";
+			String conCodigo = "SELECT max(lik_id) from likes;";
+			Query queLikes = em.createNativeQuery(conLikes, Like.class);
+			Query queCodigo = em.createNativeQuery(conCodigo, Like.class);
+			List<Like> likes = queLikes.getResultList();
+			int codigo = (int)queCodigo.getSingleResult();
+			if(likes.isEmpty()) {
+				like.setLik_id(codigo+1);
+				like.setEstado(1);
+				like.setLik_isbn(isbn);
+				like.setLik_usuario(em.find(Usuarios.class, usuario));
+				em.persist(like);
+				return true;
+			}
+			else {
+				like = likes.get(0);
+				if(like.getEstado()==0) {
+					like.setEstado(1);
+					em.merge(like);
+					return true;
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			System.out.println("Se ah producido la siguiente excepción: "+e.toString());
+			return false;
+		}
+	}
+	
 	/**
 	 * Actualizar datos de la entidad libro, pasando como parametro un objeto tipo libro
 	 * 
@@ -52,7 +92,7 @@ public class LibroDAO {
 	 * @return
 	 */
 	public Libro leerLibros(int libro) {
-	return em.find(Libro.class, libro);	
+	return em.find(Libro.class, libro);
 	}
 	/**
 	 * Lista todos los libros

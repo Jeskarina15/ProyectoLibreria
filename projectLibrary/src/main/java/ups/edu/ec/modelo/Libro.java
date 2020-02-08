@@ -29,7 +29,7 @@ private String edicion;
 private String isbn;
 @NotNull
 @Column(name= "numeropag")
-private int numeroP;
+private int numeropag;
 @NotNull
 @Pattern(regexp = "[^0-9]*", message = "Debe ingresar letras") 
 @Column(name= "titulolibro")
@@ -109,19 +109,12 @@ public String getIsbn() {
 public void setIsbn(String isbn) {
 	this.isbn = isbn;
 }
-/**
- * 
- * @return
- */
-public int getNumeroP() {
-	return numeroP;
+
+public int getNumeropag() {
+	return numeropag;
 }
-/**
- * 
- * @param numeroP
- */
-public void setNumeroP(int numeroP) {
-	this.numeroP = numeroP;
+public void setNumeropag(int numeropag) {
+	this.numeropag = numeropag;
 }
 /**
  * 
@@ -173,8 +166,9 @@ public void setStock(int stock) {
 @Override
 public String toString() {
 	return "Libro [idlibro=" + idlibro + ", desclibro=" + desclibro + ", edicion=" + edicion + ", isbn=" + isbn
-			+ ", numeroP=" + numeroP + ", titulolibro=" + titulolibro + ", image=" + image + ", categorialibro="
+			+ ", numeropag=" + numeropag + ", titulolibro=" + titulolibro + ", image=" + image + ", categorialibro="
 			+ categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta + ", stock=" + stock + "]";
 }
+
 
 }
