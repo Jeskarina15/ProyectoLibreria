@@ -39,7 +39,7 @@ private String titulolibro;
 @Column(name= "image")
 private String image;
 
-@Null
+@NotNull
 @Column(name="lib_precio")
 private double lib_precio;
 
@@ -168,7 +168,6 @@ public int getStock() {
 public void setStock(int stock) {
 	this.stock = stock;
 }
-
 public double getLib_precio() {
 	return lib_precio;
 }
@@ -182,4 +181,5 @@ public String toString() {
 			+ lib_precio + ", categorialibro=" + categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta
 			+ ", stock=" + stock + "]";
 }
+
 }
