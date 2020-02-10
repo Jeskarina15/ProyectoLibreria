@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"> 
 <h:head>
   <meta charset="utf-8"></meta>
@@ -30,13 +30,14 @@
   ======================================================= -->
 </h:head>
 
-<h:body>
+<body>
 <ui:include src="/Cabecera.xhtml" />
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
+    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
@@ -53,15 +54,10 @@
 				<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Listar libros" action="#{libroBean.listarLibrosT(tipo)}">
 				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
 				</h:commandButton>
-
 				<h:dataTable value="#{libroBean.libros}" var="libro" class="table" id="tablaLibros">
 				<h:column>
 				<f:facet name="header">IdLibro</f:facet>
-				<h:inputText value="#{libro.idlibro}" />
-				</h:column>
-				<h:column>
-				<f:facet name="header">ISBN</f:facet>
-				<h:inputText value="#{libro.isbn}" />
+				<h:outputLabel value="#{libro.idlibro}" />
 				</h:column>
 				<h:column>
 				<f:facet name="header">Descripcion Libro</f:facet>
@@ -90,20 +86,15 @@
 				<h:column>
 				<f:facet name="header">Precio</f:facet>
 				<h:inputText value="#{libro.lib_precio}" />
-				</h:column>
-				<h:column>
-				<f:facet name="header">Categoria</f:facet>
-				<h:inputText value="#{libro.categorialibro.categoria}" />
-				</h:column>
+				</h:column>				
 				<h:column>
 				<f:facet name="header">Eliminar</f:facet>
 				<h:commandButton class="btn btn-danger" value="Eliminar" action="#{libroBean.EliminarLibro(libro.idlibro)}">
-				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
 				</h:commandButton>
 				</h:column>
 				<h:column>
 				<f:facet name="header">Actualizar</f:facet>
-				<h:commandButton class="btn btn-success" value="Actualizar" action="#{libroBean.ActualizarLibro(libro.idlibro, libro.isbn, libro.desclibro, libro.edicion, libro.image, libro.titulolibro, libro.numeropag)}">
+				<h:commandButton class="btn btn-success" value="Actualizar" action="#{libroBean.ActualizarLibro(libro.idlibro, libro.isbn, libro.desclibro, libro.edicion, libro.image, libro.titulolibro, libro.numeropag, libro.stock,libro.lib_precio)}">
 				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
 				</h:commandButton>
 				</h:column>
@@ -113,7 +104,8 @@
       </div>
       </section>
   </section>
+</div>  
 <ui:include src="/Footer.xhtml" />
-</h:body>
+</body>
 
 </html>

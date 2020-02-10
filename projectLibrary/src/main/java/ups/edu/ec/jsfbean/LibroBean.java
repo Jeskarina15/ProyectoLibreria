@@ -126,8 +126,8 @@ public String listarLibrosT(String tipo) {
  */
 public String EliminarLibro(int idLibro) {
 	System.out.println(idLibro);
-	libroDAO.eliminarLibro(idLibro);
-	return "Se ha eliminado el libro ";
+	libroDAO.eliminarLibro(libro.getIdlibro());
+	return null;
 }
 /**
  * 
@@ -140,7 +140,7 @@ public String EliminarLibro(int idLibro) {
  * @param nump
  * @return
  */
-public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump) {
+public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump,int stock, double precio) {
 	libro.setIdlibro(idLibro);
 	libro.setIsbn(ISBN);
 	libro.setDesclibro(desc);
@@ -148,6 +148,8 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 	libro.setImage(Image);
 	libro.setTitulolibro(Titulo);
 	libro.setNumeropag(nump);
+	libro.setStock(stock);
+	libro.setLib_precio(precio);
 	libroDAO.ActualizarLibro(libro);
 	return "Se ha actualizado correctamente";
 	

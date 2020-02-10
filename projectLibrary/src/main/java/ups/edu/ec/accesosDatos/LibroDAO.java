@@ -33,8 +33,8 @@ public class LibroDAO {
 	 * @param libro
 	 */
 	public void NuevoLibro(Libro libro, int cat, int autor) {
-		String jpql = "INSERT INTO libros.libros (desclibro,edicion,image,isbn,megusta,numeropag,stock,titulolibro,autorlibro_idautor,categorialibro_idcategoria)\r\n" + 
-				"VALUES ('"+libro.getDesclibro()+"'"+", '"+libro.getEdicion()+"','"+libro.getImage()+"', '"+libro.getIsbn()+"', "+libro.getMegusta()+","+libro.getNumeropag()+","+libro.getStock()+", '"+libro.getTitulolibro()+"',"
+		String jpql = "INSERT INTO libros.libros (desclibro,edicion,image,isbn,lib_precio,megusta,numeropag,stock,titulolibro,autorlibro_idautor,categorialibro_idcategoria)\r\n" + 
+				"VALUES ('"+libro.getDesclibro()+"'"+", '"+libro.getEdicion()+"','"+libro.getImage()+"', '"+libro.getIsbn()+"', "+libro.getLib_precio()+","+libro.getMegusta()+","+libro.getNumeropag()+","+libro.getStock()+", '"+libro.getTitulolibro()+"',"
 						+ ""+autor+","+cat+");";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		query.executeUpdate();
@@ -84,7 +84,13 @@ public class LibroDAO {
 	 * @param libro
 	 */
 	public void eliminarLibro(int libro) {
-	em.remove(leerLibros(libro));
+		System.out.println("estoy aqui");
+		String jpql = "update libros.libros SET autorlibro_idautor=null, categorialibro_idcategoria=null WHERE idlibro=:libro";
+		Query query = em.createQuery(jpql);
+		query.setParameter("libro", libro);
+		query.executeUpdate();
+		
+		em.remove(leerLibros(libro));
 	}
 	/**
 	 * Buscar un libro, pasando como parametro un atributo tipo entero 

@@ -44,6 +44,7 @@ private String image;
 private double lib_precio;
 
 @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+
 private Categorias categorialibro;
 
 @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
