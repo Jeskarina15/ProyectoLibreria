@@ -35,7 +35,7 @@
         </license>
     </licenses>
 
- <properties>
+    <properties>
         <!-- Explicitly declaring the source encoding eliminates the following 
             message: -->
         <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
@@ -86,7 +86,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-	
+
     <dependencies>
 
         <!-- First declare the APIs we depend on and need for compilation. All 
@@ -107,11 +107,7 @@
             <artifactId>jboss-annotations-api_1.2_spec</artifactId>
             <scope>provided</scope>
         </dependency>
-		<dependency>
-    <groupId>org.primefaces</groupId>
-    <artifactId>primefaces</artifactId>
-    <version>7.0</version>
-</dependency>
+
         <!-- Import the JAX-RS API, we use provided scope as the API is included 
             in JBoss WildFly -->
         <dependency>
@@ -119,14 +115,19 @@
             <artifactId>jaxrs-api</artifactId>
             <scope>provided</scope>
         </dependency>
-	        <!-- Import the JPA API, we use provided scope as the API is included in 
+
+        <!-- Import the JPA API, we use provided scope as the API is included in 
             JBoss WildFly -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <scope>provided</scope>
         </dependency>
-
+<dependency>
+	<groupId>org.primefaces</groupId>
+	<artifactId>primefaces</artifactId>
+	<version>6.2</version>
+</dependency>
         <!-- Import the EJB API, we use provided scope as the API is included in 
             JBoss WildFly -->
         <dependency>
@@ -134,7 +135,16 @@
             <artifactId>jboss-ejb-api_3.2_spec</artifactId>
             <scope>provided</scope>
         </dependency>
-
+		<dependency>
+   <groupId>com.sun.faces</groupId>
+   <artifactId>jsf-api</artifactId>
+   <version>2.2.9</version>
+  </dependency>
+  <dependency>
+   <groupId>com.sun.faces</groupId>
+   <artifactId>jsf-impl</artifactId>
+   <version>2.2.9</version>
+  </dependency>
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
         <!-- Hibernate Validator is shipped in JBoss WildFly -->
@@ -197,7 +207,7 @@
             <artifactId>arquillian-protocol-servlet</artifactId>
             <scope>test</scope>
         </dependency>
-		
+
     </dependencies>
 
     <build>
@@ -301,4 +311,5 @@
         </profile>
 
     </profiles>
+
 </project>

@@ -176,9 +176,8 @@ public void setLib_precio(double lib_precio) {
 @Override
 public String toString() {
 	return "Libro [idlibro=" + idlibro + ", desclibro=" + desclibro + ", edicion=" + edicion + ", isbn=" + isbn
-			+ ", numeropag=" + numeropag + ", titulolibro=" + titulolibro + ", image=" + image + ", categorialibro="
-			+ categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta + ", stock=" + stock + "]";
+			+ ", numeropag=" + numeropag + ", titulolibro=" + titulolibro + ", image=" + image + ", lib_precio="
+			+ lib_precio + ", categorialibro=" + categorialibro + ", autorlibro=" + autorlibro + ", megusta=" + megusta
+			+ ", stock=" + stock + "]";
 }
-
-
 }

@@ -33,8 +33,8 @@ public class LibroDAO {
 	 * @param libro
 	 */
 	public void NuevoLibro(Libro libro, int cat, int autor) {
-		String jpql = "INSERT INTO libros.libros (desclibro,edicion,image,isbn,numeropag, titulolibro, autorlibro_idautor, categorialibro_idcategoria)\r\n" + 
-				"VALUES ('"+libro.getDesclibro()+"'"+", '"+libro.getEdicion()+"', '"+libro.getImage()+"', '"+libro.getIsbn()+"', "+libro.getNumeropag()+", '"+libro.getTitulolibro()+"',"
+		String jpql = "INSERT INTO libros.libros (desclibro,edicion,image,isbn,megusta,numeropag,stock,titulolibro,autorlibro_idautor,categorialibro_idcategoria)\r\n" + 
+				"VALUES ('"+libro.getDesclibro()+"'"+", '"+libro.getEdicion()+"','"+libro.getImage()+"', '"+libro.getIsbn()+"', "+libro.getMegusta()+","+libro.getNumeropag()+","+libro.getStock()+", '"+libro.getTitulolibro()+"',"
 						+ ""+autor+","+cat+");";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		query.executeUpdate();

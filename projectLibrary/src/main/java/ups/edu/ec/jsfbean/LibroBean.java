@@ -156,8 +156,8 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
  * 
  * @return
  */
-public String guardarLibro( String ISBN, String desc, String edicion, String Image,String Titulo, int nump,String cat, String autor) {
-	System.out.println("Datos"+ISBN+"+"+desc+"+"+edicion+"+"+Image+"+"+ Titulo+"+"+ nump+"+"+ cat+"+"+ autor);
+public String guardarLibro( String ISBN, String desc, String edicion, String Image,String Titulo,int nump,String cat, String autor, int stock, double precio) {
+	
 	int aut= autoresDAO.getidautor(autor);
 	int cate=categoriasDAO.getidcategoria(cat);
 	libro.setDesclibro(desc);
@@ -166,6 +166,9 @@ public String guardarLibro( String ISBN, String desc, String edicion, String Ima
 	libro.setImage(Image);
 	libro.setTitulolibro(Titulo);
 	libro.setNumeropag(nump);
+	libro.setMegusta(0);
+	libro.setStock(stock);
+	libro.setLib_precio(precio);
 	libroDAO.NuevoLibro(libro, aut,cate);
 	return "se ha guardado el libro";
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"  
+xmlns:h="http://xmlns.jcp.org/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:p="http://primefaces.org/ui">  
+<h:body>
+
+<section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+      </div>
+      <a href="index.xhtml" class="logo"><b>DASH<span>IO</span></b></a>
+     
+      <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+          <li><a class="logout" href="login.xhtml">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></img></a></p>
+          <h5 class="centered">Sam Soffes</h5>
+          <li class="mt">
+            <a class="active" href="Reportes.xhtml">
+              <i class="fa fa-desktop"></i>
+              <span>Reportes</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Libros</span>
+              </a>
+            <ul class="sub">
+              <li><a href="CrearLibroTemplate.xhtml">Crear libro</a></li>
+              <li><a href="ListarLibrosTemplate.xhtml">Listar Libros</a></li>
+            </ul>
+          </li>
+              <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Usuarios</span>
+              </a>
+            <ul class="sub">
+              <li><a href="CrearUsuarioTemplate.xhtml">Crear Usuario</a></li>
+              <li><a href="ListarUsuariosTemplate.xhtml">Listar usuarios</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="AutorTemplate.xhtml">
+              <i class="fa fa-desktop"></i>
+              <span>Autores </span>
+              </a>
+          </li>
+         <li>
+            <a href="CategoriaTemplate.xhtml">
+              <i class="fa fa-desktop"></i>
+              <span>Categorias </span>
+              </a>
+          </li>
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+   </section> 
+    </h:body>
+ </html> 
