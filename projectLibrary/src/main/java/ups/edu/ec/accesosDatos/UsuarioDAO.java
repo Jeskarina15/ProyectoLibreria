@@ -22,6 +22,7 @@ public class UsuarioDAO {
 	 * agrega una nueva isntancia de entidad al contexto de persistencia
 	 * @param usuario
 	 */
+	
 	public void NuevoUsuario(Usuarios usuario) {
 		em.persist(usuario);
 	}

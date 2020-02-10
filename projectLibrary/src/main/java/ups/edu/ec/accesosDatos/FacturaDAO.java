@@ -19,17 +19,17 @@ public class FacturaDAO {
 		List<Libro>  lista=query.getResultList();
 		return lista;
 	}
-	/*public List<Libro> repetidoscomprados() {
+	public List<Libro> repetidoscomprados() {
 		String jpql = "SELECT * FROM libros.factura_detalles, libros.libros Where fac_det_libro=idlibro GROUP BY fac_det_libro HAVING COUNT(*)>1";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		List<Libro> lista=query.getResultList();
 		
 		return lista;
-	}*/
-	/*public List<Usuarios> usuariosmascomprados() {
-		String jpql = "SELECT * FROM libros.factura_detalles, libros.usuarios Where fac_det_usuario=idusuario GROUP BY fac_det_usuario HAVING COUNT(*)>1";
+	}
+	public List<Usuarios> usuariosmascomprados() {
+		String jpql = "SELECT * FROM libros.factura_detalles, libros.usuarios Where fac_cab_usuario_usu_id=usu_id GROUP BY fac_cab_usuario_usu_id HAVING COUNT(*)>1";
 		Query query = em.createNativeQuery(jpql,Usuarios.class);
 		List<Usuarios> lista=query.getResultList();
 		return lista;
-	}*/
+	}
 }

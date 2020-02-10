@@ -35,7 +35,7 @@
         </license>
     </licenses>
 
-    <properties>
+  <properties>
         <!-- Explicitly declaring the source encoding eliminates the following 
             message: -->
         <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
@@ -123,11 +123,7 @@
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <scope>provided</scope>
         </dependency>
-<dependency>
-	<groupId>org.primefaces</groupId>
-	<artifactId>primefaces</artifactId>
-	<version>6.2</version>
-</dependency>
+
         <!-- Import the EJB API, we use provided scope as the API is included in 
             JBoss WildFly -->
         <dependency>
@@ -135,16 +131,7 @@
             <artifactId>jboss-ejb-api_3.2_spec</artifactId>
             <scope>provided</scope>
         </dependency>
-		<dependency>
-   <groupId>com.sun.faces</groupId>
-   <artifactId>jsf-api</artifactId>
-   <version>2.2.9</version>
-  </dependency>
-  <dependency>
-   <groupId>com.sun.faces</groupId>
-   <artifactId>jsf-impl</artifactId>
-   <version>2.2.9</version>
-  </dependency>
+
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
         <!-- Hibernate Validator is shipped in JBoss WildFly -->
@@ -167,7 +154,14 @@
             <artifactId>jboss-jsf-api_2.2_spec</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>9.3-1100-jdbc41</version>
+</dependency>
+    
         <!-- Now we declare any tools needed -->
 
         <!-- Annotation processor to generate the JPA 2.0 metamodel classes for 
@@ -185,6 +179,12 @@
             <artifactId>hibernate-validator-annotation-processor</artifactId>
             <scope>provided</scope>
         </dependency>
+        
+        <dependency>
+    <groupId>org.primefaces</groupId>
+    <artifactId>primefaces</artifactId>
+    <version>7.0</version>
+</dependency>
 
         <!-- Needed for running tests (you may also use TestNG) -->
         <dependency>
@@ -311,5 +311,4 @@
         </profile>
 
     </profiles>
-
 </project>
