@@ -100,6 +100,7 @@ public String actualizarUsuario(int idUsuario, String nombre, String email, Stri
  * @return
  */
 public String eliminarUsuario(int idUsuario){
+	System.out.println("......................."+idUsuario);
 	usuarioDAO.EliminarUsuario(idUsuario);
 	return "se ha eliminado el usuario";
 }

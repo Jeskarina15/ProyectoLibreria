@@ -47,7 +47,6 @@
             </div>
     		<h:form>
 <h:commandButton class="btn btn-secondary btn-lg btn-block" value="Listar usuarios" action="#{usuarioBean.ListarUsuarios()}">
-	<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
 	</h:commandButton>
 <h:dataTable value="#{usuarioBean.listaU}" var="u" class="table" id="tablaUsuario">
 
@@ -82,14 +81,14 @@
 	<h:column>
 		<f:facet name="header">Eliminar</f:facet>
 	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{usuarioBean.eliminarUsuario(u.usu_id)}">
-	<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
+	<f:ajax render="tablaUsuario" execute="@this"> </f:ajax>
 	</h:commandButton>
 
 	</h:column>
 	<h:column>
 		<f:facet name="header">Actualizar</f:facet>
 	<h:commandButton class="btn btn-success" value="Actualizar" action="#{usuarioBean.actualizarUsuario(u.usu_id,u.usu_nombre,u.usu_email,u.usu_telefono,u.usu_usuario,u.usu_password,u.usu_rol)}">
-		<f:ajax render="tablaUsuario" execute="@all"> </f:ajax>
+	<f:ajax render="tablaUsuario" execute="@this"> </f:ajax>
 	</h:commandButton>
 	</h:column>
 	</h:dataTable>

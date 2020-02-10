@@ -23,11 +23,22 @@ public class FacturaDAO {
 		String jpql = "SELECT * FROM libros.factura_detalles, libros.libros Where fac_det_libro=idlibro GROUP BY fac_det_libro HAVING COUNT(*)>1";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		List<Libro> lista=query.getResultList();
-		
+		return lista;
+	}
+	public List<Integer> cantidadrepetidos(){
+		String jpql = "SELECT COUNT(fac_det_libro) FROM libros.factura_detalles, libros.libros Where fac_det_libro=idlibro GROUP BY fac_det_libro HAVING COUNT(*)>1";
+		Query query = em.createNativeQuery(jpql);
+		List<Integer> lista=query.getResultList();
+		return lista;
+	}
+	public List<Integer> usuariosrepetidos(){
+		String jpql = "SELECT COUNT(fac_cab_usuario_usu_id) FROM libros.facturas_cabecera, libros.usuarios Where fac_cab_usuario_usu_id=usu_id GROUP BY fac_cab_usuario_usu_id HAVING COUNT(*)>1";
+		Query query = em.createNativeQuery(jpql);
+		List<Integer> lista=query.getResultList();
 		return lista;
 	}
 	public List<Usuarios> usuariosmascomprados() {
-		String jpql = "SELECT * FROM libros.factura_detalles, libros.usuarios Where fac_cab_usuario_usu_id=usu_id GROUP BY fac_cab_usuario_usu_id HAVING COUNT(*)>1";
+		String jpql = "SELECT * FROM libros.facturas_cabecera, libros.usuarios Where fac_cab_usuario_usu_id=usu_id GROUP BY fac_cab_usuario_usu_id HAVING COUNT(*)>1";
 		Query query = em.createNativeQuery(jpql,Usuarios.class);
 		List<Usuarios> lista=query.getResultList();
 		return lista;

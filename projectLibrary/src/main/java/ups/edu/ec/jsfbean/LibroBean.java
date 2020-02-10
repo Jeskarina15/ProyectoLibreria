@@ -29,32 +29,12 @@ private LibroDAO libroDAO;
 private CategoriasDAO categoriasDAO;
 @Inject 
 private AutoresDAO autoresDAO;
-private Categorias c;
-private Autor a;
+
 @PostConstruct
 public void init() {
 	libro =new Libro();
-	c=new Categorias();
-	 a=new Autor();
 	listarLibros();
 }
-
-public Categorias getC() {
-	return c;
-}
-
-public void setC(Categorias c) {
-	this.c = c;
-}
-
-public Autor getA() {
-	return a;
-}
-
-public void setA(Autor a) {
-	this.a = a;
-}
-
 /**
  * metodo getlibro
  * @return
@@ -125,8 +105,8 @@ public String listarLibrosT(String tipo) {
  * @return
  */
 public String EliminarLibro(int idLibro) {
-	System.out.println(idLibro);
-	libroDAO.eliminarLibro(libro.getIdlibro());
+	System.out.println("..........................................................."+idLibro);
+	libroDAO.eliminarLibro(idLibro);
 	return null;
 }
 /**
@@ -141,6 +121,7 @@ public String EliminarLibro(int idLibro) {
  * @return
  */
 public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump,int stock, double precio) {
+	System.out.println(idLibro+"..........."+ISBN+"......."+desc+"..."+edicion+".........");
 	libro.setIdlibro(idLibro);
 	libro.setIsbn(ISBN);
 	libro.setDesclibro(desc);
@@ -156,6 +137,16 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 }
 /**
  * 
+ * @param ISBN
+ * @param desc
+ * @param edicion
+ * @param Image
+ * @param Titulo
+ * @param nump
+ * @param cat
+ * @param autor
+ * @param stock
+ * @param precio
  * @return
  */
 public String guardarLibro( String ISBN, String desc, String edicion, String Image,String Titulo,int nump,String cat, String autor, int stock, double precio) {
@@ -171,7 +162,7 @@ public String guardarLibro( String ISBN, String desc, String edicion, String Ima
 	libro.setMegusta(0);
 	libro.setStock(stock);
 	libro.setLib_precio(precio);
-	libroDAO.NuevoLibro(libro, aut,cate);
+	libroDAO.NuevoLibro(libro, cate, aut);
 	return "se ha guardado el libro";
 }
 }

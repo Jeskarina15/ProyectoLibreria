@@ -49,37 +49,37 @@
    			<div class="form-row">
         	<div class="form-group col-md-12">
       		<label for="titulo">Titulo Libro</label>
-      		<h:inputText class="form-control" value="#{titulolibro}" id="titulo"></h:inputText>
+      		<h:inputText class="form-control" value="#{titulolibro}" id="titulo" required="true"></h:inputText>
       		<h:message for="titulo"/>
     		</div>
     		<div class="form-group col-md-3">
       		<label for="ISBN">ISBN</label>
-      		<h:inputText class="form-control" value="#{isbn}" id="ISBN"></h:inputText>
+      		<h:inputText class="form-control" value="#{isbn}" id="ISBN" required="true"></h:inputText>
       		<h:message for="ISBN"/>
     		</div>
     		<div class="form-group col-md-5">
       		<label for="edicion">Edicion</label>
-      		<h:inputText class="form-control" value="#{edicion}" id="edicion"></h:inputText>
+      		<h:inputText class="form-control" value="#{edicion}" id="edicion" required="true"></h:inputText>
       		<h:message for="edicion"/>
     		</div>
     		<div class="form-group col-md-4">
       		<label for="nump">Numero de paginas</label>
-      		<h:inputText class="form-control" value="#{numeroP}" id="nump"></h:inputText>
+      		<h:inputText class="form-control" value="#{numeroP}" id="nump" required="true"></h:inputText>
       		<h:message for="nump"/>
     		</div>
     		<div class="form-group col-md-12">
 		    <label for="url">URL image</label>
-      		<h:inputText class="form-control" value="#{image}" id="url"></h:inputText>
+      		<h:inputText class="form-control" value="#{image}" id="url" required="true"></h:inputText>
       		<h:message for="url"/>
     		</div>
     		<div class="form-group col-md-6">
 		    <label for="url">Stock</label>
-      		<h:inputText class="form-control" value="#{stock}" id="stock"></h:inputText>
+      		<h:inputText class="form-control" value="#{stock}" id="stock" required="true"></h:inputText>
       		<h:message for="stock"/>
     		</div>
     		<div class="form-group col-md-6">
 		    <label for="url">Precio</label>
-      		<h:inputText class="form-control" value="#{precio}" id="precio"></h:inputText>
+      		<h:inputText class="form-control" value="#{precio}" id="precio" required="true"></h:inputText>
       		<h:message for="precio"/>
     		</div>
     		
@@ -87,7 +87,7 @@
   			<div class="input-group-prepend">
     		<span class="input-group-text" id="inputGroup-sizing-lg">Descripcion</span>
   			</div>
-  			<h:inputText value="#{desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+  			<h:inputText value="#{desclibro}" class="form-control col-md-12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" required="true"/>
 			</div>
 			<div>
   			<h:selectOneMenu value="#{categoria}">

@@ -28,14 +28,18 @@ public class FacturaBean implements Serializable{
 	private List<Libro> listal;
 	private List<Libro> listap;
 	private List<Usuarios> listau;
+	private List<Integer> listc;
+	private List<Integer> listauc;
 	@PostConstruct  
 	public void init() {
 	listal=facturaDAO.desclibrosMeG();
-	//listap=facturaDAO.repetidoscomprados();
-	//listau=facturaDAO.usuariosmascomprados();
+	listap=facturaDAO.repetidoscomprados();
+	listau=facturaDAO.usuariosmascomprados();
+	listc=facturaDAO.cantidadrepetidos();
+	listauc=facturaDAO.usuariosrepetidos();
 	createPieModel(); 
-	//createPieModelmasvend();
-	//createPieusuarios();
+createPieModelmasvend();
+	createPieusuarios();
 	}  
 		public void createPieModel() {  
 			pieModel = new PieChartModel();  
@@ -45,26 +49,22 @@ public class FacturaBean implements Serializable{
 			pieModel.setTitle("libros mas votados");  
 			pieModel.setLegendPosition("c");  
 		}
-		/*public void createPieModelmasvend() {  
+		public void createPieModelmasvend() {  
 			pieModelmv = new PieChartModel();  
 			for (int i = 0; i < listap.size(); i++) {
-				pieModelmv.set(listap.get(i).getTitulolibro(),i);
+				pieModelmv.set(listap.get(i).getTitulolibro(),listc.get(i));
 			}
 			pieModelmv.setTitle("libros mas comprados");  
 			pieModelmv.setLegendPosition("c");  
-			
-			
-			
-			
-			
-		/*public void createPieusuarios() {  
+		}
+		public void createPieusuarios() {  
 			pieModelu = new PieChartModel();  
 			for (int i = 0; i < listau.size(); i++) {
-				pieModelu.set(listau.get(i).getUsu_nombre(),i);
+				pieModelu.set(listau.get(i).getUsu_nombre(),listauc.get(i));
 			}
 			pieModelu.setTitle("usuarios mas destacados");  
 			pieModelu.setLegendPosition("c");  
-		}*/
+		}
 		public PieChartModel getPieModel() {
 			return pieModel;
 		}
@@ -100,6 +100,18 @@ public class FacturaBean implements Serializable{
 		}
 		public void setListau(List<Usuarios> listau) {
 			this.listau = listau;
+		}
+		public List<Integer> getListc() {
+			return listc;
+		}
+		public void setListc(List<Integer> listc) {
+			this.listc = listc;
+		}
+		public List<Integer> getListauc() {
+			return listauc;
+		}
+		public void setListauc(List<Integer> listauc) {
+			this.listauc = listauc;
 		}
 	
 	}

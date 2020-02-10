@@ -86,13 +86,13 @@
 				<h:column>
 				<f:facet name="header">Eliminar</f:facet>
 				<h:commandButton class="btn btn-danger" value="Eliminar" action="#{libroBean.EliminarLibro(libro.idlibro)}">
-				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
+				<f:ajax render="tablaLibros" execute="@this"> </f:ajax>
 				</h:commandButton>
 				</h:column>
 				<h:column>
 				<f:facet name="header">Actualizar</f:facet>
 				<h:commandButton class="btn btn-success" value="Actualizar" action="#{libroBean.ActualizarLibro(libro.idlibro, libro.isbn, libro.desclibro, libro.edicion, libro.image, libro.titulolibro, libro.numeroP)}">
-				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
+				<f:ajax render="tablaLibros" execute="@this"> </f:ajax>
 				</h:commandButton>
 				</h:column>
 				</h:dataTable>

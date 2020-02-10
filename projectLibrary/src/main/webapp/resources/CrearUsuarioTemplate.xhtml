@@ -119,37 +119,35 @@
    <div class="form-row">
     <div class="form-group col-md-10">
       <h:outputLabel value="Nombre de usuario" for="nombre"/>
-      <h:inputText  class="form-control" value="#{usuarioBean.usuario.usu_nombre}" id="nombre"/>
+      <h:inputText  class="form-control" value="#{usuarioBean.usuario.usu_nombre}" id="nombre" required="true"/>
       <h:message for="nombre"/>
     </div>
     <div class="form-group col-md-6">
       <h:outputLabel value="Email" for="email" />
-      <h:inputText  class="form-control" value="#{usuarioBean.usuario.usu_email}" id="email"/>
+      <h:inputText  class="form-control" value="#{usuarioBean.usuario.usu_email}" id="email" required="true"/>
       <h:message for="email"/>
     </div>
     <div class="form-group col-md-6">
       <h:outputLabel value="Telefono" for="telefono"/>
-      <h:inputText class="form-control" value="#{usuarioBean.usuario.usu_telefono}" id="telefono"/>
+      <h:inputText class="form-control" value="#{usuarioBean.usuario.usu_telefono}" id="telefono" required="true"/>
       <h:message for="telefono"/>
     </div>
     <div class="form-group col-md-12">
       <h:outputLabel value="User" for="user" />
-      <h:inputText class="form-control"  value="#{usuarioBean.usuario.usu_usuario}" id="user"/>
+      <h:inputText class="form-control"  value="#{usuarioBean.usuario.usu_usuario}" id="user" required="true"/>
       <h:message for="user"/>
     </div>
     <div class="form-group col-md-12">
       <h:outputLabel value="Password" for="passwd"/>
-      <h:inputText class="form-control" value="#{usuarioBean.usuario.usu_password}" id="passwd"/>
+      <h:inputText class="form-control" value="#{usuarioBean.usuario.usu_password}" id="passwd" required="true"/>
       <h:message for="passwd"/>
     </div>
 	<div class="form-group col-md-12">
    <h:outputLabel value="Rol" for="rol"/>
-      <h:inputText class="form-control" value="#{usuarioBean.usuario.usu_rol}" id="rol"/>
+      <h:inputText class="form-control" value="#{usuarioBean.usuario.usu_rol}" id="rol" required="true"/>
       <h:message for="rol"/>
-    <h:message for="rol"/>
   </div>
 <h:commandButton class="btn btn-secondary btn-lg btn-block" value="Crear Usuario" action="#{usuarioBean.crearUsuario()}">
-<f:ajax render="idusuario" execute="@all"> </f:ajax>
 </h:commandButton>
   </div>
 	</h:form>
@@ -159,7 +157,7 @@
       </section>
   </section>  
    <footer class="site-footer">
-      <p style="text-align: center;">Desarrollado por: Karina Panama, Byron Calva</p>
+      <p style="text-align: center">Desarrollado por: Karina Panama, Byron Calva</p>
     </footer>
   </section>
   <!-- js placed at the end of the document so the pages load faster -->

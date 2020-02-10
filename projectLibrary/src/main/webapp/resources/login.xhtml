@@ -48,7 +48,7 @@
     		</div>
         <div class="form-group col-md-12">
 		    <label for="url">Password</label>
-			<h:inputText class="form-control" value="#{password}" id="ps"></h:inputText>
+			<h:inputSecret class="form-control" value="#{password}" id="ps"></h:inputSecret>
       		<h:message for="ps"/>
     		</div>
      	<h:commandButton class="btn btn-theme btn-block" value="SIGN IN" action="#{usuarioBean.iniciarsesion(usuario,password)}">

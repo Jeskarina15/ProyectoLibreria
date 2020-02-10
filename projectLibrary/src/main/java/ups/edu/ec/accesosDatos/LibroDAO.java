@@ -86,10 +86,10 @@ public class LibroDAO {
 	public void eliminarLibro(int libro) {
 		System.out.println("estoy aqui");
 		String jpql = "update libros.libros SET autorlibro_idautor=null, categorialibro_idcategoria=null WHERE idlibro=:libro";
-		Query query = em.createQuery(jpql);
+		Query query = em.createNativeQuery(jpql);
 		query.setParameter("libro", libro);
 		query.executeUpdate();
-		
+	
 		em.remove(leerLibros(libro));
 	}
 	/**
