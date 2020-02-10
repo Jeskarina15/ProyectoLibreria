@@ -40,9 +40,9 @@ public class LibroDAO {
 		query.executeUpdate();
 	}
 	
-	public boolean darMegusta(String isbn, int usuario) {
+	public boolean darMegusta(String libro, int usuario) {
 		try {
-			String conLikes = "SELECT * from likes where lik_isbn = '"+isbn+"' and lik_usuario_usu_id = "+usuario+";";
+			String conLikes = "SELECT * from likes where lik_isbn = '"+libro+"' and lik_usuario_usu_id = "+usuario+";";
 			String conCodigo = "SELECT max(lik_id) from likes;";
 			Query queLikes = em.createNativeQuery(conLikes, Like.class);
 			Query queCodigo = em.createNativeQuery(conCodigo, Like.class);
@@ -51,7 +51,7 @@ public class LibroDAO {
 			if(likes.isEmpty()) {
 				like.setLik_id(codigo+1);
 				like.setEstado(1);
-				like.setLik_isbn(isbn);
+				like.setLik_isbn(libro);
 				like.setLik_usuario(em.find(Usuarios.class, usuario));
 				em.persist(like);
 				return true;

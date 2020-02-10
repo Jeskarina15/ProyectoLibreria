@@ -59,4 +59,17 @@ public class ServiciosMovil {
 		System.out.println("Error");
 		return "error";
 	}
+	
+	@POST
+	@Path("crearUsuario")
+	@Consumes({MediaType.APPLICATION_JSON})
+	@Produces("text/plain")
+	public String crearUsuario(Usuarios usuario) {
+		try {
+			gl.NuevoUsuario(usuario);
+			return "creado";
+		} catch (Exception e) {
+			return "error";
+		}
+	}
 }
