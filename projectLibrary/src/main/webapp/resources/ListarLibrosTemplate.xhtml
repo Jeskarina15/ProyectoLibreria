@@ -52,7 +52,7 @@
   				<f:selectItem itemValue="Libros" itemLabel="Libros"/>	
   				</h:selectOneMenu> 
 				<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Listar libros" action="#{libroBean.listarLibrosT(tipo)}">
-				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
+				<f:ajax render="tablaLibros" execute="@this"> </f:ajax>
 				</h:commandButton>
 				<h:dataTable value="#{libroBean.libros}" var="libro" class="table" id="tablaLibros">
 				<h:column>

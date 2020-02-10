@@ -50,7 +50,7 @@ public class AutoresDAO {
 	}
 	/**
 	 * Listar todos los autores
-	 * @return
+	 * @return devuelve una lista del resultado del query
 	 */
 	public List<Autor> listarAutor(){
 		String jpql = "SELECT * FROM libros.autor";
@@ -60,7 +60,7 @@ public class AutoresDAO {
 	}
 	/**
 	 * listar nombres de autores
-	 * @return
+	 * @returndevuelve una lista del resultado del query
 	 */
 	public List<String> listarNAutor(){
 		String jpql = "select nombreautor from libros.autor";
@@ -78,6 +78,10 @@ public class AutoresDAO {
 		Integer v= new Integer(query.getResultList().get(0).toString());
 		return v;	
 	}
+	/**
+	 * @param autor nombre del autor del cual se extraera el id
+	 * @return devuelve el id del autor
+	 */
 	public int getidautor(String autor) {
 		String jpql = "SELECT idautor FROM libros.autor where nombreautor=:autor";
 		Query query = em.createNativeQuery(jpql);

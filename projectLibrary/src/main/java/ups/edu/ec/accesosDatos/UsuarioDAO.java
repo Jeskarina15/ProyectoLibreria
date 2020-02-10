@@ -57,8 +57,8 @@ public class UsuarioDAO {
 		return em.find(Usuarios.class, idUsuario);
 	}
 	/**
-	 * Listar todos los libros
-	 * @return
+	 * Listar todos los Usuarios
+	 * @return una lista de tipo Usuarios
 	 */
 	public List<Usuarios> listarUsuario(){
 		String jpql = "SELECT * FROM libros.usuarios";
@@ -66,6 +66,12 @@ public class UsuarioDAO {
 		List<Usuarios> nivel = query.getResultList();
 		return nivel;	
 	}
+	/**
+	 * 
+	 * @param usuario nombre de usuario para iniciar sesion
+	 * @param password contrasenia de usuario para iniciar sesion
+	 * @return devuelve true si devuelve un resultado y false si no se recibe nada 
+	 */
 	public boolean confirmarClave(String usuario, String password){
 		String jpql = "SELECT * FROM libros.usuarios where usu_usuario=:usuario and usu_password=:psw and usu_rol='Administrador'";
 		Query query = em.createNativeQuery(jpql, Usuarios.class);

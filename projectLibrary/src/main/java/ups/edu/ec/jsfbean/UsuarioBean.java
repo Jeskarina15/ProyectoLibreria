@@ -26,23 +26,24 @@ private boolean estado=true;
 @PostConstruct
 public void init() {
 	usuario=new Usuarios();
+	ListarUsuarios();
 }
 /**
- * 
+ * metodo getUsuario para obtener el campo
  * @return
  */
 public Usuarios getUsuario() {
 	return usuario;
 }
 /**
- * 
+ * Metodo setUsuario para especificar el campo del atributo
  * @param usuario
  */
 public void setUsuario(Usuarios usuario) {
 	this.usuario = usuario;
 }
 /**
- * 
+ * obtiene la lista de los usuarios
  * @return
  */
 public List<Usuarios> getListaU() {
@@ -63,8 +64,8 @@ public void setEstado(boolean estado) {
 	this.estado = estado;
 }
 /**
- * 
- * @return
+ * Metodo crear usuario en el que referenciamos al DAO respectivo pasando un objeto para persistir 
+ * @return mensaje para verificar si se creo el usuario
  */
 public String crearUsuario() {
 	System.out.println(usuario);
@@ -72,7 +73,7 @@ public String crearUsuario() {
 	return "se ha creado el usuario";
 }
 /**
- * 
+ * parametros a usar para actualizar el usuario
  * @param idUsuario
  * @param nombre
  * @param email
@@ -97,7 +98,7 @@ public String actualizarUsuario(int idUsuario, String nombre, String email, Stri
 /**
  * 
  * @param idUsuario
- * @return
+ * @return elimina un usuario en base al idusuario
  */
 public String eliminarUsuario(int idUsuario){
 	System.out.println("......................."+idUsuario);
@@ -105,13 +106,19 @@ public String eliminarUsuario(int idUsuario){
 	return "se ha eliminado el usuario";
 }
 /**
- * 
+ * Devuelve una lista con todos los usuarios 
  * @return
  */
 public String ListarUsuarios() {
 	listaU =usuarioDAO.listarUsuario();
 	return null;
 }
+/**
+ * 
+ * @param usuario nombre de usuario de inicio de sesion
+ * @param password contrasenia de usuario para inicio de sesion
+ * @return retorna al index de la pagina o al login dependiendo del resultado del metodo en el DAO
+ */
 public String iniciarsesion(String usuario, String password) {
 	estado=usuarioDAO.confirmarClave(usuario, password);
 	String p="";

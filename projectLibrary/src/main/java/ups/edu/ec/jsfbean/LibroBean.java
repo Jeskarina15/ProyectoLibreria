@@ -81,15 +81,20 @@ public void setLibrost(List<Libro> librost) {
 }
 
 /**
- * 
+ * Metodo para listar todos los libros
  * @return
  */
 public String listarLibros() {
 	libros=libroDAO.listarLibro();
 	return null;
 }
+/**
+ * metodo para listar todos los libros o los libros mas vendidos
+ * @param tipo
+ * @return
+ */
 public String listarLibrosT(String tipo) {
-	
+	System.out.println("........................"+tipo);
 	if (tipo.equals("Libros")) {
 	libros=libroDAO.listarLibro();
 		
@@ -110,7 +115,7 @@ public String EliminarLibro(int idLibro) {
 	return null;
 }
 /**
- * 
+ * Parametros requeridos para actualizar un libro
  * @param idLibro
  * @param ISBN
  * @param desc
@@ -121,7 +126,6 @@ public String EliminarLibro(int idLibro) {
  * @return
  */
 public String ActualizarLibro(int idLibro, String ISBN, String desc, String edicion, String Image,String Titulo, int nump,int stock, double precio) {
-	System.out.println(idLibro+"..........."+ISBN+"......."+desc+"..."+edicion+".........");
 	libro.setIdlibro(idLibro);
 	libro.setIsbn(ISBN);
 	libro.setDesclibro(desc);
@@ -131,12 +135,14 @@ public String ActualizarLibro(int idLibro, String ISBN, String desc, String edic
 	libro.setNumeropag(nump);
 	libro.setStock(stock);
 	libro.setLib_precio(precio);
+	System.out.println(libro);
 	libroDAO.ActualizarLibro(libro);
+	
 	return "Se ha actualizado correctamente";
 	
 }
 /**
- * 
+ * Insertar un libro determinando el id de las tablas categoria y autores
  * @param ISBN
  * @param desc
  * @param edicion

@@ -168,6 +168,10 @@ public class LibroDAO {
 		List<Libro> listc = query.getResultList();
 		return listc;
 	}
+	/**
+	 * Obtener una lista con los libros mas vendidos empleando un count en relacion a la clave foranea y del libro 
+	 * @return lista con todos los datos de los libros mas vendidos
+	 */
 	public List<Libro> listarLibrosMasVendidos(){
 		String jpql = "SELECT * FROM libros.factura_detalles, libros.libros Where fac_det_libro=idlibro GROUP BY fac_det_libro HAVING COUNT(*)>1;";
 		Query query = em.createNativeQuery(jpql, Libro.class);

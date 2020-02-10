@@ -21,7 +21,6 @@
   <link href="css/style.css" rel="stylesheet"></link>
   <link href="css/style-responsive.css" rel="stylesheet"></link>
   <script src="lib/chart-master/Chart.js"></script>
-
   <!-- =======================================================
     Template Name: Dashio
     Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
@@ -52,7 +51,7 @@
 
 	<h:column>
 		<f:facet name="header">idUsuario</f:facet>
-		<h:inputText value="#{u.usu_id}" />
+		<h:outputLabel value="#{u.usu_id}" />
 	</h:column>
 	<h:column>
 		<f:facet name="header">Nombre:</f:facet>
@@ -80,7 +79,7 @@
 	</h:column>
 	<h:column>
 		<f:facet name="header">Eliminar</f:facet>
-	<h:commandButton class="btn btn-danger" value="Eliminar" action="#{usuarioBean.eliminarUsuario(u.usu_id)}">
+	<h:commandButton class="btn btn-danger" value="Eliminar"  action="#{usuarioBean.eliminarUsuario(u.usu_id)}">
 	<f:ajax render="tablaUsuario" execute="@this"> </f:ajax>
 	</h:commandButton>
 

@@ -47,9 +47,12 @@
             </div>
     		<h:head>
       			<h:form>
-
-				<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Listar libros" action="#{libroBean.listarLibros()}">
-				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
+				<h:selectOneMenu value="#{tipo}">
+  				<f:selectItem itemValue="MasVendidos" itemLabel="Mas vendidos"/>
+  				<f:selectItem itemValue="Libros" itemLabel="Libros"/>	
+  				</h:selectOneMenu> 	
+				<h:commandButton class="btn btn-secondary btn-lg btn-block" value="Listar libros" action="#{libroBean.listarLibros(tipo)}">
+				<f:ajax render="tablaLibros" execute="@this"> </f:ajax>
 				</h:commandButton>
 				</h:form>
 				</h:head>
