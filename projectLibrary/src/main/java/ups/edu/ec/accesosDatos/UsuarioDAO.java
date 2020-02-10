@@ -24,7 +24,15 @@ public class UsuarioDAO {
 	 */
 	
 	public void NuevoUsuario(Usuarios usuario) {
-		em.persist(usuario);
+		try {
+			String jpql = "INSERT INTO usuarios (usu_email, usu_nombre, usu_password, usu_rol, usu_telefono, usu_usuario)\r\n" + 
+					"VALUES ('"+usuario.getUsu_email()+"'"+", '"+usuario.getUsu_nombre()+"', '"+usuario.getUsu_password()+"', '"
+							+ "usuario','"+usuario.getUsu_telefono()+"'"+", '"+usuario.getUsu_usuario()+"');";
+			Query query = em.createNativeQuery(jpql, Usuarios.class);
+			query.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("Se ah dado la siguiente excepción: "+e.toString());
+		}
 	}
 	/**
 	 * actualiza una instancia de entidad persistente con nuevos valores especificados en los campos

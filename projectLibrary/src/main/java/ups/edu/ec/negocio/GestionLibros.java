@@ -1,5 +1,6 @@
 package ups.edu.ec.negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -130,5 +131,22 @@ public class GestionLibros implements GestionLibroLocal {
 	@Override
 	public int loguear(Usuarios usuario) {
 		return usuarioDAO.loguear(usuario.getUsu_email(), usuario.getUsu_password());
+	}
+
+	@Override
+	public int crearCabecera(String codUsuario, String total, String cantidad) {
+		return libroDAO.crearCabecera(codUsuario, total, cantidad);
+	}
+
+	@Override
+	public boolean crearDetalle(ArrayList<String> datos, int codCabecera) {
+		libroDAO.crearDetalle(datos, codCabecera);
+		return false;
+	}
+
+	@Override
+	public boolean darLike(String libro, int codigo) {
+		libroDAO.darMegusta(libro, codigo);
+		return false;
 	}
 }

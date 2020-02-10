@@ -26,6 +26,9 @@ public class FacturaDetalles {
 	@Column(name = "fac_det_prec_unitario")
 	private double fac_det_prec_unitario;
 	
+	@Column(name = "fac_det_imagen")
+	private String fac_det_imagen;
+	
 	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fac_det_libro")
 	private Libro fac_det_libro;
@@ -57,11 +60,23 @@ public class FacturaDetalles {
 	public void setFac_det_libro(Libro fac_det_libro) {
 		this.fac_det_libro = fac_det_libro;
 	}
+	public String getFac_det_imagen() {
+		return fac_det_imagen;
+	}
+	public void setFac_det_imagen(String fac_det_imagen) {
+		this.fac_det_imagen = fac_det_imagen;
+	}
+	public FacturaCabecera getFac_det_cabecera() {
+		return fac_det_cabecera;
+	}
+	public void setFac_det_cabecera(FacturaCabecera fac_det_cabecera) {
+		this.fac_det_cabecera = fac_det_cabecera;
+	}
 	@Override
 	public String toString() {
 		return "FacturaDetalles [fac_det_id=" + fac_det_id + ", fac_det_cantidad=" + fac_det_cantidad
-				+ ", fac_det_prec_unitario=" + fac_det_prec_unitario + ", fac_det_libro=" + fac_det_libro
-				+ ", fac_det_cabecera=" + fac_det_cabecera + "]";
+				+ ", fac_det_prec_unitario=" + fac_det_prec_unitario + ", fac_det_imagen=" + fac_det_imagen
+				+ ", fac_det_libro=" + fac_det_libro + ", fac_det_cabecera=" + fac_det_cabecera + "]";
 	}
 	
 }

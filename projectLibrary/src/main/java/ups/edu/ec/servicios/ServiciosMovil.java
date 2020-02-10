@@ -1,5 +1,6 @@
 package ups.edu.ec.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.jboss.logging.annotations.Param;
 
+import ups.edu.ec.modelo.FacturaDetalles;
 import ups.edu.ec.modelo.Libro;
 import ups.edu.ec.modelo.Usuarios;
 import ups.edu.ec.negocio.GestionLibroLocal;
@@ -23,6 +25,11 @@ public class ServiciosMovil {
 	private GestionLibroLocal gl;
 	private String usuario;
 	private int codigo;
+	private boolean escribe;
+	private boolean crearCabecera;
+	private String palabra;
+	private int codCabecera;
+	private ArrayList<String> datos;
 	
 	@GET
 	@Path("saludar")
@@ -66,10 +73,68 @@ public class ServiciosMovil {
 	@Produces("text/plain")
 	public String crearUsuario(Usuarios usuario) {
 		try {
+			usuario.setUsu_rol("usuario");
 			gl.NuevoUsuario(usuario);
 			return "creado";
 		} catch (Exception e) {
-			return "error";
+			return "error:"+e.toString();
 		}
+	}
+	
+	@POST
+	@Path("comprar")
+	@Consumes("text/plain")
+	@Produces("text/plain")
+	public String comprar(String listaDetalles) {
+		crearCabecera = true;
+		escribe = false;
+		palabra = "";
+		datos = new ArrayList<String>();
+		codCabecera = 0;
+		double total = 0;
+		try {
+			String[] jsonDetalles = listaDetalles.substring(1, listaDetalles.length()).split("},");
+			System.out.println("Imprimiendo los datos: ");
+			for(String detalle: jsonDetalles) {
+				detalle = detalle+"}";
+				System.out.println(detalle);
+				for (int i = 0; i < detalle.length(); i++) {
+					if(detalle.substring(i, i+1).equals(":")) {
+						escribe = true;
+					}
+					if(detalle.substring(i, i+1).equals(",")||detalle.substring(i, i+1).equals("}")) {
+						if(palabra!="") {
+							System.out.println("Palabra: "+palabra);
+							datos.add(palabra);
+							palabra="";
+							escribe = false;
+						}
+					}
+					if(escribe && !detalle.substring(i, i+1).equals(":")) {
+						palabra = palabra+detalle.substring(i, i+1);
+					}
+				}
+				if(crearCabecera==true) {
+					codCabecera=gl.crearCabecera(datos.get(3),datos.get(1), datos.get(0));
+					crearCabecera=false;
+				}
+				total = total+Double.valueOf(datos.get(1));
+				gl.crearDetalle(datos,codCabecera);
+				datos.removeAll(datos);
+			}
+			System.out.println("El total a pagar es: "+total);
+			return "Se ah ingresado la factura cabecera";
+		} catch (Exception e) {
+			return "Ah ocurrido un error al ingresar la factura cabecera"+e.toString();
+		}
+	}
+	
+	@POST
+	@Path("like")
+	@Consumes("text/plain")
+	@Produces("text/plain")
+	public void darMegusta(String cadena) {
+		String[] datos = cadena.split(",");
+		gl.darLike(datos[0], Integer.valueOf(datos[1]));
 	}
 }

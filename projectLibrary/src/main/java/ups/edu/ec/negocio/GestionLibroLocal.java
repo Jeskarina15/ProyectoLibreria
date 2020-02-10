@@ -1,5 +1,6 @@
 package ups.edu.ec.negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -31,5 +32,7 @@ public interface GestionLibroLocal {
 	public Categorias leerCategoria(int categoria);
 	public List<Categorias> listarCategorias();
 	public int loguear(Usuarios usuario);
-	
+	public int crearCabecera(String codUsuario, String total, String cantidad);
+	public boolean crearDetalle(ArrayList<String> datos, int codCabecera);
+	public boolean darLike(String libro, int codigo);
 }

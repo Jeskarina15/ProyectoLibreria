@@ -1,5 +1,9 @@
 package ups.edu.ec.accesosDatos;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -8,6 +12,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import ups.edu.ec.modelo.Categorias;
+import ups.edu.ec.modelo.FacturaCabecera;
+import ups.edu.ec.modelo.FacturaDetalles;
 import ups.edu.ec.modelo.Libro;
 import ups.edu.ec.modelo.Like;
 import ups.edu.ec.modelo.Usuarios;
@@ -38,6 +44,34 @@ public class LibroDAO {
 						+ ""+autor+","+cat+");";
 		Query query = em.createNativeQuery(jpql, Libro.class);
 		query.executeUpdate();
+	}
+	
+	public int crearCabecera(String codUsuario, String subTotal, String cantidad) {
+		String jpql = "Select max(fac_cab_id) from facturas_cabecera";
+		Query conCodigo = em.createNativeQuery(jpql);
+		Integer codCabecera = new Integer(conCodigo.getResultList().get(0).toString());
+		int codigoCabecera = codCabecera+1;
+		double total = ((Double.parseDouble(subTotal)/100)*12)+Double.parseDouble(subTotal)*Integer.valueOf(cantidad);
+		Date fecha = new Date();
+		DateFormat formato = new SimpleDateFormat("dd/M/yyyy");
+		try {
+			String conCabecera = "insert into facturas_cabecera (fac_cab_id, fac_cab_fecha, fac_cab_iva, fac_cab_total, fac_cab_subtotal, fac_cab_usuario_usu_id)" + 
+					"VALUES ("+codigoCabecera+",'"+formato.format(fecha)+"'"+", "+12+", "+total+", "+Double.parseDouble(subTotal)+", "+Integer.valueOf(codUsuario)+");";
+			Query query = em.createNativeQuery(conCabecera, FacturaCabecera.class);
+			query.executeUpdate();
+			return codigoCabecera;
+		} catch (Exception e) {
+			System.out.println("Ah ocurrido un error: "+e.toString());
+			return -1;
+		}
+	}
+	
+	public boolean crearDetalle(ArrayList<String> datos, int codCabecera) {
+		String conDetalles = "insert into factura_detalles(fac_det_cantidad,fac_det_prec_unitario,fac_det_libro, fac_det_usuario,fac_det_cabecera_fac_cab_id,fac_det_imagen)"+
+						"values("+datos.get(0)+","+datos.get(1)+","+datos.get(2)+","+datos.get(3)+","+codCabecera+","+datos.get(5)+");";
+		Query query = em.createNativeQuery(conDetalles, FacturaDetalles.class);
+		query.executeUpdate();
+		return true;
 	}
 	
 	public boolean darMegusta(String libro, int usuario) {
