@@ -56,6 +56,11 @@ public class CategoriasDAO {
 		List<Categorias> nivel = query.getResultList();
 		return nivel;	
 	}
+	
+	/**
+	 * Método para listar las categorías
+	 * @return
+	 */
 	public List<String> listarCt(){
 		String jpql = "SELECT categoria FROM libros.categoria";
 		Query query = em.createNativeQuery(jpql);
@@ -71,6 +76,13 @@ public class CategoriasDAO {
 		Integer v= new Integer(query.getResultList().get(0).toString());
 		return v;	
 	}
+	
+	/**
+	 * Método para obtener el id de categoría
+	 * @param categoria
+	 * @return
+	 */
+	
 	public int getidcategoria(String categoria) {
 		String jpql = "SELECT idcategoria FROM libros.categoria where categoria=:categoria";
 		Query query = em.createNativeQuery(jpql);

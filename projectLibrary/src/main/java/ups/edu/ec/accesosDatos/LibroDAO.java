@@ -30,7 +30,9 @@ public class LibroDAO {
 	
 	private Like like;
 	
-	
+	/**
+	 * Constructor del DAO  de libro
+	 */
 	public LibroDAO() {
 		like = new Like();
 	}
@@ -46,6 +48,13 @@ public class LibroDAO {
 		query.executeUpdate();
 	}
 	
+	/**
+	 * Método para crear una factura cabecera
+	 * @param codUsuario
+	 * @param subTotal
+	 * @param cantidad
+	 * @return
+	 */
 	public int crearCabecera(String codUsuario, String subTotal, String cantidad) {
 		String jpql = "Select max(fac_cab_id) from facturas_cabecera";
 		Query conCodigo = em.createNativeQuery(jpql);
@@ -66,6 +75,12 @@ public class LibroDAO {
 		}
 	}
 	
+	/**
+	 * Método para crear una factura detalle
+	 * @param datos
+	 * @param codCabecera
+	 * @return
+	 */
 	public boolean crearDetalle(ArrayList<String> datos, int codCabecera) {
 		String conDetalles = "insert into factura_detalles(fac_det_cantidad,fac_det_prec_unitario,fac_det_libro, fac_det_usuario,fac_det_cabecera_fac_cab_id,fac_det_imagen)"+
 						"values("+datos.get(0)+","+datos.get(1)+","+datos.get(2)+","+datos.get(3)+","+codCabecera+","+datos.get(5)+");";
@@ -74,6 +89,12 @@ public class LibroDAO {
 		return true;
 	}
 	
+	/**
+	 * Método para registrar un like en un libro
+	 * @param libro
+	 * @param usuario
+	 * @return
+	 */
 	public boolean darMegusta(String libro, int usuario) {
 		try {
 			String conLikes = "SELECT * from likes where lik_isbn = '"+libro+"' and lik_usuario_usu_id = "+usuario+";";

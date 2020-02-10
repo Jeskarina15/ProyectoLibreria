@@ -22,7 +22,6 @@ public class UsuarioDAO {
 	 * agrega una nueva isntancia de entidad al contexto de persistencia
 	 * @param usuario
 	 */
-	
 	public void NuevoUsuario(Usuarios usuario) {
 		try {
 			String jpql = "INSERT INTO usuarios (usu_email, usu_nombre, usu_password, usu_rol, usu_telefono, usu_usuario)\r\n" + 
@@ -98,6 +97,12 @@ public class UsuarioDAO {
 		return v;	
 	}
 	
+	/**
+	 * Método para loguar un usuario
+	 * @param email
+	 * @param contra
+	 * @return
+	 */
 	public int loguear(String email, String contra) {
 		String jpql = "select usu_id from usuarios where usu_email=\""+email+"\" AND usu_password=\""+contra+"\";";
 		Query query = em.createNativeQuery(jpql);
