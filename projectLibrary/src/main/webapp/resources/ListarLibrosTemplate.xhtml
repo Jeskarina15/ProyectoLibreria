@@ -92,6 +92,10 @@
 				<h:inputText value="#{libro.lib_precio}" />
 				</h:column>
 				<h:column>
+				<f:facet name="header">Categoria</f:facet>
+				<h:inputText value="#{libro.categorialibro.categoria}" />
+				</h:column>
+				<h:column>
 				<f:facet name="header">Eliminar</f:facet>
 				<h:commandButton class="btn btn-danger" value="Eliminar" action="#{libroBean.EliminarLibro(libro.idlibro)}">
 				<f:ajax render="tablaLibros" execute="@all"> </f:ajax>
